@@ -1,0 +1,78 @@
+﻿@model DernekSayfaEklemeViewModel
+
+<div class="item teaser-page-list">
+	<div class="container_16">
+		<aside class="grid_10">
+			<h1 class="page-title">İyilik Çatısı @Model.SayfaAdi</h1>
+		</aside>
+		<div class="grid_6">
+			<div id="rootline">
+				@* <a href="#">
+					@* @for (int i = 0; i < Model.Count; i++)
+					{
+					@Model[i].SayfaAdi
+					} *@
+
+
+				@* </a> <i class="fa fa-angle-right" aria-hidden="true"></i> <span class="current"></span> *@ 
+				<a href="#">Derneğimiz Hakkında</a> <i class="fa fa-angle-right" aria-hidden="true"></i> <span class="current">@Model.SayfaAdi</span>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+@Html.Raw(Model.Icerik)
+
+
+
+
+
+@* <div id="main" class="site-main container_16">
+	<div class="inner">
+
+	
+
+		@* <div class="container">
+			<div class="row">
+				<div class="col">
+					@Html.Raw(Model)
+				</div>
+			</div>
+		</div> *@
+
+
+		@* @for (int i = 0; i < Model.Count; i++)
+		{
+			<div class="candidate radius grid_4 mb-3">
+				<div class="candidate-margins">
+					<a href="/Home/YonetimKurulu/@Model[i].Id">
+						<img width="200" height="210" src="@Model[i].Resim" class="wp-post-image" alt="Image alt">
+						<div class="name">@Model[i].AdSoyad</div>
+						<div class="position">@Model[i].Unvan</div>
+						<div class="position">@Model[i].GoreveBaslangicTarihi</div>
+						@*    <div class="aciklama">@Model[i].Aciklama</div> 
+					</a>
+				</div>
+			</div>
+		} *@
+ @* 
+		@for (int i = 0; i < Model.Count; i++)
+		{
+			<div class="container">
+		       <div class="row">
+		         <div class="col">
+						<a href="/Home/DernekSayfasi/@Model[i].Id">					      
+							<div class="dernek">@Model[i].SayfaAdi</div>
+							<div class="dernek">@Model[i].Icerik</div>
+		                </a>
+		         </div>
+		       </div>
+		    </div>
+			
+		}
+
+		<div class="clear"></div>
+	</div>
+</div>
+ *@ 

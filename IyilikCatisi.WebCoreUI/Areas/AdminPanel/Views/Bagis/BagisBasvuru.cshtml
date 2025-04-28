@@ -1,0 +1,703 @@
+﻿@section ContentHeader
+{
+	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalBagisBasvuruEkle">
+		Bağış Başvuru Ekle
+	</button>
+}
+
+@model BagisBasvuruIndexViewModel
+<div class="col-12">
+
+	<div class="card">
+		<div class="card-header">
+			<h3 class="card-title">Bağış Başvuru Listesi</h3>
+		</div>
+		<!-- /.card-header -->
+		<div class="card-body">
+			<table id="tblBagisBasvuru" class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Ödeme Onay</th>
+						<th>Ödeme Numarası</th>
+						<th>Tarih</th>
+						<th>Ödeme Şekli</th>
+						<th>Ad</th>
+						<th>Soyad</th>
+						<th>TC Kimlik No</th>
+						<th>Mail</th>
+						<th>Telefon</th>
+						<th>Şehir</th>
+						<th>Bağış Türü</th>
+						<th>Tutar</th>
+						<th>Mesaj</th>
+						<th>Düzenle</th>
+						<th>Sil</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<!-- /.card-body -->
+	</div>
+
+</div>
+
+@section Styles {
+
+	<link href="~/adminassets/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" />
+
+	<style>
+		.select2-container .select2-selection--single {
+			height: 40px;
+		}
+	</style>
+
+}
+<form id="frmBagisBasvuruEkle">
+	<div class="modal fade" id="modalBagisBasvuruEkle">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Bağış Türü Ekleme Paneli</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="card-body">
+						<div class="form-group">
+							<label>Ödeme Numarası</label>
+							<input type="number" class="form-control" asp-for="OdemeNo" placeholder="Ödeme Numarası">
+						</div>
+						<div class="form-group">
+							<label>Tarih</label>
+							<input type="date" class="form-control" asp-for="BagisTarihi" placeholder="Bağış Tarihi">
+						</div>
+						<div class="form-group">
+							<label>Ödeme Şekli</label>
+							@*  <input type="bit" class="form-control" id="GOdemeSekli" placeholder="Ödeme Şekli"> *@
+							<select id="selectOdemeTuru">
+								<option value="1">Kredi Kartı</option>
+								<option value="2">Havale/EFT</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Ad</label>
+							<input type="text" class="form-control" asp-for="Adi" placeholder="Ad">
+						</div>
+						<div class="form-group">
+							<label>Soyad</label>
+							<input type="text" class="form-control" asp-for="Soyadi" placeholder="Soyad">
+						</div>
+						<div class="form-group">
+							<label>TC Kimlik No</label>
+							<input type="number" class="form-control" asp-for="TcKimlikNo" placeholder="Tc Kimlik No">
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="email" class="form-control" asp-for="Email" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label>Tel No.</label>
+							<input type="text" class="form-control" asp-for="TelNo" placeholder="Telefon Numarası">
+						</div>
+						<div class="form-group">
+							<label>Şehir</label>
+							<input type="text" class="form-control" asp-for="Sehir" placeholder="Şehir">
+						</div>
+
+						<div class="form-group">
+							<label>Bağış Türü</label>
+							<select asp-for="BagisTuruId"   asp-items="@Model.BagisTuruListe" class="form-control select2" style="width:100%; height:100px;">
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Tutar</label>
+							@* <label class="form-control" id="lblTutar"></label> *@
+							<input type="number" class="form-control" asp-for="BagisMiktari" placeholder="Bağış Miktarı">
+						</div>
+						<div class="form-group">
+							<label>Mesaj</label>
+							<input type="text" class="form-control" asp-for="BagislaIlgiliMesaj" placeholder="Bağışla İlgili Mesaj">
+						</div>
+
+
+					</div>
+					<!-- /.card-body -->
+				</div>
+				<div class="modal-footer justify-content-between">
+					<button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+					<button type="button" id="btnBagisBasvuruEkle" class="btn btn-primary">KAYDET</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+</form>
+
+<form id="frmBagisBasvuruGuncelle">
+	<div class="modal fade" id="modalBagisBasvuruGuncelle">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Bağış Başvuru Güncelleme Paneli</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="card-body">
+						<div class="form-group">
+							<input type="hidden" class="form-control" id="GId">
+
+							<label>Ödeme Numarası</label>
+							<input type="number" class="form-control" id="GOdemeNo" placeholder="Ödeme Numarası">
+						</div>
+						<div class="form-group">
+							<label>Tarih</label>
+							<input type="date" class="form-control" id="GBagisTarihi" placeholder="Bağış Tarihi">
+						</div>
+						<div class="form-group">
+							<label>Ödeme Şekli</label>
+							@*  <input type="bit" class="form-control" id="GOdemeSekli" placeholder="Ödeme Şekli"> *@
+							<select id="selectOdemeTuru">
+								<option value="1">Kredi Kartı</option>
+								<option value="2">Havale/EFT</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Ad</label>
+							<input type="text" class="form-control" id="GAdi" placeholder="Ad">
+						</div>
+						<div class="form-group">
+							<label>Soyad</label>
+							<input type="text" class="form-control" id="GSoyadi" placeholder="Soyad">
+						</div>
+						<div class="form-group">
+							<label>TC Kimlik No</label>
+							<input type="number" class="form-control" id="GTcKimlikNo" placeholder="Tc Kimlik No">
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="email" class="form-control" id="GEmail" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label>Tel No.</label>
+							<input type="text" class="form-control" id="GTelNo" placeholder="Telefon Numarası">
+						</div>
+						<div class="form-group">
+							<label>Şehir</label>
+							<input type="text" class="form-control" id="GSehir" placeholder="Şehir">
+						</div>
+
+						<div class="form-group">
+							<label>Bağış Türü</label>
+							<select id="GBagisTuruId" asp-items="@Model.BagisTuruListe" class="form-control select2" style="width:100%; height:100px;">
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Tutar</label>
+							<input type="number" class="form-control" id="GBagisMiktari" placeholder="Tutar">
+						</div>
+						<div class="form-group">
+							<label>Mesaj</label>
+							<input type="text" class="form-control" id="GBagislaIlgiliMesaj" placeholder="Mesaj">
+						</div>
+
+					</div>
+					<!-- /.card-body -->
+
+
+
+
+				</div>
+				<div class="modal-footer justify-content-between">
+					<button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+					<button type="button" id="btnBagisBasvuruGuncelle" class="btn btn-primary">GÜNCELLE</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+</form>
+
+
+
+@section Scripts {
+
+
+	<script>
+
+		var table;
+
+
+		function DataTableGenerate() {
+
+			table = $("#tblBagisBasvuru").DataTable({
+				"dom": "Bfrtip",
+				"responsive": true,
+				"lengthChange": true,
+				"pageLength": 10,
+				"autoWidth": false,
+				"buttons": ["csv", "excel", "pdf", "print", "colvis"],
+				language: {
+					url: '/json/datatablestr.json',
+				},
+				ajax: { url: '/AdminPanel/Bagis/BagisBasvuruListele', type: 'post' },
+				columns: [
+					{ data: 'id', visible: false },
+					{ data: 'aktif' },
+					{ data: 'odemeNo' },
+					{ data: 'bagisTarihi' },
+					{ data: 'odemeSekli' },
+					{ data: 'adi' },
+					{ data: 'soyadi' },
+					{ data: 'tcKimlikNo' },
+					{ data: 'email' },
+					{ data: 'telNo' },
+					{ data: 'sehir' },
+					{ data: 'bagisTuruId' },
+					{ data: 'bagisMiktari' },
+					{ data: 'bagislaIlgiliMesaj' },
+					{ data: 'id' },
+					{ data: 'id' },
+
+
+				],
+				columnDefs: [
+
+					{
+						targets: 1,
+						render: function (data, type, row, meta) {
+
+							var btid = row["id"];
+
+							if (data)
+
+								return '<input btid=' + btid + '  type= "checkbox" data-on-text="EVET" data-off-text="HAYIR" name = "my-checkbox" checked data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+
+							else
+
+								return '<input btid=' + btid + '  type= "checkbox" data-on-text="EVET" data-off-text="HAYIR" name = "my-checkbox"  data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+						}
+					},
+
+					{
+						targets: 14,
+						render: function (data, type, row, meta) {
+
+							return "<a class='btn btn-info btnDuzenle' btid=" + data + ">   <i class='fas fa-pencil-alt'></i> DÜZENLE</a > ";
+
+						}
+					},
+
+					{
+						targets: 15,
+						render: function (data, type, row, meta) {
+
+							return "<a class='btn btn-danger btnSil' btid=" + data + "><i class='fas fa-trash'></i> SİL</a > ";
+						}
+					},
+					
+
+				],
+
+				initComplete: function (settings, json) {
+
+					// Datatable initilize olduğunda
+					$("input[data-bootstrap-switch]").each(function () {
+						$(this).bootstrapSwitch();
+					})
+
+					$('.select2').select2();
+				},
+
+
+				drawCallback: function () {
+
+					// Arama Yapıldığında, Sayfalama Yapıldığında, Sıralama Yapıldığında Draw yapılıyor
+					$("input[data-bootstrap-switch]").each(function () {
+						$(this).bootstrapSwitch();
+					})
+
+					$('.select2').select2();
+
+				}
+
+			}).buttons().container().appendTo('#tblBagisBasvuru_wrapper .col-md-6:eq(0)');
+
+		};
+
+		$(function () {
+			 DataTableGenerate();
+		});
+
+
+
+
+		$("#btnBagisBasvuruEkle").click(function () {
+
+			var swal = Swal.fire({
+				title: "LÜTFEN BEKLEYİNİZ...",
+				html: "İşleminiz Yapılıyor",
+				timerProgressBar: true,
+				didOpen: () => {
+
+					Swal.showLoading();
+
+				},
+			});
+
+			var formData = new FormData();
+
+
+			
+			var OdemeNo = $("#OdemeNo").val();
+			var BagisTarihi = $("#BagisTarihi").val();
+			var OdemeSekli = $("#selectOdemeTuru").val();
+			var Adi = $("#Adi").val();
+			var	Soyadi = $("#Soyadi").val();
+			var TcKimlikNo = $("#TcKimlikNo").val();
+			var Email = $("#Email").val();
+			var TelNo = $("#TelNo").val();
+			var Sehir = $("#Sehir").val();
+			var BagisTuruId = $("#BagisTuruId").val();
+			var BagisMiktari = $("#BagisMiktari").val();
+			var BagislaIlgiliMesaj = $("#BagislaIlgiliMesaj").val();
+
+
+		
+			formData.append("OdemeNo", OdemeNo)
+			formData.append("BagisTarihi", BagisTarihi)
+			formData.append("OdemeSekli", OdemeSekli)
+			formData.append("Adi", Adi)
+			formData.append("Soyadi", Soyadi)
+			formData.append("TcKimlikNo", TcKimlikNo)
+			formData.append("Email", Email)
+			formData.append("TelNo", TelNo)
+			formData.append("Sehir", Sehir)
+			formData.append("BagisTuruId", BagisTuruId)
+			formData.append("BagisMiktari", BagisMiktari)
+			formData.append("BagislaIlgiliMesaj", BagislaIlgiliMesaj)
+			
+
+
+
+
+
+			$.ajax({
+				url: "/AdminPanel/Bagis/BagisBasvuruEkle",
+				type: "post",
+				dataType: "json",
+				processData: false,
+				contentType: false,
+				data: formData,
+				success: function (r) {
+
+					$("#frmBagisBasvuruEkle")[0].reset();
+
+					$("#modalBagisBasvuruEkle").modal("hide");
+
+					$("#tblBagisBasvuru").DataTable().destroy();
+
+
+					DataTableGenerate();
+
+
+					swal.close();
+					if (r.result) {
+						Swal.fire({
+							title: "İŞLEM BAŞARILI",
+							text: r.mesaj,
+							icon: "success"
+						});
+					}
+
+
+
+
+
+				},
+				error: function () {
+
+				}
+			});
+
+
+		});
+
+
+
+		$(function () {
+
+			$('.select2').select2()
+			$("input[data-bootstrap-switch]").each(function () {
+				$(this).bootstrapSwitch();
+			})
+			$(document).on('switchChange.bootstrapSwitch', '.chkAktif', function (event, state) {
+
+				var swal = Swal.fire({
+					title: "LÜTFEN BEKLEYİNİZ...",
+					html: "İşleminiz Yapılıyor",
+					timerProgressBar: true,
+					didOpen: () => {
+
+						Swal.showLoading();
+
+					},
+				});
+
+				var id = $(this).attr('btid');
+				var aktifpasif = state;
+				$.ajax({
+					url: "/AdminPanel/Bagis/AktifPasif",
+					type: "post",
+					dataType: "json",
+					data: { id: id, aktif: aktifpasif },
+					success: function (r) {
+
+						
+
+						swal.close();
+						if (r.result) {
+							Swal.fire({
+								title: "İŞLEM BAŞARILI",
+								text: r.mesaj,
+								icon: "success"
+							}).then(function(){
+								$("#tblBagisBasvuru").DataTable().destroy();
+
+								DataTableGenerate();
+							});
+						}
+					},
+					error: function () {
+
+					}
+				});
+
+			});
+
+
+
+
+
+			$(document).on('click', '.btnDuzenle', function () {
+				var swal = Swal.fire({
+					title: "LÜTFEN BEKLEYİNİZ...",
+					html: "İşleminiz Yapılıyor",
+					timerProgressBar: true,
+					didOpen: () => {
+
+						Swal.showLoading();
+
+					},
+				});
+
+				var id = $(this).attr('btid');
+
+				$("#GId").val(id);
+
+
+				$.ajax({
+					url: "/AdminPanel/BagisBasvuru/BagisBasvuruGetir",
+					type: "post",
+					dataType: "json",
+					data: { id: id },
+					success: function (r) {
+
+						if (r.result) {
+							$("#GOdemeNo").val(r.model.odemeNo);
+							$("#GBagisTarihi").val(r.model.bagisTarihi);
+							$("#GAdi").val(r.model.adi);
+							$("#GSoyadi").val(r.model.soyadi);
+							$("#GTcKimlikNo").val(r.model.tcKimlikNo);
+							$("#GEmail").val(r.model.email);
+							$("#GTelNo").val(r.model.telNo);
+							$("#GSehir").val(r.model.sehir);
+							$("#GBagisTarihi").val(r.model.bagisTarihi);
+							$("#GBagisTuruId").val(r.model.bagisTuruId);
+							$("#GBagisMiktari").val(r.model.bagisMiktari);
+							$("#GBagislaIlgiliMesaj").val(r.model.bagislaIlgiliMesaj);
+							$("#GOdemeSekli").val(r.model.odemeSekli);
+							// $("#GVarsayilanTutar").val(r.model.varsayilanTutar);
+							// $('#GTutar').Val(r.model.bagisTuru.varsayilanTutar);
+							// $('#GBagisTuruId').Val(r.model.bagisTuruId)
+							// $('#selectOdemeTur').val(r.model.)
+							$("#modalBagisBasvuruGuncelle").modal('show');
+
+
+
+
+
+
+
+
+							
+
+						}
+						swal.close();
+					},
+					error: function () {
+
+					}
+				});
+			});
+
+
+
+
+
+			$(document).on('click', '#btnBagisBasvuruGuncelle', function () {
+
+
+				var swal = Swal.fire({
+					title: "LÜTFEN BEKLEYİNİZ...",
+					html: "İşleminiz Yapılıyor",
+					timerProgressBar: true,
+					didOpen: () => {
+
+						Swal.showLoading();
+
+					},
+				});
+
+
+				var formData = new FormData();
+
+				var Id = $("#GId").val();
+				var OdemeNo = $("#GOdemeNo").val();
+				var BagisTarihi = $("#GBagisTarihi").val();
+				var OdemeSekli = $("#GOdemeSekli").val();
+				var Adi = $("#GAdi").val();
+				var Soyadi = $("#GSoyadi").val();
+				var TcKimlikNo = $("#GTcKimlikNo").val();
+				var Email = $("#GEmail").val();
+				var TelNo = $("#GTelNo").val();
+				var Sehir = $("#GSehir").val();
+				var BagisTuruId = $("#GBagisTuruId").val();
+				var BagisMiktari = $("#GBagisMiktari").val();
+				var BagislaIlgiliMesaj = $("#GBagislaIlgiliMesaj").val();
+				
+
+
+
+				formData.append("Id", Id)
+				formData.append("OdemeNo", OdemeNo)
+				formData.append("BagisTarihi", BagisTarihi)
+				formData.append("OdemeSekli", OdemeSekli)
+				formData.append("Adi", Adi)
+				formData.append("Soyadi", Soyadi)
+				formData.append("TcKimlikNo", TcKimlikNo)
+				formData.append("Email", Email)
+				formData.append("TelNo", TelNo)
+				formData.append("Sehir", Sehir)
+				formData.append("BagisTuruId", BagisTuruId)
+				formData.append("BagisMiktari", BagisMiktari)
+				formData.append("BagislaIlgiliMesaj", BagislaIlgiliMesaj)
+
+				$.ajax({
+					url: "/AdminPanel/BagisBasvuru/Guncelle",
+					type: "post",
+					dataType: "json",
+					processData: false,
+					contentType: false,
+					data: formData,
+					success: function (r) {
+
+						$("#tblBagisBasvuru").DataTable().destroy();
+
+						DataTableGenerate();
+
+
+						swal.close();
+						if (r.result) {
+							Swal.fire({
+								title: "İŞLEM BAŞARILI",
+								text: r.mesaj,
+								icon: "success"
+							});
+						}
+
+					},
+					error: function () {
+
+					}
+				});
+
+			});
+
+
+
+
+			$(document).on('click', '.btnSil', function () {
+
+
+				var id = $(this).attr('btid');
+
+				Swal.fire({
+
+					title: "SİLME İŞLEMİ",
+					text: "Silmek İstediğinize Emin Misiniz?",
+					icon: "warning",
+					showCancelButton: true,
+					confirmButtonText: "Evet",
+					cancelButtonText: "Hayır",
+					confirmButtonColor: "#d33",
+					cancelButtonColor: "#3085d6",
+					reverseButtons: false
+
+				}).then((result) => {
+					if (result.isConfirmed) {
+						var swal = Swal.fire({
+							title: "LÜTFEN BEKLEYİNİZ...",
+							html: "İşleminiz Yapılıyor",
+							timerProgressBar: true,
+							didOpen: () => {
+								Swal.showLoading();
+							},
+						});
+
+						$.ajax({
+							url: "/AdminPanel/Bagis/BagisBasvuruSil",
+							type: "post",
+							dataType: "json",
+							data: { id: id },
+							success: function (r) {
+								if (r.result) {
+									$("#tblBagisBasvuru").DataTable().destroy();
+									DataTableGenerate();
+									swal.close();
+									Swal.fire({
+										title: "İŞLEM BAŞARILI",
+										text: r.mesaj,
+										icon: "success"
+									});
+								}
+							},
+							error: function () {
+							}
+						});
+					}
+
+				});
+
+
+
+			});
+
+		})
+
+
+
+	</script>
+
+}

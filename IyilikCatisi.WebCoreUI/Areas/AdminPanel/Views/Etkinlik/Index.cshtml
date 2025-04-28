@@ -1,0 +1,611 @@
+﻿@section ContentHeader
+{
+    <button type="button" class="btn btn-success btnDugme" data-toggle="modal" data-target="#modalEtkinlikEkle">
+        Etkinlik Ekle
+    </button>
+}
+
+@model EtkinlikIndexViewModel
+<div class="col-12">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Etkinlikler</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="tblEtkinlik" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Sıra No</th>
+                        <th>Etkinlik Adı</th>
+                        <th>Açıklama</th>
+                        <th>Etkinlik Foto</th>
+                        <th>Tarih</th>
+                        <th>Saat</th>
+                        <th>Konum</th>
+                        <th>Telefon</th>
+                        <th>Sayfada Gözüksün Mü?</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+</div>
+
+@section Styles {
+
+    <link href="~/adminassets/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" />
+
+}
+<form id="frmEtkinlikEkle" >
+    <div class="modal fade" id="modalEtkinlikEkle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Etkinlik Ekleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">                      
+                        <div class="form-group">
+                            <label>Etkinlik Adı</label>
+                            <input type="text" class="form-control" asp-for="Baslik" placeholder="Etkinlik Adı">
+                        </div>
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            <br />
+                            <textarea asp-for="Aciklama" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Tarih</label>
+                            <input type="date" class="form-control" asp-for="Tarih" placeholder="Tarih">
+                        </div>
+                        <div class="form-group">
+                            <label>Saat</label>
+                            <input type="time" class="form-control" asp-for="Saat" placeholder="Saat">
+                        </div>
+                        <div class="form-group">
+                            <label>Konum</label>
+                            <input type="text" class="form-control" asp-for="Konum" placeholder="Konum">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon</label>
+                            <input type="int" class="form-control" asp-for="Telefon" placeholder="Telefon">
+                        </div>
+                         <div class="form-group">
+                            <label>Resim</label>
+                            <input asp-for="FotografListesi" type="file" multiple/>
+                        </div>
+ 
+                    </div>
+                    <!-- /.card-body -->
+
+
+
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnEtkinlikEkle" class="btn btn-primary">KAYDET</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+<form id="frmEtkinlikGuncelle">
+    <div class="modal fade" id="modalEtkinlikGuncelle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Etkinlik Güncelleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="GId">
+
+                            <label>Etkinlik Adı</label>
+                            <input type="text" class="form-control" id="GBaslik" placeholder="Etkinlik Adı">
+                        </div>
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            <br />
+                            <textarea class="form-control" id="GAciklama"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Tarih</label>
+                            <input type="date" class="form-control" id="GTarih" placeholder="Tarih">
+                        </div>
+                        <div class="form-group">
+                            <label>Saat</label>
+                            <input type="time" class="form-control" id="GSaat" placeholder="Saat">
+                        </div>
+                        <div class="form-group">
+                            <label>Konum</label>
+                            <input type="text" class="form-control" id="GKonum" placeholder="Konum">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon</label>
+                            <input type="int" class="form-control" id="GTelefon" placeholder="Telefon">
+                        </div>
+                        <div class="form-group">
+                            <label>Resim</label>
+                            <img id="GResim" src="/adminassets/img/person.png" width="60" />
+                            <input asp-for="GFotografListesi" type="file" multiple />
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+
+
+
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnEtkinlikGuncelle" class="btn btn-primary">GÜNCELLE</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+
+@section Scripts {
+
+
+    
+    <script>
+
+        var table;
+
+
+        function DataTableGenerate() {
+
+            table = $("#tblEtkinlik").DataTable({
+                "dom": "Bfrtip",
+                "responsive": true,
+                "lengthChange": true,
+                "pageLength": 10,
+                "autoWidth": false,
+                "buttons": ["csv", "excel", "pdf", "print", "colvis"],
+                language: {
+                    url: '/json/datatablestr.json',
+                },
+                ajax: { url: '/AdminPanel/Etkinlik/EtkinlikListele', type: 'post' },
+                columns: [
+                    { data: 'id', visible: false },
+                    { data:'id'},
+                    { data: 'baslik' }, //entity küçültülmüş
+                    { data: 'aciklama' },
+                    { data: 'kapakFoto' },
+                    { data: 'tarih' },
+                    { data: 'saat' },
+                    { data: 'konum' },
+                    { data: 'telefon' },
+                    { data: 'aktif' },
+                    { data: 'id' },
+                    { data: 'id' },
+
+
+                ],
+                columnDefs: [
+
+                    {
+                        targets: 1,
+                        render: function (data, type, row, meta) {
+
+                            return meta.row + 1;
+
+                        }
+                    },
+                    {
+                        targets: 4,
+                        render: function (data, type, row, meta) {
+
+                             if (data == null) {
+                                return "<img  src='/adminassets/img/person.png' width='60px' />";
+
+                            }
+                            return "<img src='" + data + "' width='60px' />";
+
+                        }
+                    },
+                    
+                   
+                    {
+                        targets: 9,
+                        render: function (data, type, row, meta) {
+
+                            var eid = row["id"];
+
+                            if (data)
+
+                                return '<input eid=' + eid + '  type= "checkbox" data-on-text="AKTİF" data-off-text="PASİF" name = "my-checkbox" checked data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+
+                            else
+
+                                return '<input eid=' + eid + '  type= "checkbox" data-on-text="AKTİF" data-off-text="PASİF" name = "my-checkbox"  data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+                        }
+                    },
+
+                    {
+                        targets: 10,
+                        render: function (data, type, row, meta) {
+
+                            return "<a class='btn btn-info btnDuzenle' eid=" + data + ">   <i class='fas fa-pencil-alt'></i></a > ";
+
+                        }
+                    },
+
+                    {
+                        targets: 11,
+                        render: function (data, type, row, meta) {
+
+                            return "<a class='btn btn-danger btnSil' eid=" + data + "><i class='fas fa-trash'></i></a > ";
+                        }
+                    },
+
+
+
+
+                ],
+
+                initComplete: function (settings, json) {
+                    $("input[data-bootstrap-switch]").each(function () {
+                        $(this).bootstrapSwitch();
+                    });
+                },
+
+                drawCallback: function () {
+                    $("input[data-bootstrap-switch]").each(function () {
+                        $(this).bootstrapSwitch();
+                    })
+                }
+
+
+
+            }).buttons().container().appendTo('#tblEtkinlik_wrapper .col-md-6:eq(0)');
+
+        };
+
+        $(function () {
+            DataTableGenerate();
+        });
+
+        $("#btnEtkinlikEkle").click(function () {
+
+            var swal = Swal.fire({
+                title: "LÜTFEN BEKLEYİNİZ...",
+                html: "İşleminiz Yapılıyor",
+                timerProgressBar: true,
+                didOpen: () => {
+
+                    Swal.showLoading();
+
+                },
+            });
+
+            var formData = new FormData();
+
+            if ($("#FotografListesi")[0].files != null) {
+
+                for (let i = 0; i < $("#FotografListesi")[0].files.length; i++) {
+                    var file = $("#FotografListesi")[0].files[i];
+                    formData.append(file.name, file);
+                }
+
+            }
+
+            var Baslik = $("#Baslik").val();   //vm içindeki yazım
+            var Aciklama = $("#Aciklama").val();
+            var Tarih = $("#Tarih").val();
+            var Saat = $("#Saat").val();
+            var Konum = $("#Konum").val();
+            var Telefon = $("#Telefon").val();
+
+            // if(Tarih == ""){
+            //     alert('Tarih Boş Geçilemez!')
+
+            //     return;
+            // }
+
+
+            
+            formData.append("Baslik", Baslik)  //form dataya attığım ismi-- değişken ismi
+            formData.append("Aciklama", Aciklama)
+            formData.append("Tarih", Tarih)  //form dataya nasıl ekliyorsak controllerda o isimle data içine alıyoruz.
+            formData.append("Saat", Saat)
+            formData.append("Konum", Konum)
+            formData.append("Telefon", Telefon)
+            
+            $.ajax({
+                url: "/AdminPanel/Etkinlik/EtkinlikEkle",
+                type: "post",
+                dataType: "json",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (r) {
+                    if (r.result) {
+
+                        $("#tblEtkinlik").DataTable().ajax.reload();
+
+                        Swal.fire({
+                            title: "İşlem Başarılı",
+                            text: "Etkinlik Başarıyla Eklendi.",
+                            icon: "success"
+                        });
+                        $("#modalEtkinlikEkle").modal("hide");
+                    }
+
+                  
+                },
+                error: function () {
+
+                }
+            }
+            );
+
+
+
+        });
+
+
+
+
+
+        $(function () {
+            $('.select2').select2()
+            $("input[data-bootstrap-switch]").each(function () {
+                $(this).bootstrapSwitch();
+            })
+            $(document).on('switchChange.bootstrapSwitch', '.chkAktif', function (event, state) {
+
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var id = $(this).attr('eid');
+                var aktifpasif = state;
+                $.ajax({
+                    url: "/AdminPanel/Etkinlik/AktifPasif",
+                    type: "post",
+                    dataType: "json",
+                    data: { id: id, aktif: aktifpasif },
+                    success: function (r) {
+
+
+                        swal.close();
+                        if (r.result) {
+                            Swal.fire({
+                                title: "İŞLEM BAŞARILI",
+                                text: r.mesaj,
+                                icon: "success"
+                            });
+                        }
+                    },
+                    error: function () {
+
+                    }
+                });
+               
+            });
+
+
+            $(document).on('click', '.btnDuzenle', function () {
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var id = $(this).attr('eid');
+                $("#GId").val(id);
+
+                $.ajax({
+                    url: "/AdminPanel/Etkinlik/EtkinlikGetir",
+                    type: "post",
+                    dataType: "json",
+                    data: { id: id },
+                    success: function (r) {
+
+                        if (r.result) {
+
+                            $("#GBaslik").val(r.model.baslik);
+                            $("#GAciklama").val(r.model.aciklama);
+                            $("#GTarih").val(r.model.tarih);
+                            $("#GSaat").val(r.model.saat);
+                            $("#GKonum").val(r.model.konum);
+                            $("#GTelefon").val(r.model.telefon);
+
+                            $("#GResim").attr("src", r.model.kapakFoto)
+                            $("#modalEtkinlikGuncelle").modal('show');
+                        }
+                        swal.close();
+                    },
+                    error: function () {
+
+                    }
+                });
+       
+            });
+
+
+            $(document).on('click', '#btnEtkinlikGuncelle', function () {
+
+
+
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var formData = new FormData();
+
+                // if ($("#GFUResim")[0].files[0] != null) {
+
+                //     var file = $("#GFUResim")[0].files[0];
+                //     formData.append(file.name, file);
+
+                // }
+                if ($("#GFotografListesi")[0].files != null) {
+
+                    for (let i = 0; i < $("#GFotografListesi")[0].files.length; i++) {
+                        var file = $("#GFotografListesi")[0].files[i];
+                        formData.append(file.name, file);
+                    }
+
+                }
+
+                var Baslik = $("#GBaslik").val();
+                var Aciklama = $("#GAciklama").val();
+                var Tarih = $("#GTarih").val();
+                var Saat = $("#GSaat").val();
+                var Konum = $("#GKonum").val();
+                var Telefon = $("#GTelefon").val();
+                var Id = $("#GId").val();
+
+
+                // var model = {
+                //     ID=Id,
+                //     Aciklama=Aciklama //CONROLLERIN BEKLEDİĞİ -- DEĞİŞKEN
+                // }
+
+                // $('#FRMkULLANİCİ').serialize()
+
+                formData.append("Baslik", Baslik)
+                formData.append("Aciklama", Aciklama)
+                formData.append("Saat", Saat)
+                formData.append("Tarih", Tarih)
+                formData.append("Konum", Konum)
+                formData.append("Telefon", Telefon)
+                formData.append("Id", Id)
+
+
+                $.ajax({
+                    url: "/AdminPanel/Etkinlik/EtkinlikGuncelle",
+                    type: "post",
+                    dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    success: function (r) {
+
+
+                        $("#tblEtkinlik").DataTable().destroy();
+                        DataTableGenerate();
+
+                        
+                        var elist = "";
+
+
+                        swal.close();
+                        if (r.result) {
+                            Swal.fire({
+                                title: "İŞLEM BAŞARILI",
+                                text: r.mesaj,
+                                icon: "success"
+                            });
+                        }
+                        $("#modalEtkinlikGuncelle").modal("hide");
+
+                    },
+                    error: function () {
+
+                    }
+                });
+               
+            });
+
+            $(document).on('click', '.btnSil', function () {
+
+
+                var id = $(this).attr('eid');
+
+                Swal.fire({
+                    title: "UYARI",
+                    text: "Etkinlik Silinecek Emin Misiniz?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "SİL!",
+                    cancelButtonText: "VAZGEÇ!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+
+                        $.ajax({
+                            url: "/AdminPanel/Etkinlik/EtkinlikSil",
+                            dataType: "json",
+                            method: "post",
+                            data: { id: id },
+                            success: function (r) {
+
+                                if (r.result) {
+                                    Swal.fire({
+                                        title: "İşlem Başarılı",
+                                        text: "Etkinlik Başarıyla Silindi.",
+                                        icon: "success"
+                                    });
+
+                                    $("#tblEtkinlik").DataTable().ajax.reload();
+
+                                }
+
+                            },
+                            error: function () {
+
+                            }
+                        });
+
+                    }
+
+                });
+
+            });
+        });
+
+    </script>
+
+}

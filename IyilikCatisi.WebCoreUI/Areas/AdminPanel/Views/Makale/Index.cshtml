@@ -1,0 +1,543 @@
+﻿@section ContentHeader
+{
+    <button type="button" class="btn btn-success btnDugme" data-toggle="modal" data-target="#modalMakaleEkle">
+        Makale Ekle
+    </button>
+}
+
+@model MakaleIndexViewModel
+<div class="col-12">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Makaleler</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="tblMakale" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Başlık</th>
+                        <th>İçerik</th>
+                       @*  <th>Yazar</th> *@
+                        <th>Yayın Tarihi</th>
+                        <th>Görüntülenme Sayısı</th>
+                        <th>Sayfada Gözüksün Mü?</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+</div>
+
+@section Styles {
+
+    <link href="~/adminassets/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" />
+
+}
+<form id="frmMakaleEkle">
+    <div class="modal fade" id="modalMakaleEkle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Makale Ekleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Başlık</label>
+                            <input type="text" class="form-control" asp-for="Baslik" placeholder="Başlık">
+                        </div>
+                        <div class="form-group">
+                            <label>İçerik</label>
+                            <br />
+                            <textarea asp-for="Icerik"></textarea>
+                        </div>
+                        @* <div class="form-group">
+                            <label>Yazar</label>
+                            <input type="text" class="form-control" asp-for="Yazar" placeholder="Yazar">
+                        </div> *@
+                        <div class="form-group">
+                            <label>Yayın Tarihi</label>
+                            <input type="date" class="form-control" asp-for="YayinTarihi" placeholder="Yayın Tarihi">
+                        </div>
+                        @* <div class="form-group">
+                            <label>Görüntülenme Sayısı</label>
+                            <input type="number" class="form-control" asp-for="GoruntulenmeSayisi" placeholder="Görüntüleme Sayısı">
+                        </div> *@
+                    </div>
+                    <!-- /.card-body -->
+
+
+
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnMakaleEkle" class="btn btn-primary">KAYDET</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+<form id="frmMakaleGuncelle">
+    <div class="modal fade" id="modalMakaleGuncelle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" >
+                    <h4 class="modal-title">Makale Güncelleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="GId">
+
+                            <label>Başlık</label>
+                            <input type="text" class="form-control" id="GBaslik" placeholder="Başlık">
+                        </div>
+                        <div class="form-group">
+                            <label>İçerik</label>
+                            <br />
+                            <textarea id="GIcerik"></textarea>
+                        </div>
+                        @* <div class="form-group">
+                            <label>Yazar</label>
+                            <input type="text" class="form-control" id="GYazar" placeholder="Yazar">
+                        </div> *@
+                        <div class="form-group">
+                            <label>Yayın Tarihi</label>
+                            <input type="date" class="form-control" id="GYayinTarihi" placeholder="Yayın Tarihi">
+                        </div>
+                        
+                     
+                    </div>
+                    <!-- /.card-body -->
+
+
+
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnMakaleGuncelle" class="btn btn-primary">GÜNCELLE</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+
+@section Scripts {
+
+
+
+    <script>
+
+        var table;
+
+
+        function DataTableGenerate() {
+
+            table = $("#tblMakale").DataTable({
+                "dom": "Bfrtip",
+                "responsive": true,
+                "lengthChange": true,
+                "pageLength": 10,
+                "autoWidth": false,
+                "buttons": ["csv", "excel", "pdf", "print", "colvis"],
+                language: {
+                    url: '/json/datatablestr.json',
+                },
+                ajax: { url: '/AdminPanel/Makale/MakaleListele', type: 'post' },
+                columns: [
+                    { data: 'id', visible: false },
+                    { data: 'baslik' }, //entity küçültülmüş
+                    { data: 'icerik' },
+                    // { data: 'yazar' },
+                    { data: 'yayinTarihi' },
+                    { data: 'goruntulenmeSayisi' },
+                    { data: 'aktif' },
+                    { data: 'id' },
+                    { data: 'id' },
+
+
+                ],
+                columnDefs: [
+
+                    {
+                        targets: 4,
+                        render: function (data, type, row, meta) {
+
+                            return;
+
+                        }
+                    },
+
+
+                    {
+                        targets: 5,
+                        render: function (data, type, row, meta) {
+
+                            var mid = row["id"];
+
+                            if (data)
+
+                                return '<input mid=' + mid + '  type= "checkbox" data-on-text="AKTİF" data-off-text="PASİF" name = "my-checkbox" checked data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+
+                            else
+
+                                return '<input mid=' + mid + '  type= "checkbox" data-on-text="AKTİF" data-off-text="PASİF" name = "my-checkbox"  data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+                        }
+                    },
+
+                    {
+                        targets: 6,
+                        render: function (data, type, row, meta) {
+
+                            return "<a class='btn btn-info btnDuzenle' mid=" + data + ">   <i class='fas fa-pencil-alt'></i></a > ";
+
+                        }
+                    },
+
+                    {
+                        targets: 7,
+                        render: function (data, type, row, meta) {
+
+                            return "<a class='btn btn-danger btnSil' mid=" + data + "><i class='fas fa-trash'></i></a > ";
+                        }
+                    },
+
+                ],
+
+                initComplete: function (settings, json) {
+                    $("input[data-bootstrap-switch]").each(function () {
+                        $(this).bootstrapSwitch();
+                    });
+                },
+
+                drawCallback: function () {
+                    $("input[data-bootstrap-switch]").each(function () {
+                        $(this).bootstrapSwitch();
+                    })
+                }
+
+
+
+            }).buttons().container().appendTo('#tblMakale_wrapper .col-md-6:eq(0)');
+
+        };
+
+        $(function () {
+            DataTableGenerate();
+        });
+
+        $("#btnMakaleEkle").click(function () {
+
+            var swal = Swal.fire({
+                title: "LÜTFEN BEKLEYİNİZ...",
+                html: "İşleminiz Yapılıyor",
+                timerProgressBar: true,
+                didOpen: () => {
+
+                    Swal.showLoading();
+
+                },
+            });
+
+            var formData = new FormData();
+
+
+            var Baslik = $("#Baslik").val();   
+            var Icerik = $("#Icerik").val();
+            // var Yazar = $("#Yazar").val();
+            var YayinTarihi = $("#YayinTarihi").val();
+            var GoruntulenmeSayisi = $("#GoruntulenmeSayisi").val();
+           
+
+
+
+
+            formData.append("Baslik", Baslik)  //form dataya attığım ismi-- değişken ismi
+            formData.append("Icerik", Icerik)
+          /*   formData.append("Yazar", Yazar) */  //form dataya nasıl ekliyorsak controllerda o isimle data içine alıyoruz.
+            formData.append("YayinTarihi", YayinTarihi)
+            formData.append("GoruntulenmeSayisi", GoruntulenmeSayisi)
+           
+
+            $.ajax({
+                url: "/AdminPanel/Makale/MakaleEkle",
+                type: "post",
+                dataType: "json",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (r) {
+                    if (r.result) {
+
+                        $("#tblMakale").DataTable().ajax.reload();
+
+                        Swal.fire({
+                            title: "İşlem Başarılı",
+                            text: "Makale Başarıyla Eklendi.",
+                            icon: "success"
+                        });
+                        $("#modalMakaleEkle").modal("hide");
+                    }
+
+
+                },
+                error: function () {
+
+                }
+            }
+            );
+
+
+
+        });
+
+
+
+
+
+        $(function () {
+
+            $('.select2').select2()
+            $('#Icerik').summernote({ height: 1000, width: 800 });
+            $('#GIcerik').summernote({ height: 1000, width: 800 });
+            $("input[data-bootstrap-switch]").each(function () {
+                $(this).bootstrapSwitch();
+            })
+            $(document).on('switchChange.bootstrapSwitch', '.chkAktif', function (event, state) {
+
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var id = $(this).attr('mid');
+                var aktifpasif = state;
+                $.ajax({
+                    url: "/AdminPanel/Makale/AktifPasif",
+                    type: "post",
+                    dataType: "json",
+                    data: { id: id, aktif: aktifpasif },
+                    success: function (r) {
+
+
+                        swal.close();
+                        if (r.result) {
+                            Swal.fire({
+                                title: "İŞLEM BAŞARILI",
+                                text: r.mesaj,
+                                icon: "success"
+                            });
+                        }
+                    },
+                    error: function () {
+
+                    }
+                }
+                );
+
+
+
+            });
+
+            $(document).on('click', '.btnDuzenle', function () {
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var id = $(this).attr('mid');
+                $("#GId").val(id);
+
+                $.ajax({
+                    url: "/AdminPanel/Makale/MakaleGetir",
+                    type: "post",
+                    dataType: "json",
+                    data: { id: id },
+                    success: function (r) {
+
+                        if (r.result) {
+
+                            $("#GBaslik").val(r.model.baslik);
+                            $("#GIcerik").val(r.model.icerik);
+                            // $("#GYazar").val(r.model.yazar);
+                            $("#GYayinTarihi").val(r.model.yayinTarihi);
+                            $("#GGoruntulenmeSayisi").val(r.model.goruntulenmeSayisi);
+                          
+                            $("#modalMakaleGuncelle").modal('show');
+                        }
+                        swal.close();
+                    },
+                    error: function () {
+
+                    }
+                });
+
+            });
+
+
+            $(document).on('click', '#btnMakaleGuncelle', function () {
+
+
+
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var formData = new FormData();
+
+                var Baslik = $("#GBaslik").val();
+                var Icerik = $("#GIcerik").val();
+                // var Yazar = $("#GYazar").val();
+                var GoruntulenmeSayisi = $("#GGoruntulenmeSayisi").val();
+                var YayinTarihi = $("#GYayinTarihi").val();
+                var Id = $("#GId").val();
+
+                // var model = {
+                //     ID=Id,
+                //     Aciklama=Aciklama //CONROLLERIN BEKLEDİĞİ -- DEĞİŞKEN
+                // }
+
+                // $('#FRMkULLANİCİ').serialize()
+
+                formData.append("Baslik", Baslik)
+                formData.append("Icerik", Icerik)
+                // formData.append("Yazar", Yazar)
+                formData.append("YayinTarihi", YayinTarihi)
+                formData.append("GoruntulenmeSayisi", GoruntulenmeSayisi)
+                formData.append("Id", Id)
+
+
+                $.ajax({
+                    url: "/AdminPanel/Makale/MakaleGuncelle",
+                    type: "post",
+                    dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    success: function (r) {
+
+
+                        $("#tblMakale").DataTable().destroy();
+                        DataTableGenerate();
+
+                       
+
+                        var elist = "";
+
+
+                        swal.close();
+                        if (r.result) {
+                            Swal.fire({
+                                title: "İŞLEM BAŞARILI",
+                                text: r.mesaj,
+                                icon: "success"
+                            });
+                        }
+                        $("#modalMakaleGuncelle").modal("hide");
+
+                    },
+                    error: function () {
+
+                    }
+                });
+
+            });
+
+            $(document).on('click', '.btnSil', function () {
+
+
+                var id = $(this).attr('mid');
+
+                Swal.fire({
+                    title: "UYARI",
+                    text: "Makale Silinecek Emin Misiniz?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "SİL!",
+                    cancelButtonText: "VAZGEÇ!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+
+                        $.ajax({
+                            url: "/AdminPanel/Makale/MakaleSil",
+                            dataType: "json",
+                            method: "post",
+                            data: { id: id },
+                            success: function (r) {
+
+                                if (r.result) {
+                                    Swal.fire({
+                                        title: "İşlem Başarılı",
+                                        text: "Makale Başarıyla Silindi.",
+                                        icon: "success"
+                                    });
+
+                                    $("#tblMakale").DataTable().ajax.reload();
+
+                                }
+
+                            },
+                            error: function () {
+
+                            }
+                        });
+
+                    }
+
+                });
+
+            });
+        });
+
+    </script>
+
+}

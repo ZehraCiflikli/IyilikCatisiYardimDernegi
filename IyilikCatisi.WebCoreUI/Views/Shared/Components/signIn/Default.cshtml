@@ -1,0 +1,38 @@
+﻿@model KullaniciSignInVm
+<div class="col-sm-5">
+
+	<div class="form-box">
+		<div class="form-top">
+			<div class="form-top-left">
+				<h3>Sitemize Giriş Yapın</h3>
+				<p>Giriş yapmak için kullanıcı adınızı ve şifrenizi girin:</p>
+			</div>
+			<div class="form-top-right">
+				<i class="fa fa-lock"></i>
+			</div>
+		</div>
+		<div class="form-bottom">
+			<form id="Giris" role="form" class="login-form">
+				@Html.AntiForgeryToken()
+				<div class="form-group">
+					<label class="sr-only" for="form-username"> Email</label>
+					<input type="email" value="@Model.Email" placeholder="Email Adresi" class="form-username form-control" name="Email">
+					<span asp-validation-for="Email"></span>
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="form-password">Şifre</label>
+					<input type="password" value="@Model.Sifre" placeholder="Şifre" class="form-password form-control" name="Sifre">
+					<span asp-validation-for="Sifre"></span>
+				</div>
+				<h4><a href="/Kullanici/SifremiUnuttum">Şifremi Unuttum</a></h4>
+				<br />
+				<button type="button" id="btnGiris" class="btn">GİRİŞ</button>
+			</form>
+
+			<div id="errorpanel">
+			</div>
+		</div>
+	</div>
+
+
+</div>

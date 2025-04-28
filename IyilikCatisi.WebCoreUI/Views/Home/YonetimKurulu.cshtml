@@ -1,0 +1,112 @@
+﻿@model List<YonetimKuruluIndexViewModel>
+
+
+
+
+		<div class="item teaser-page-list">
+			<div class="container_16">
+				<aside class="grid_10">
+					<h1 class="page-title">Yönetim Kurulu</h1>
+				</aside>
+				<div class="grid_6">
+					<div id="rootline">
+						<a href="#">Ana Sayfa</a> <i class="fa fa-angle-right" aria-hidden="true"></i> <span class="current">Yönetim Kurulu</span>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div id="main" class="site-main container_16">
+			<div class="inner">
+
+				<!-- First canditate -->
+				@for (int i = 0; i < Model.Count; i++)
+			{
+				<div class="candidate radius grid_4 mb-3">
+					<div class="candidate-margins">
+					<a href="/Home/YonetimKurulu/@Model[i].Id">
+							<img width="200" height="210" src="@Model[i].Resim" class="wp-post-image" alt="Image alt">
+							<div class="name">@Model[i].AdSoyadi</div>
+							<div class="position">@Model[i].Unvan</div>
+						<div class="position">@Model[i].GoreveBaslangicTarihi</div>
+						 @*    <div class="aciklama">@Model[i].Aciklama</div> *@
+					</a>
+					</div>
+				</div>
+			}
+
+
+				@* <!-- Second canditate -->
+				<div class="candidate radius grid_4">
+					<div class="candidate-margins">
+						<a href="https://themes.wplook.com/html/charitas/09-staff-single.html">
+							<img width="200" height="210" src="https://themes.wplook.com/html/charitas/images/temp/candidate2.png" class="wp-post-image" alt="Image alt">
+							<div class="name">Anna Doe</div>
+							<div class="position">ceo</div>
+						</a>
+					</div>
+				</div>
+				<!-- Third canditate -->
+				<div class="candidate radius grid_4">
+					<div class="candidate-margins">
+						<a href="https://themes.wplook.com/html/charitas/09-staff-single.html">
+							<img width="200" height="210" src="https://themes.wplook.com/html/charitas/images/temp/candidate3.png" class="wp-post-image" alt="Image alt">
+							<div class="name">John Smith</div>
+							<div class="position">ceo</div>
+						</a>
+					</div>
+				</div>
+				<!-- Forth canditate -->
+				<div class="candidate radius grid_4">
+					<div class="candidate-margins">
+						<a href="https://themes.wplook.com/html/charitas/09-staff-single.html">
+							<img width="200" height="210" src="https://themes.wplook.com/html/charitas/images/temp/candidate4.png" class="wp-post-image" alt="Image alt">
+							<div class="name">John Black</div>
+							<div class="position">accountant</div>
+						</a>
+					</div>
+				</div>
+				<!-- Fifth canditate -->
+				<div class="candidate radius grid_4">
+					<div class="candidate-margins">
+						<a href="https://themes.wplook.com/html/charitas/09-staff-single.html">
+							<img width="200" height="210" src="https://themes.wplook.com/html/charitas/images/temp/candidate5.png" class="wp-post-image" alt="Image alt">
+							<div class="name">Isabelle Black</div>
+							<div class="position">accountant</div>
+						</a>
+					</div>
+				</div>
+				<!-- Sixth canditate -->
+				<div class="candidate radius grid_4">
+					<div class="candidate-margins">
+						<a href="https://themes.wplook.com/html/charitas/09-staff-single.html">
+							<img width="200" height="210" src="https://themes.wplook.com/html/charitas/images/temp/candidate6.png" class="wp-post-image" alt="Image alt">
+							<div class="name">Jacob Black</div>
+							<div class="position">accountant</div>
+						</a>
+					</div>
+				</div>
+				<!-- Seventh canditate -->
+				<div class="candidate radius grid_4">
+					<div class="candidate-margins">
+						<a href="https://themes.wplook.com/html/charitas/09-staff-single.html">
+							<img width="200" height="210" src="https://themes.wplook.com/html/charitas/images/temp/candidate7.png" class="wp-post-image" alt="Image alt">
+							<div class="name">Hellen Black</div>
+							<div class="position">consultant</div>
+						</a>
+					</div>
+				</div>
+				<!-- Eight canditate -->
+				<div class="candidate radius grid_4">
+					<div class="candidate-margins">
+						<a href="https://themes.wplook.com/html/charitas/09-staff-single.html">
+							<img width="200" height="210" src="https://themes.wplook.com/html/charitas/images/temp/candidate8.png" class="wp-post-image" alt="Image alt">
+							<div class="name">Emily Black</div>
+							<div class="position">consultant</div>
+						</a>
+					</div>
+				</div> *@
+
+				<div class="clear"></div>
+			</div>
+		</div>

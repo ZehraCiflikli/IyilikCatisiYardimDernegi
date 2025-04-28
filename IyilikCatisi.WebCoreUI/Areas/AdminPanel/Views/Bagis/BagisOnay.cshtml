@@ -1,0 +1,143 @@
+﻿@section ContentHeader
+{
+	
+}
+
+@model BagisBasvuruIndexViewModel
+<div class="col-12">
+
+	<div class="card">
+		<div class="card-header">
+			<h3 class="card-title">Bağış Başvuru Listesi</h3>
+		</div>
+		<!-- /.card-header -->
+		<div class="card-body">
+			<table id="tblBagisBasvuru" class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Ödeme Onay</th>
+						<th>Ödeme Numarası</th>
+						<th>Tarih</th>
+						<th>Ödeme Şekli</th>
+						<th>Ad</th>
+						<th>Soyad</th>
+						<th>TC Kimlik No</th>
+						<th>Mail</th>
+						<th>Telefon</th>
+						<th>Şehir</th>
+						<th>Bağış Türü</th>
+						<th>Tutar</th>
+						<th>Mesaj</th>
+						
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<!-- /.card-body -->
+	</div>
+
+</div>
+
+@section Styles {
+
+	<link href="~/adminassets/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" />
+
+	<style>
+		.select2-container .select2-selection--single {
+			height: 40px;
+		}
+	</style>
+
+}
+
+
+
+@section Scripts {
+
+
+	<script>
+
+		var table;
+
+
+		function DataTableGenerate() {
+
+			table = $("#tblBagisBasvuru").DataTable({
+				"dom": "Bfrtip",
+				"responsive": true,
+				"lengthChange": true,
+				"pageLength": 10,
+				"autoWidth": false,
+				"buttons": ["csv", "excel", "pdf", "print", "colvis"],
+				language: {
+					url: '/json/datatablestr.json',
+				},
+				ajax: { url: '/AdminPanel/Bagis/OnayliBagisBasvuru', type: 'post' },
+				columns: [
+					{ data: 'id', visible: false },
+					{ data: 'aktif' },
+					{ data: 'odemeNo' },
+					{ data: 'bagisTarihi' },
+					{ data: 'odemeSekli' },
+					{ data: 'adi' },
+					{ data: 'soyadi' },
+					{ data: 'tcKimlikNo' },
+					{ data: 'email' },
+					{ data: 'telNo' },
+					{ data: 'sehir' },
+					{ data: 'bagisTuruId' },
+					{ data: 'bagisMiktari' },
+					{ data: 'bagislaIlgiliMesaj' },
+					
+
+
+				],
+				columnDefs: [
+
+
+					// {
+					// 	targets: 14,
+					// 	render: function (data, type, row, meta) {
+
+					// 		return "<a class='btn btn-info btnDuzenle' btid=" + data + ">   <i class='fas fa-pencil-alt'></i> DÜZENLE</a > ";
+
+					// 	}
+					// },
+
+					
+
+				],
+
+				initComplete: function (settings, json) {
+
+					// Datatable initilize olduğunda
+					$("input[data-bootstrap-switch]").each(function () {
+						$(this).bootstrapSwitch();
+					})
+
+					$('.select2').select2();
+				},
+
+
+				drawCallback: function () {
+
+					// Arama Yapıldığında, Sayfalama Yapıldığında, Sıralama Yapıldığında Draw yapılıyor
+					$("input[data-bootstrap-switch]").each(function () {
+						$(this).bootstrapSwitch();
+					})
+
+					$('.select2').select2();
+
+				}
+
+			}).buttons().container().appendTo('#tblBagisBasvuru_wrapper .col-md-6:eq(0)');
+
+		};
+
+		$(function () {
+			DataTableGenerate();
+		});
+		
+		</script>
+}

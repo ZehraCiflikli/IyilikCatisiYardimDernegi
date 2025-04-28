@@ -1,0 +1,156 @@
+.standart-kullanici-panel {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+/* Sol Menü Stili */
+.sol-menu {
+    width: 280px;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.profil-alani {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.profil-resim {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #28a745;
+}
+
+.profil-resim img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kullanici-adi {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0;
+}
+
+.panel-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: #666;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+    background-color: #f8f9fa;
+    color: #28a745;
+    text-decoration: none;
+}
+
+.menu-item.aktif {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.menu-item i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Sağ İçerik Alanı Stili */
+.icerik-alani {
+    flex: 1;
+    padding: 30px;
+}
+
+.icerik-baslik {
+    margin-bottom: 30px;
+}
+
+.icerik-baslik h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0;
+}
+
+/* Kartlar */
+.ozet-karti {
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.ozet-karti h2 {
+    font-size: 1.4rem;
+    margin: 0 0 15px 0;
+}
+
+.ozet-karti .tutar {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.ozet-karti .btn-light {
+    color: #28a745;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 6px;
+}
+
+.durum-kartlari {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.durum-karti {
+    background-color: #444b8d;
+    color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.durum-karti h3 {
+    font-size: 1.1rem;
+    margin: 0 0 15px 0;
+}
+
+.durum-karti .tutar {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .standart-kullanici-panel {
+        flex-direction: column;
+    }
+    
+    .sol-menu {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .durum-kartlari {
+        grid-template-columns: 1fr;
+    }
+} 

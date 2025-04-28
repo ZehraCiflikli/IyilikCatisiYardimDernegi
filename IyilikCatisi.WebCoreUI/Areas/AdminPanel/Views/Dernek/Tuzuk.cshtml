@@ -1,0 +1,37 @@
+﻿@section ContentHeader
+{
+    @*  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalTarihceEkle">
+        Tarihçe Ekle
+    </button> *@
+}
+
+@section Styles {
+    <style>
+        .btn-guncelle {
+            margin-bottom: 20px;
+        }
+    </style>
+}
+
+@model Tuzuk
+
+<form asp-action="Tuzuk" asp-area="AdminPanel" asp-controller="Dernek" method="post">
+
+    <div>
+        <button class="btn btn-success btn-guncelle" type="submit">GÜNCELLE</button>
+    </div>
+
+    <div>
+        <input type="hidden" asp-for="@Model.Id" value="@Model.Id" />
+        <textarea asp-for="TuzukMetni" id="Tuzuk" class="tuzuktxt" rows="50"></textarea>
+    </div>
+
+</form>
+
+@section Scripts {
+
+    <script>
+        $('#Tuzuk').summernote({ height: 1000, width: 800 });
+    </script>
+
+}

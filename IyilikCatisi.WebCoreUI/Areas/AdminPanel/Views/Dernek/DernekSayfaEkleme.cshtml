@@ -1,0 +1,543 @@
+﻿@section ContentHeader
+{
+    <button type="button" class="btn btn-success btnDugme" data-toggle="modal" data-target="#modalDernekSayfaEkle">
+        Dernek Sayfa Ekle
+    </button>
+}
+
+@model DernekSayfaEklemeViewModel
+<div class="col-12">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Dernek Sayfaları</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="tblDernekSayfa" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Sıra No</th>
+                        <th>Sayfa Adı</th>
+                        <th>İçerik</th>
+                        <th>Sitede Gözüksün Mü?</th>                      
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+</div>
+
+@section Styles {
+
+    <link href="~/adminassets/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" />
+
+}
+<form id="frmDernekSayfaEkle">
+    <div class="modal fade" id="modalDernekSayfaEkle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Dernek Sayfası Ekleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Sıra No</label>
+                            <input type="number" class="form-control" id="SiraNo" asp-for="SiraNo" placeholder="Sıra No">
+                        </div>
+                        <div class="form-group">
+                            <label>Sayfa Adı</label>
+                            <input type="text" class="form-control" asp-for="SayfaAdi" placeholder="Sayfa Adı">
+                        </div>                     
+                        <div class="form-group">
+                            <label>İçerik</label>
+                            <textarea asp-for="Icerik"></textarea>
+                        </div>                       
+                    </div>
+                    <!-- /.card-body -->
+
+
+
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnDernekSayfaEkle" class="btn btn-primary">KAYDET</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+<form id="frmDernekSayfaGuncelle">
+    <div class="modal fade" id="modalDernekSayfaGuncelle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Dernek Sayfa Güncelleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Sıra No</label>
+                            <input type="number" class="form-control" id="GSiraNo" placeholder="Sıra No">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="GId">
+                            <label>Sayfa Adı</label>
+                            <input type="text" class="form-control" id="GSayfaAdi" placeholder="Sayfa Adı">
+                        </div>
+                        <div class="form-group">
+                            <label>İçerik</label>
+                            <textarea id="GIcerik"></textarea>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnDernekSayfaGuncelle" class="btn btn-primary">GÜNCELLE</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+
+@section Scripts {
+
+
+    <script src="~/adminassets/js/custom/DernekSayfa.js"></script>
+    <script>
+             .btnDugme{
+            margin - bottom: 20px;
+        }
+    </script>
+
+    <script>
+
+        var table;
+
+
+        function DataTableGenerate() {
+
+            table = $("#tblDernekSayfa").DataTable({
+                "dom": "Bfrtip",
+                "responsive": true,
+                "lengthChange": true,
+                "pageLength": 10,
+                "autoWidth": false,
+                "buttons": ["csv", "excel", "pdf", "print", "colvis"],
+                language: {
+                    url: '/json/datatablestr.json',
+                },
+                ajax: { url: '/AdminPanel/Dernek/DernekSayfaListele', type: 'post' },
+                columns: [
+                    { data: 'id', visible: false },
+                    { data: 'siraNo' },
+                    { data: 'sayfaAdi' },
+                    { data: 'icerik' },                       
+                    { data: 'aktif' },
+                    { data: 'id' },
+                    { data: 'id' },
+
+
+                ],
+                columnDefs: [
+                    {
+                        targets: 1,
+                        render: function (data, type, row, meta) {
+
+                            return meta.row + 1;
+
+                        }
+                    },
+
+                    {
+                        targets: 4,
+                        render: function (data, type, row, meta) {
+
+                            var drnkid = row["id"];
+
+                            if (data)
+
+                                return '<input drnkid=' + drnkid + '  type= "checkbox" data-on-text="EVET" data-off-text="HAYIR" name = "my-checkbox" checked data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+
+                            else
+
+                                return '<input drnkid=' + drnkid + '  type= "checkbox" data-on-text="EVET" data-off-text="HAYIR" name = "my-checkbox"  data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+                        }
+                    },
+
+                    {
+                        targets: 5,
+                        render: function (data, type, row, meta) {
+
+                            return "<a class='btn btn-info btnDuzenle' drnkid=" + data + ">   <i class='fas fa-pencil-alt'></i></a > ";
+
+                        }
+                    },
+
+                    {
+                        targets: 6,
+                        render: function (data, type, row, meta) {
+
+                            return "<a class='btn btn-danger btnSil' drnkid=" + data + "><i class='fas fa-trash'></i></a > ";
+                        }
+                    },
+
+
+
+
+                ],
+
+                initComplete: function (settings, json) {
+
+                    // Datatable initilize olduğunda
+                    $("input[data-bootstrap-switch]").each(function () {
+                        $(this).bootstrapSwitch();
+                    });
+
+
+                },
+
+                drawCallback: function () {
+
+                    // Arama Yapıldığında, Sayfalama Yapıldığında, Sıralama Yapıldığında Draw yapılıyor
+                    $("input[data-bootstrap-switch]").each(function () {
+                        $(this).bootstrapSwitch();
+                    })
+
+                }
+
+
+
+            }).buttons().container().appendTo('#tblDernekSayfa_wrapper .col-md-6:eq(0)');
+
+        };
+
+        $(function () {
+            DataTableGenerate();
+        });
+
+        $("#btnDernekSayfaEkle").click(function () {
+
+            var swal = Swal.fire({
+                title: "LÜTFEN BEKLEYİNİZ...",
+                html: "İşleminiz Yapılıyor",
+                timerProgressBar: true,
+                didOpen: () => {
+
+                    Swal.showLoading();
+
+                },
+            });
+
+            var formData = new FormData();
+
+            var SiraNo = $("#SiraNo").val();
+            var SayfaAdi = $("#SayfaAdi").val();
+            var Icerik = $("#Icerik").val();
+
+
+            formData.append("SiraNo", SiraNo)
+            formData.append("SayfaAdi", SayfaAdi)
+            formData.append("Icerik", Icerik)
+           
+            $.ajax({
+                url: "/AdminPanel/Dernek/DernekSayfaEkle",
+                type: "post",
+                dataType: "json",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (r) {
+                    if (r.result) {
+
+                        $("#tblDernekSayfa").DataTable().ajax.reload();
+
+                        Swal.fire({
+                            title: "İşlem Başarılı",
+                            text: "Dernek Sayfasına Başarıyla Eklendi.",
+                            icon: "success"
+                        });
+                        $("#modalDernekSayfaEkle").modal("hide");
+                    }
+
+
+                    $("#frmDernekSayfaEkle").trigger("reset");
+
+                },
+                error: function () {
+
+                }
+            }
+            );
+
+
+
+        });
+
+
+
+
+
+        $(function () {
+            // Summernote
+            $('#Icerik').summernote();
+            $('#GIcerik').summernote();
+            $("input[data-bootstrap-switch]").each(function () {
+                $(this).bootstrapSwitch();
+            })
+            $(document).on('switchChange.bootstrapSwitch', '.chkAktif', function (event, state) {
+
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var id = $(this).attr('drnkid');
+                var aktifpasif = state;
+                $.ajax({
+                    url: "/AdminPanel/Dernek/DernekSayfaAktifPasif",
+                    type: "post",
+                    dataType: "json",
+                    data: { id: id, aktif: aktifpasif },
+                    success: function (r) {
+
+
+                        swal.close();
+                        if (r.result) {
+                            Swal.fire({
+                                title: "İŞLEM BAŞARILI",
+                                text: r.mesaj,
+                                icon: "success"
+                            });
+                        }
+                    },
+                    error: function () {
+
+                    }
+                }
+                );
+
+
+
+            });
+
+            $(document).on('click', '.btnDuzenle', function () {
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var id = $(this).attr('drnkid');
+                $("#GId").val(id);
+
+                $.ajax({
+                    url: "/AdminPanel/Dernek/DernekSayfaGetir",
+                    type: "post",
+                    dataType: "json",
+                    data: { id: id },
+                    success: function (r) {
+
+                        if (r.result) {
+
+                            $("#GSiraNo").val(r.model.siraNo);
+                            $("#GSayfaAdi").val(r.model.sayfaAdi);                            
+                            $("#GIcerik").summernote('code', r.model.icerik);
+                            $("#modalDernekSayfaGuncelle").modal('show');
+                        }
+                        swal.close();
+
+
+
+
+
+
+
+
+
+
+
+                    },
+                    error: function () {
+
+                    }
+                }
+                );
+
+
+
+            });
+            $(document).on('click', '#btnDernekSayfaGuncelle', function () {
+
+
+
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var formData = new FormData();
+                var SiraNo = $("#GSiraNo").val();
+                var SayfaAdi = $("#GSayfaAdi").val();
+                var Icerik = $("#GIcerik").val();
+                var Id = $("#GId").val();
+
+                formData.append("SiraNo", SiraNo)
+                formData.append("SayfaAdi", SayfaAdi)
+                formData.append("Icerik", Icerik)
+                formData.append("Id", Id)
+
+                $.ajax({
+                    url: "/AdminPanel/Dernek/DernekSayfaGuncelle",
+                    type: "post",
+                    dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    success: function (r) {
+
+
+
+
+                        // ---------------Datatable Yok Edildi---------------
+
+                        $("#tblDernekSayfa").DataTable().destroy();
+                        //-------------------------------------------------
+
+                        // ---------------Datatable Yeniden Oluşturuluyor.---------------
+                        DataTableGenerate();
+
+
+                        //$("#GResim").attr("src", r.model.DernekSayfa.resim);
+                        var drnklist = "";
+
+
+
+
+
+
+
+
+                        swal.close();
+                        if (r.result) {
+                            Swal.fire({
+                                title: "İŞLEM BAŞARILI",
+                                text: r.mesaj,
+                                icon: "success"
+                            });
+                        }
+                        $("#modalDernekSayfaGuncelle").modal("hide");
+
+
+
+
+                    },
+                    error: function () {
+
+                    }
+                }
+                );
+
+
+
+            });
+
+            $(document).on('click', '.btnSil', function () {
+
+
+                var id = $(this).attr('drnkid');
+
+                Swal.fire({
+                    title: "UYARI",
+                    text: "Dernek Sayfasından Silinecek Emin Misiniz?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "SİL!",
+                    cancelButtonText: "VAZGEÇ!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+
+                        $.ajax({
+                            url: "/AdminPanel/Dernek/DernekSayfaSil",
+                            dataType: "json",
+                            method: "post",
+                            data: { id: id },
+                            success: function (r) {
+
+                                if (r.result) {
+                                    Swal.fire({
+                                        title: "İşlem Başarılı",
+                                        text: "Dernek Sayfası Başarıyla Silindi.",
+                                        icon: "success"
+                                    });
+
+                                    $("#tblDernekSayfa").DataTable().ajax.reload();
+
+                                }
+
+                            },
+                            error: function () {
+
+                            }
+                        });
+
+                    }
+
+                });
+
+
+            });
+        });
+
+
+
+
+    </script>
+
+}

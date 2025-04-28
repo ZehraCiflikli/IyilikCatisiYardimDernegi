@@ -1,0 +1,37 @@
+﻿@model List<FotograflarIndexViewModel>
+
+
+
+
+<div class="item teaser-page-list">
+	<div class="container_16">
+		<aside class="grid_10">
+			<h1 class="page-title">Fotoğraflar</h1>
+		</aside>
+		<div class="grid_6">
+			<div id="rootline">
+				<a href="#">Ana Sayfa</a> <i class="fa fa-angle-right" aria-hidden="true"></i> <span class="current">Fotoğraflar</span>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div id="main" class="site-main container_16">
+	<div class="inner">
+
+		<!-- First canditate -->
+		@for (int i = 0; i < Model.Count; i++)
+		{
+			<div class="candidate radius grid_4 mb-3">
+				<div class="candidate-margins">
+					<a href="/Galeri/Fotograflar/@Model[i].Id">
+						<img width="200" height="210" src="@Model[i].Resim" class="wp-post-image" alt="Image alt">
+						<div class="name">@Model[i].Aciklama</div>
+					</a>
+				</div>
+			</div>
+		}
+
+		<div class="clear"></div>
+	</div>
+</div>

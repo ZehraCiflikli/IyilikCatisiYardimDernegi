@@ -1,0 +1,331 @@
+﻿
+@section Styles{
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+	<link rel="stylesheet" href="~/login_register_assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="~/login_register_assets/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="~/login_register_assets/css/form-elements.css">
+	<link rel="stylesheet" href="~/login_register_assets/css/style.css">
+
+
+	<style>
+
+			.backstretch {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				min-height: 100%;
+			    background: url('/login_register_assets/img/backgrounds/16x9_can_you_create_a_background_phot.png') no-repeat center center fixed;
+				background-size: cover;
+				z-index: -1;
+			}
+
+			span{
+				color:white;
+			}
+
+
+	</style>
+}
+
+<div class="top-content">
+
+	<div class="inner-bg">
+		<div class="container">
+
+			<div class="row">
+
+				@* login *@
+				@await Component.InvokeAsync("signIn")
+				@* <div class="col-sm-5">
+
+					<div class="form-box">
+						<div class="form-top">
+							<div class="form-top-left">
+								<h3>Sitemize Giriş Yapın</h3>
+								<p>Giriş yapmak için kullanıcı adınızı ve şifrenizi girin:</p>
+							</div>
+							<div class="form-top-right">
+								<i class="fa fa-lock"></i>
+							</div>
+						</div>
+						<div class="form-bottom">
+							<form role="form" class="login-form">
+								@Html.AntiForgeryToken()
+								<div class="form-group">
+									<label class="sr-only" for="form-username"> Email</label>
+									<input type="email" value="@Model.Email" placeholder="Email Adresi" class="form-username form-control" id="Email">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="form-password">Şifre</label>
+									<input type="password" name="form-password" value="@Model.Sifre" placeholder="Şifre" class="form-password form-control" id="Sifre">
+								</div>
+								<h4><a href="/Kullanici/SifremiUnuttum">Şifremi Unuttum</a></h4>
+								<br />
+								<button type="button" id="btnGiris" class="btn">GİRİŞ</button>
+							</form>
+						</div>
+					</div>
+
+					
+				</div> *@
+
+				<div class="col-sm-1 middle-border"></div>
+				<div class="col-sm-1"></div>
+
+				@await Component.InvokeAsync("signUp")
+
+				@* <div class="col-sm-5">
+
+					<div class="form-box">
+						<div class="form-top">
+							<div class="form-top-left">
+								<h3>Şimdi Üye Ol</h3>
+								<p>Anında erişim sağlamak için aşağıdaki formu doldurun:</p>
+							</div>
+							<div class="form-top-right">
+								<i class="fa fa-pencil"></i>
+							</div>
+						</div>
+						<div class="form-bottom">
+							<form  asp-controller="Kullanici" asp-action="Add" method="post" >
+								<div class="form-group">
+									<input type="text" placeholder="Adınız" class="form-first-name form-control" asp-for="Adi">
+									<span asp-validation-for="Adi"></span>
+								</div>
+								<div class="form-group">
+					
+									<input type="text" placeholder="Soyadınız" class="form-last-name form-control" asp-for="Soyadi">
+									<span asp-validation-for="Soyadi"></span>
+								</div>
+								<div class="form-group">
+								
+									<input type="date" placeholder="Doğum Tarihiniz" class="form-first-name form-control" asp-for="DogumTarihi">
+									<span asp-validation-for="DogumTarihi"></span>
+								</div>
+								<div class="form-group">
+									
+									<input type="email" placeholder="Emailiniz" class="form-email form-control" asp-for="Email">
+									<span asp-validation-for="Email"></span>
+								</div>
+								<div class="form-group">
+									
+									<input type="tel" placeholder="Cep Telefonu Numaranız" class="form-first-name form-control" asp-for="CepTel">
+									<span asp-validation-for="CepTel"></span>
+								</div>
+								<div class="form-group">
+									
+									<input type="password" placeholder="Şifreniz" class="form-first-name form-control" asp-for="Sifre">
+									<span asp-validation-for="Sifre"></span>
+								</div>
+								<div class="form-group">
+									
+									<input type="password" placeholder="Şifrenizi Tekrar Giriniz" class="form-first-name form-control" asp-for="SifreTekrar">
+									<span asp-validation-for="SifreTekrar"></span>
+								</div>
+								
+
+								<button type="submit" class="btn btnKayitOl">KAYDOL</button>
+							</form>
+						</div>
+					</div>
+
+				</div> *@
+			</div>
+
+		</div>
+	</div>
+
+</div>
+
+<div class="backstretch" ></div>
+
+@section BottomSpace{
+	<div style="height:50px; background-color:white"></div>
+
+
+}
+
+
+@section Scripts{
+	<script src="~/login_register_assets/js/jquery-1.11.1.min.js"></script>
+	<script src="~/login_register_assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="~/login_register_assets/js/jquery.backstretch.min.js"></script>
+	<script src="~/login_register_assets/js/scripts.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js" integrity="sha512-KFHXdr2oObHKI9w4Hv1XPKc898mE4kgYx58oqsc/JqqdLMDI4YjOLzom+EMlW8HFUd0QfjfAvxSL6sEq/a42fQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js" integrity="sha512-xq+Vm8jC94ynOikewaQXMEkJIOBp7iArs3IhFWSWdRT3Pq8wFz46p+ZDFAR7kHnSFf+zUv52B3prRYnbDRdgog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script>
+
+		// $(document).ready(function () {
+
+		// 	$("#btnKayitOl").click(
+		// 		function () {
+
+		// 			var ykullanici = {
+		// 				Adi: $("#Adi").val(), //model//id
+		// 				Soyadi: $("#Soyadi").val(),
+		// 				DogumTarihi: $("#DogumTarihi").val(),
+		// 				CepTel: $("#CepTel").val(),
+		// 				Email: $("#email").val(),
+		// 				Sifre: $("#sifre").val(),
+		// 				SifreTekrar: $("#SifreTekrar").val()
+
+		// 			}
+
+		// 			debugger
+		// 			$.ajax({
+		// 				url: "/Kullanici/Add",
+		// 				method: "post",
+		// 				dataType: "json",
+		// 				data: { vm: ykullanici },
+		// 				success: function (r) {
+
+		// 					if (r.result) {
+
+
+		// 						Swal.fire({
+		// 							title: "Kayıt",
+		// 							text: r.mesaj,
+		// 							icon: "success"
+		// 						});
+
+		// 					}
+		// 					else {
+
+		// 						Swal.fire({
+		// 							icon: "error",
+		// 							title: "HATA",
+		// 							text: "Kullanıcı Kaydedilemedi"
+		// 						});
+
+
+		// 					}
+
+
+		// 				},
+		// 				error: function (err) {
+		// 					Swal.fire({
+		// 						icon: "error",
+		// 						title: "HATA",
+		// 						text: "Kullanıcı Kaydedilemedi"
+		// 					});
+
+		// 				}
+
+
+		// 			});
+
+		// 		}
+
+		// 	);
+
+
+
+
+		// });
+
+
+
+		$(document).ready(function () {
+
+			$("#btnGiris").click(function () {
+				
+				
+				// if (!$("#Giris").valid()) {
+				// 	return;
+				// }
+
+				// 	var token = $("[name='__RequestVerificationToken']").val();
+				// 	var kullanici = {
+						
+				// 		Email: $("#Email").val(),
+				// 		Sifre: $("#Sifre").val(),
+						
+
+				// 	}
+
+
+				// 	$.ajax({
+				// 		url: "/Kullanici/Login",
+				// 		method: "post",
+				// 		dataType: "json",
+				// 		data: { model: kullanici, __RequestVerificationToken: token },
+				// 		success: function (r) {
+
+				// 			if (r.result) {
+
+				// 				window.location = "/StandartKullaniciPanel/KullaniciPanel/Index";
+				// 			}
+				// 			else {
+
+				// 				window.location = r.data;
+				// 			}
+
+
+				// 		},
+				// 		error: function () {
+							
+				// 		}
+
+
+				// 	});
+
+
+
+				var ali = $("#Giris");
+				var token = $("[name='__RequestVerificationToken']").val();
+
+				if (ali.valid()) {
+					$.ajax({
+						url: "/Kullanici/Login",
+						method: "post",
+						dataType: "json",
+						data: ali.serialize(),
+						success: function (r) {
+
+							if (r.result) {
+
+								window.location = "/StandartKullaniciPanel/KullaniciPanel/Index";
+
+							}
+							else {
+								//HATALARI DİV yerine ilgili validation for nesnelerinde göster...
+
+								var errorlist = "<ul>"
+
+								for (var i = 0; i < r.errors.length; i++) {
+
+									errorlist += "<li>" + r.errors[i] + " </li>"
+								}
+
+								errorlist += "</ul>";
+
+								$("#errorpanel").html(errorlist);
+							}
+
+						},
+						error: function () {
+
+
+						}
+					});
+
+
+				}
+
+				}
+
+			);
+
+		});
+
+
+
+
+	</script>
+}

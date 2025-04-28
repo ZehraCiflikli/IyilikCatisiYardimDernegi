@@ -1,0 +1,519 @@
+﻿@section ContentHeader
+{
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalBagisTuruEkle">
+        Bağış Türü Ekle
+    </button>
+}
+
+@model BagisTuruIndexViewModel
+<div class="col-12">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Bağış Türü Listesi</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="tblBagisTuru" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Bağış Türü</th>
+                        <th>Varsayılan Tutar</th>
+                        <th>Sayfada Gözüksün Mü</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+</div>
+
+@section Styles {
+
+    <link href="~/adminassets/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" />
+
+    <style>
+        .select2-container .select2-selection--single {
+            height: 40px;
+        }
+    </style>
+
+}
+<form id="frmBagisTuruEkle">
+    <div class="modal fade" id="modalBagisTuruEkle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Bağış Türü Ekleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Bağış Türü </label>
+                            <input type="text" class="form-control" asp-for="BagisTuruAdi" placeholder="Bağış Türü">
+                        </div>
+                        <div class="form-group">
+                            <label>Varsayılan Tutar </label>
+                            <input type="number" class="form-control" asp-for="VarsayilanTutar" placeholder="Varsayılan Tutar">
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+
+
+
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnBagisTuruEkle" class="btn btn-primary">KAYDET</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+<form id="frmBagisTuruGuncelle">
+    <div class="modal fade" id="modalBagisTuruGuncelle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Bağış Türü Güncelleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="GId">
+
+                            <label>Bağış Türü</label>
+                            <input type="text" class="form-control" id="GBagisTuruAdi" placeholder="Bağış Türü">
+                        </div>
+                        <div class="form-group">
+                           
+
+                            <label>Varsayılan Tutar</label>
+                            <input type="number" class="form-control" id="GVarsayilanTutar" placeholder="Varsayılan Tutar">
+                        </div>
+
+
+                    </div>
+                    <!-- /.card-body -->
+
+
+
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnBagisTuruGuncelle" class="btn btn-primary">GÜNCELLE</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+
+
+@section Scripts {
+
+
+    <script>
+
+        var table;
+
+
+        function DataTableGenerate() {
+
+            table = $("#tblBagisTuru").DataTable({
+                "dom": "Bfrtip",
+                "responsive": true,
+                "lengthChange": true,
+                "pageLength": 10,
+                "autoWidth": false,
+                "buttons": ["csv", "excel", "pdf", "print", "colvis"],
+                language: {
+                    url: '/json/datatablestr.json',
+                },
+                ajax: { url: '/AdminPanel/BagisTuru/Listele', type: 'post' },
+                columns: [
+                    { data: 'id', visible: false },
+                    { data: 'bagisTuruAdi' },
+                    { data: 'varsayilanTutar' },
+                    { data: 'aktif' },
+                    { data: 'id' },
+                    { data: 'id' },
+
+
+                ],
+                columnDefs: [
+
+                    {
+                        targets: 3,
+                        render: function (data, type, row, meta) {
+
+                            var btid = row["id"];
+
+                            if (data)
+
+                                return '<input btid=' + btid + '  type= "checkbox" data-on-text="AKTİF" data-off-text="PASİF" name = "my-checkbox" checked data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+
+                            else
+
+                                return '<input btid=' + btid + '  type= "checkbox" data-on-text="AKTİF" data-off-text="PASİF" name = "my-checkbox"  data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+                        }
+                    },
+
+                    {
+                        targets: 4,
+                        render: function (data, type, row, meta) {
+
+                            return "<a class='btn btn-info btnDuzenle' btid=" + data + ">   <i class='fas fa-pencil-alt'></i> DÜZENLE</a > ";
+
+                        }
+                    },
+
+                    {
+                        targets: 5,
+                        render: function (data, type, row, meta) {
+
+                            return "<a class='btn btn-danger btnSil' btid=" + data + "><i class='fas fa-trash'></i> SİL</a > ";
+                        }
+                    },
+
+                ],
+
+                initComplete: function (settings, json) {
+
+                    // Datatable initilize olduğunda
+                    $("input[data-bootstrap-switch]").each(function () {
+                        $(this).bootstrapSwitch();
+                    })
+
+                    $('.select2').select2();
+                },
+
+
+                drawCallback: function () {
+
+                    // Arama Yapıldığında, Sayfalama Yapıldığında, Sıralama Yapıldığında Draw yapılıyor
+                    $("input[data-bootstrap-switch]").each(function () {
+                        $(this).bootstrapSwitch();
+                    })
+
+                    $('.select2').select2();
+
+                }
+
+            }).buttons().container().appendTo('#tblBagisTuru_wrapper .col-md-6:eq(0)');
+
+        };
+
+        $(function () {
+            DataTableGenerate();
+        });
+
+
+
+
+        $("#btnBagisTuruEkle").click(function () {
+
+            var swal = Swal.fire({
+                title: "LÜTFEN BEKLEYİNİZ...",
+                html: "İşleminiz Yapılıyor",
+                timerProgressBar: true,
+                didOpen: () => {
+
+                    Swal.showLoading();
+
+                },
+            });
+
+            var formData = new FormData();
+
+
+
+            var BagisTuruAdi = $("#BagisTuruAdi").val();
+            var VarsayilanTutar = $("#VarsayilanTutar").val();
+
+
+            formData.append("BagisTuruAdi", BagisTuruAdi)
+            formData.append("VarsayilanTutar", VarsayilanTutar)
+
+            $.ajax({
+                url: "/AdminPanel/BagisTuru/Ekle",
+                type: "post",
+                dataType: "json",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (r) {
+
+                    $("#frmBagisTuruEkle")[0].reset();
+
+                    $("#modalBagisTuruEkle").modal("hide");
+
+                    $("#tblBagisTuru").DataTable().destroy();
+
+
+                    DataTableGenerate();
+
+
+                    swal.close();
+                    if (r.result) {
+                        Swal.fire({
+                            title: "İŞLEM BAŞARILI",
+                            text: r.mesaj,
+                            icon: "success"
+                        });
+                    }
+
+
+
+
+
+                },
+                error: function () {
+
+                }
+            });
+          
+
+        });
+
+
+
+        $(function () {
+            
+            $('.select2').select2()
+            $("input[data-bootstrap-switch]").each(function () {
+                $(this).bootstrapSwitch();
+            })
+            $(document).on('switchChange.bootstrapSwitch', '.chkAktif', function (event, state) {
+
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var id = $(this).attr('btid');
+                var aktifpasif = state;
+                $.ajax({
+                    url: "/AdminPanel/BagisTuru/AktifPasif",
+                    type: "post",
+                    dataType: "json",
+                    data: { id: id, aktif: aktifpasif },
+                    success: function (r) {
+
+
+                        swal.close();
+                        if (r.result) {
+                            Swal.fire({
+                                title: "İŞLEM BAŞARILI",
+                                text: r.mesaj,
+                                icon: "success"
+                            });
+                        }
+                    },
+                    error: function () {
+
+                    }
+                });
+               
+            });
+
+
+
+
+
+            $(document).on('click', '.btnDuzenle', function () {
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var id = $(this).attr('btid');
+
+                $("#GId").val(id);
+
+
+                $.ajax({
+                    url: "/AdminPanel/BagisTuru/BagisTuruGetir",
+                    type: "post",
+                    dataType: "json",
+                    data: { id: id },
+                    success: function (r) {
+                        
+                        if (r.result) {
+                            $("#GBagisTuruAdi").val(r.model.bagisTuruAdi);
+                            $("#GVarsayilanTutar").val(r.model.varsayilanTutar);
+
+                            $("#modalBagisTuruGuncelle").modal('show');
+                        }
+                        swal.close();
+                    },
+                    error: function () {
+
+                    }
+                });               
+            });
+
+
+
+
+
+            $(document).on('click', '#btnBagisTuruGuncelle', function () {
+
+
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+
+                var formData = new FormData();
+
+                var Id = $("#GId").val();
+
+                var BagisTuruAdi = $("#GBagisTuruAdi").val();
+                var VarsayilanTutar = $("#GVarsayilanTutar").val();
+
+
+                formData.append("Id", Id)
+                formData.append("BagisTuruAdi", BagisTuruAdi)
+                formData.append("VarsayilanTutar", VarsayilanTutar)
+
+                $.ajax({
+                    url: "/AdminPanel/BagisTuru/Guncelle",
+                    type: "post",
+                    dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    success: function (r) {
+
+                        $("#tblBagisTuru").DataTable().destroy();
+
+                        DataTableGenerate();
+
+
+                        swal.close();
+                        if (r.result) {
+                            Swal.fire({
+                                title: "İŞLEM BAŞARILI",
+                                text: r.mesaj,
+                                icon: "success"
+                            });
+                        }
+
+                    },
+                    error: function () {
+
+                    }
+                });
+              
+            });
+
+
+
+
+            $(document).on('click', '.btnSil', function () {
+
+
+                var id = $(this).attr('btid');
+
+                Swal.fire({
+
+                    title: "SİLME İŞLEMİ",
+                    text: "Silmek İstediğinize Emin Misiniz?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Evet",
+                    cancelButtonText: "Hayır",
+                    confirmButtonColor: "#d33",
+                    cancelButtonColor: "#3085d6",
+                    reverseButtons: false
+
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        var swal = Swal.fire({
+                            title: "LÜTFEN BEKLEYİNİZ...",
+                            html: "İşleminiz Yapılıyor",
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        });
+
+                        $.ajax({
+                            url: "/AdminPanel/BagisTuru/Delete",
+                            type: "post",
+                            dataType: "json",
+                            data: { id: id },
+                            success: function (r) {
+                                if (r.result) {
+                                    $("#tblBagisTuru").DataTable().destroy();
+                                    DataTableGenerate();
+                                    swal.close();
+                                    Swal.fire({
+                                        title: "İŞLEM BAŞARILI",
+                                        text: r.mesaj,
+                                        icon: "success"
+                                    });
+                                }
+                            },
+                            error: function () {
+                            }
+                        });
+                    }
+
+                });
+
+
+
+            });
+
+
+        })
+
+
+
+    </script>
+
+}

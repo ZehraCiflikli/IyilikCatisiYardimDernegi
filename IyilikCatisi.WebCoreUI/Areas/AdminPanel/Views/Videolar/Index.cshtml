@@ -1,0 +1,523 @@
+﻿@section ContentHeader
+{
+    <p>Video yüklemek için youtube.com  sitesini kullanmanız gerekiyor. Bu sitede bulunan videoları sitenize ekleyebilir veya bu siteye video yükleyerek   sitenizde videolarınızı yayınlayabilirsiniz. Shorts videolar görüntülenmez.</p>
+
+    <button type="button" class="btn btn-success btnDugme" data-toggle="modal" data-target="#modalVideolarEkle">
+        Video Ekle
+    </button>
+}
+
+@model VideolarIndexViewModel
+<div class="col-12">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Videolar</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="tblVideolar" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Sıra No</th>
+                        <th>Video Adı</th>
+                        <th>Kaynak</th>
+                        <th>Video</th>
+                        <th>VideoUrl</th>                       
+                        <th>Sayfada Gözüksün Mü?</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+</div>
+
+@section Styles {
+
+    <link href="~/adminassets/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" />
+
+}
+<form id="frmVideolarEkle">
+    <div class="modal fade" id="modalVideolarEkle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Video Ekleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Video Adı</label>
+                            <input type="text" class="form-control" asp-for="VideoAdi" placeholder="Video Adı">
+                        </div>
+                        <div class="form-group">
+                            <label>Video Url</label>
+                            <input type="text" class="form-control"  asp-for="VideoUrl" placeholder="Video Url">
+                        </div>                      
+                        <div class="form-group">
+                            <label>Sıra No</label>
+                            <input type="number" class="form-control" asp-for="SiraNo" placeholder="Sıra No">
+                        </div>                       
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnVideolarEkle" class="btn btn-primary">KAYDET</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+<form id="frmVideolarGuncelle">
+    <div class="modal fade" id="modalVideolarGuncelle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Video Güncelleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="GId">
+
+                            <label>Video Adı</label>
+                            <input type="text" class="form-control" id="GVideoAdi" placeholder="Video Adı">
+                        </div>
+                        <div class="form-group">
+                            <label>Video Url</label>
+                            <input type="text" class="form-control" id="GVideoUrl" placeholder="Video Url">
+                        </div>
+                        <div class="form-group">
+                            <label>Sıra No</label>
+                            <input type="number" class="form-control" id="GSiraNo" placeholder="Sıra No">
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnVideolarGuncelle" class="btn btn-primary">GÜNCELLE</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+
+@section Scripts {
+
+
+
+    <script>
+
+        var table;
+
+
+        function DataTableGenerate() {
+
+            table = $("#tblVideolar").DataTable({
+                "dom": "Bfrtip",
+                "responsive": true,
+                "lengthChange": true,
+                "pageLength": 10,
+                "autoWidth": false,
+                "buttons": ["csv", "excel", "pdf", "print", "colvis"],
+                language: {
+                    url: '/json/datatablestr.json',
+                },
+                ajax: { url: '/AdminPanel/Videolar/VideoListele', type: 'post' },
+                columns: [
+                    { data: 'id', visible: false },
+                    { data: 'siraNo' },
+                    { data: 'videoAdi' },
+                    { data: 'kaynak' },
+                    { data: 'video' }, 
+                    { data: 'videoUrl'},
+                    { data: 'aktif' },
+                    { data: 'id' },
+                    { data: 'id' },
+
+
+                ],
+                columnDefs: [
+
+                   
+
+                    {
+                        targets: 4,
+                        render: function (data, type, row, meta) {
+
+                            var url = row["videoUrl"];
+
+                            // YouTube video URL'si içeriyorsa, iframe ile video yerleştirelim
+                            if (url && url.includes("youtube.com")) {
+                                var videoId = getYouTubeVideoId(url); // YouTube video ID'sini almak için fonksiyon kullanıyoruz
+                                if (videoId) {
+                                    return '<iframe width="300" height="150" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                                }
+                            }
+                            return ''; // Eğer URL YouTube değilse, boş döndür
+                        }
+                    },
+
+                    {
+                        targets: 6,
+                        render: function (data, type, row, meta) {
+
+                            var vid = row["id"];
+
+                            if (data)
+
+                                return '<input vid=' + vid + '  type= "checkbox" data-on-text="AKTİF" data-off-text="PASİF" name = "my-checkbox" checked data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+
+                            else
+
+                                return '<input vid=' + vid + '  type= "checkbox" data-on-text="AKTİF" data-off-text="PASİF" name = "my-checkbox"  data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+                        }
+                    },
+
+                    {
+                        targets: 7,
+                        render: function (data, type, row, meta) {
+
+                            return "<a class='btn btn-info btnDuzenle' vid=" + data + ">   <i class='fas fa-pencil-alt'></i></a > ";
+
+                        }
+                    },
+
+                    {
+                        targets: 8,
+                        render: function (data, type, row, meta) {
+
+                            return "<a class='btn btn-danger btnSil' vid=" + data + "><i class='fas fa-trash'></i></a > ";
+                        }
+                    },
+
+                ],
+
+                initComplete: function (settings, json) {
+                    $("input[data-bootstrap-switch]").each(function () {
+                        $(this).bootstrapSwitch();
+                    });
+                },
+
+                drawCallback: function () {
+                    $("input[data-bootstrap-switch]").each(function () {
+                        $(this).bootstrapSwitch();
+                    })
+                }
+
+            }).buttons().container().appendTo('#tblVideolar_wrapper .col-md-6:eq(0)');
+
+        };
+
+        $(function () {
+            DataTableGenerate();
+        });
+
+        function getYouTubeVideoId(url) {
+            var videoId = null;
+
+            // https://www.youtube.com/watch?v=videoID veya https://youtu.be/videoID formatlarını kontrol ediyoruz
+            var regExp = /(?:youtube\.com(?:\/[^\/\n\s]*)?\?v=|youtu\.be\/)([^"&?\/\s]{11})/;
+            var match = url.match(regExp);
+
+            if (match && match[1]) {
+                videoId = match[1];
+            }
+
+            return videoId;
+        }
+
+        $("#btnVideolarEkle").click(function () {
+
+            var swal = Swal.fire({
+                title: "LÜTFEN BEKLEYİNİZ...",
+                html: "İşleminiz Yapılıyor",
+                timerProgressBar: true,
+                didOpen: () => {
+
+                    Swal.showLoading();
+
+                },
+            });
+
+            var formData = new FormData();
+
+           
+            var VideoAdi = $("#VideoAdi").val();  
+            var SiraNo = $("#SiraNo").val();
+            var Kaynak = $("#Kaynak").val();
+            var Video = $("#Video").val();
+            var VideoUrl = $("#VideoUrl").val();
+            
+
+
+
+
+            formData.append("VideoAdi", VideoAdi)  //form dataya attığım ismi-- değişken ismi
+            formData.append("SiraNo", SiraNo)
+            formData.append("Kaynak", Kaynak)  //form dataya nasıl ekliyorsak controllerda o isimle data içine alıyoruz.
+            formData.append("Video", Video)
+            formData.append("VideoUrl", VideoUrl)
+          
+
+            $.ajax({
+                url: "/AdminPanel/Videolar/VideoEkle",
+                type: "post",
+                dataType: "json",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (r) {
+                    if (r.result) {
+
+                        $("#tblVideolar").DataTable().ajax.reload();
+
+                        Swal.fire({
+                            title: "İşlem Başarılı",
+                            text: "Videolar Başarıyla Eklendi.",
+                            icon: "success"
+                        });
+                        $("#modalVideolarEkle").modal("hide");
+                    }
+                },
+                error: function () {
+
+                }
+            });
+            
+        });
+
+
+
+
+
+        $(function () {
+            $('.select2').select2()
+            $("input[data-bootstrap-switch]").each(function () {
+                $(this).bootstrapSwitch();
+            })
+            $(document).on('switchChange.bootstrapSwitch', '.chkAktif', function (event, state) {
+
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var id = $(this).attr('vid');
+                var aktifpasif = state;
+                $.ajax({
+                    url: "/AdminPanel/Videolar/AktifPasif",
+                    type: "post",
+                    dataType: "json",
+                    data: { id: id, aktif: aktifpasif },
+                    success: function (r) {
+
+                        swal.close();
+                        if (r.result) {
+                            Swal.fire({
+                                title: "İŞLEM BAŞARILI",
+                                text: r.mesaj,
+                                icon: "success"
+                            });
+                        }
+                    },
+                    error: function () {
+
+                    }
+                });
+
+            });
+
+
+
+            $(document).on('click', '.btnDuzenle', function () {
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var id = $(this).attr('vid');
+                $("#GId").val(id);
+
+                $.ajax({
+                    url: "/AdminPanel/Videolar/VideolarGetir",
+                    type: "post",
+                    dataType: "json",
+                    data: { id: id },
+                    success: function (r) {
+
+                        if (r.result) {
+
+                            $("#GVideoAdi").val(r.model.videoAdi);
+                            $("#GVideoUrl").val(r.model.videoUrl);
+                            $("#GSiraNo").val(r.model.siraNo);                          
+                            $("#modalVideolarGuncelle").modal('show');
+                        }
+                        swal.close();
+                    },
+                    error: function () {
+
+                    }
+                });
+
+            });
+
+
+
+
+            $(document).on('click', '#btnVideolarGuncelle', function () {
+
+
+
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+
+                        Swal.showLoading();
+
+                    },
+                });
+
+                var formData = new FormData();
+
+                var VideoAdi = $("#GVideoAdi").val();
+                var VideoUrl = $("#GVideoUrl").val();
+                var SiraNo = $("#GSiraNo").val();
+                var Id = $("#GId").val();
+
+                formData.append("VideoAdi", VideoAdi)
+                formData.append("VideoUrl", VideoUrl)
+                formData.append("SiraNo", SiraNo)
+                formData.append("Id", Id)
+
+
+
+
+                $.ajax({
+                    url: "/AdminPanel/Videolar/VideolarGuncelle",
+                    type: "post",
+                    dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    success: function (r) {
+
+
+                        $("#tblVideolar").DataTable().destroy();
+                        DataTableGenerate();
+
+
+                      
+                        swal.close();
+                        if (r.result) {
+                            Swal.fire({
+                                title: "İŞLEM BAŞARILI",
+                                text: r.mesaj,
+                                icon: "success"
+                            });
+                        }
+                        $("#modalVideolarGuncelle").modal("hide");
+
+                    },
+                    error: function () {
+
+                    }
+                });
+
+            });
+
+
+
+
+            $(document).on('click', '.btnSil', function () {
+
+
+                var id = $(this).attr('vid');
+
+                Swal.fire({
+                    title: "UYARI",
+                    text: "Video Silinecek Emin Misiniz?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "SİL!",
+                    cancelButtonText: "VAZGEÇ!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+
+                        $.ajax({
+                            url: "/AdminPanel/Videolar/VideolarSil",
+                            dataType: "json",
+                            method: "post",
+                            data: { id: id },
+                            success: function (r) {
+
+                                if (r.result) {
+                                    Swal.fire({
+                                        title: "İşlem Başarılı",
+                                        text: "Video Başarıyla Silindi.",
+                                        icon: "success"
+                                    });
+
+                                    $("#tblVideolar").DataTable().ajax.reload();
+
+                                }
+
+                            },
+                            error: function () {
+
+                            }
+                        });
+
+                    }
+
+                });
+
+            });
+        });
+
+    </script>
+
+}

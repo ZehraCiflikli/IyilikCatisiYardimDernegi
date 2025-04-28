@@ -1,0 +1,379 @@
+﻿@using IyilikCatisi.Model.Entity
+@using IyilikCatisi.WebCoreUI.Filters
+@inject ISessionManager _session
+@model YanMenuViewModel
+
+@section Styles{
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="/adminassets/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/adminassets/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/adminassets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/adminassets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="/adminassets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="/adminassets/plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="/adminassets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/adminassets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+}
+@* <style>
+     .main-sidebar {
+        overflow-x: hidden !important;
+    }
+ 
+    .brand-link .brand-image{
+        width: 40px !important;
+    } 
+
+   /*  .d-block{
+        font-size: 20px;
+    }
+ */
+   /*  .sidebar-dark-primary {
+        background-color: #D8D6D3 !important;
+        
+    } */
+
+</style>
+<div class="wrapper">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+    
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+            <img src="/adminassets/img/logo.fw (1).png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light"> KULLANICI PROFİLİM</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                    <img src="@(!string.IsNullOrEmpty(_session.AktifKullanici.Resim)
+                      ? _session.AktifKullanici.Resim
+                      : "/adminassets/img/user2-160x160.jpg")"
+                         class="img-circle elevation-2"
+                         alt="User Image" style="width: 40px; height: 40px; object-fit: cover;" />
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">@_session.AktifKullanici.Adi @_session.AktifKullanici.Soyadi</a>
+            </div>
+        </div>
+
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+                @{
+
+                    foreach (Menu menu in Model.Menuler.Where(x => x.UstMenuId == null))
+                    {
+
+                        if (Model.Menuler.Count(x => x.UstMenuId == menu.Id) > 0) // Bu menünün alt menüleri var mı
+                        {
+
+
+                            if (_session.YetkisiVarmi(menu.Id, @_session.AktifKullanici.Id))
+                            {
+                                <li class="nav-item ">
+                                    <a href="#" class="nav-link ">
+                                        @Html.Raw(menu.MenuIcon)
+                                        <p>
+                                            @menu.Baslik
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+
+                                        @foreach (Menu altmenu in Model.Menuler.Where(x => x.UstMenuId == menu.Id))
+                                        {
+
+
+                                            if (_session.YetkisiVarmi(altmenu.Id, @_session.AktifKullanici.Id))
+                                            {
+
+                                                <li class="nav-item">
+                                                    <a href="@altmenu.Url" class="nav-link">
+                                                        <i class="far fa-circle nav-icon"></i>
+                                                        @Html.Raw(altmenu.MenuIcon)
+                                                        <p>@altmenu.Baslik</p>
+                                                    </a>
+                                                </li>
+
+                                            }
+
+                                        }
+
+                                    </ul>
+
+                                </li>
+                            }
+
+                        }
+                        else
+                        {
+
+                            // Açılmayan Menü ise
+
+
+                            if (_session.YetkisiVarmi(menu.Id, @_session.AktifKullanici.Id))
+                            {
+
+
+
+                                <li class="nav-item">
+                                    <a href="@menu.Url" class="nav-link">
+                                        @Html.Raw(menu.MenuIcon)
+                                        <p>
+                                            @menu.Baslik
+                                        </p>
+                                    </a>
+                                </li>
+
+
+                            }
+
+
+
+
+
+                        }
+
+
+
+                    }
+
+
+                }
+
+
+
+
+
+
+                <li class="nav-item">
+                    <a href="/KullaniciPanel/Cikis" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        ÇIKIŞ
+                    </a>
+                </li>
+
+
+
+
+
+
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+
+
+
+
+</aside>
+</div>
+
+@section Scripts{
+    <script src="/adminassets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/adminassets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/adminassets/js/adminlte.min.js"></script>
+
+    <!-- DataTables  & Plugins -->
+    <script src="/adminassets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/adminassets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/adminassets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/adminassets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="/adminassets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/adminassets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="/adminassets/plugins/jszip/jszip.min.js"></script>
+    <script src="/adminassets/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="/adminassets/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="/adminassets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="/adminassets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="/adminassets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="/adminassets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <script src="/adminassets/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="/adminassets/plugins/select2/js/select2.full.min.js"></script>
+    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+}
+
+ *@
+ @* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////7 *@
+
+
+
+
+
+
+
+<style>
+    .main-sidebar {
+        background-color: white !important;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        margin: 20px !important; /* Kenarlardan boşluk */
+        border-radius: 15px !important; /* Köşeleri yuvarlatma */
+        height: auto !important; /* Yüksekliği otomatik ayarla */
+        /* position: fixed !important; KALDİRİLDİ */
+        /* top: 60px !important; KALDİRİLDİ */
+        /* left: 0 !important; KALDİRİLDİ */
+        width: 280px !important; /* Genişlik ayarı */
+        float: left; /* Sol tarafa yasla */
+        margin-bottom: 20px; /* Alt boşluk */
+        min-height:0px !important;
+        max-height:500px !important;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Hepsi ortalanır */
+        overflow: hidden; /* Scrollbar'ı gizler */
+        padding: 20px;
+    }
+
+    /* AdminLTE'nin varsayılan sol boşluğunu sıfırlama */
+    .layout-fixed .main-sidebar {
+        left: 0 !important; /* Veya 'auto' yapabilirsiniz */
+
+    }
+
+    body:not(.layout-fixed) .main-sidebar {
+        min-height: 100%;
+        position: relative;
+        top: 70px;
+        min-width: 300px;
+        left: 250px;
+        z-index:450;
+    }
+    /* İçerik alanı için margin ayarı - Artık float kullanıldığı için gerekebilir */
+    .content-wrapper {
+        margin-left: 320px !important; /* Yan menü genişliği + boşluklar, gerekirse ayarlanmalı */
+        padding-top: 80px !important; /* Üst menü için boşluk */
+    }
+
+    .sidebar-dark-primary {
+        background-color: white !important;
+    }
+
+    .brand-link {
+        border-bottom: 1px solid #f4f4f4 !important;
+        border-top-left-radius: 15px !important;
+        border-top-right-radius: 15px !important;
+    }
+
+        .brand-link .brand-image {
+            width: 150px !important;
+            margin-left: 0.5rem;
+            height:250px !important;
+            max-height: 150px !important;
+        } 
+
+    .brand-text {
+        color: #333 !important;
+        font-weight: 500 !important;
+    }
+
+    .user-panel {
+        border-bottom: 1px solid #f4f4f4 !important;
+    }
+
+        .user-panel .info a {
+            color: #333 !important;
+            font-size: 20px;
+        }
+
+    .nav-sidebar .nav-item .nav-link {
+        color: #666 !important;
+    }
+
+        .nav-sidebar .nav-item .nav-link:hover {
+            color: #38B6FF !important;
+        }
+
+        .nav-sidebar .nav-item .nav-link.active {
+            background-color: #38B6FF !important;
+            color: white !important;
+        }
+
+   
+</style>
+
+
+<div class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Logo ve Başlık -->
+    <div class="brand-link">
+        <img src="/images/logo/logo.fw (1).png" alt="Logo" class="brand-image">
+        
+    </div>
+
+    <div class="sidebar">
+        <!-- Kullanıcı Profil Alanı -->
+        <div class="user-panel mt-3 pb-3 mb-3 ml-5 d-flex">
+            <div class="image">
+                <img src="@(!string.IsNullOrEmpty(_session.AktifKullanici.Resim) ? _session.AktifKullanici.Resim : "/adminassets/img/user2-160x160.jpg")"
+                     class="img-circle elevation-2" alt="Kullanıcı Resmi">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">@_session.AktifKullanici.Adi @_session.AktifKullanici.Soyadi</a>
+            </div>
+        </div>
+
+        <!-- Ana Menü -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item active">
+                    <a href="/StandartKullaniciPanel/KullaniciPanel/Index" class="nav-link">
+                        <i class="fas fa-user nav-icon"></i>
+                        <p>Profil Ayarları</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/StandartKullaniciPanel/Bagis" class="nav-link">
+                        <i class="fas fa-hand-holding-heart nav-icon"></i>
+                        <p>Bağışlarım</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/StandartKullaniciPanel/Talimat" class="nav-link">
+                        <i class="fas fa-file-alt nav-icon"></i>
+                        <p>Talimatlarım</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/StandartKullaniciPanel/Gonullu" class="nav-link">
+                        <i class="fas fa-hands-helping nav-icon"></i>
+                        <p>Gönüllü Başvurum</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/KullaniciPanel/Cikis" class="nav-link">
+                        <i class="fas fa-sign-out-alt nav-icon"></i>
+                        <p>Oturumu Kapat</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</div>

@@ -1,0 +1,124 @@
+﻿@model List<EtkinlikIndexViewModel>
+
+
+<div class="item teaser-page-list">
+	<div class="container_16">
+		<aside class="grid_10">
+			<h1 class="page-title">Upcomming Events</h1>
+		</aside>
+		<div class="grid_6">
+			<div id="rootline">
+				<a href="#">Home Page</a> <i class="fa fa-angle-right" aria-hidden="true"></i> <span class="current">Upcomming Events</span>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div id="main" class="site-main container_16">
+	<div class="inner">
+		<div id="primary" class="grid_11 suffix_1">
+
+			<!-- Articles -->
+			@for (int i = 0; i < Model.Count; i++)
+			{
+				<article class="list vevent">
+					<div class="short-content">
+						<figure>
+							<a title="Image title" href="/Etkinlik/Detay/@Model[i].Id" class="url summary">
+								<img width="272" height="150" src="@Model[i].KapakFoto" class="wp-post-image" alt="Image alt">
+								<div class="mask radius">
+									<div class="mask-square"><i class="fa fa-link" aria-hidden="true"></i></div>
+								</div>
+							</a>
+						</figure>
+
+						<h1 class="entry-header">
+							<a class="url summary" title="@Model[i].Baslik" href="/Etkinlik/Detay/@Model[i].Id">@Model[i].Baslik</a>
+						</h1>
+
+						<div class="short-description description">
+							<p>@Model[i].Aciklama</p>
+						</div>
+
+						<div class="entry-meta">
+							<time class="dtstart" datetime="2018-04-25T19:02:42+00:00"><a class="buttons time fleft" href="#"><i class="fa fa-calendar" aria-hidden="true"></i> @Model[i].Tarih.Value.ToString("dd/MM/yyyy")</a></time> <a class="buttons facebook fleft" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i> @Model[i].Konum</a> <a class="buttons fright" href="/Etkinlik/Detay/@Model[i].Id" title="Detay">Detay</a>
+						</div>
+						<div class="clear"></div>
+
+					</div>
+					<div class="clear"></div>
+				</article>
+			}
+
+
+			<!-- Pagination -->
+			<ul class="pagination">
+				<li><a class="active radius" href="#">1</a></li>
+				<li><a class="radius" href="#">2</a></li>
+				<li><a class="radius" href="#">3</a></li>
+				<li><a class="radius" href="#">4</a></li>
+				<li><a class="radius" href="#">5</a></li>
+			</ul>
+
+		</div>
+
+		<div id="secondary" class="grid_4 widget-area" role="complementary">
+
+			<aside id="wpltfb-2" class="widget WPlookCauses">
+				<div class="widget-title">
+					<h3>Events</h3>
+					<div class="viewall fright"><a href="04-event-list.html" class="radius" title="View all chauses">view all</a></div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="widget-event-body">
+					<article class="event-item">
+						<figure>
+							<a title="Image title" href="https://themes.wplook.com/html/charitas/05-event-single.html">
+								<img width="272" height="150" src="https://themes.wplook.com/html/charitas/images/temp/small-04.jpg" class="wp-post-image" alt="Image alt">
+								<div class="mask radius">
+									<div class="mask-square"><i class="fa fa-link" aria-hidden="true"></i></div>
+								</div>
+							</a>
+						</figure>
+						<h3 class="entry-header">
+							<a title="Change a Life Through Education Lorem Ipsum dolar sit and dolar" href="https://themes.wplook.com/html/charitas/05-event-single.html">Supporting a day centre</a>
+						</h3>
+
+						<div class="entry-meta-widget">
+							<div class="date"><time datetime="2018-04-25T19:02:42+00:00"><i class="fa fa-calendar" aria-hidden="true"></i> June 1, 2018</time></div>
+							<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <a href="#">51 Sherbrooke W., Montreal</a></div>
+							<div class="facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i> <a href="#">Facebook</a></div>
+						</div>
+
+					</article>
+
+					<!-- Second Event -->
+					<article class="event-item">
+						<figure>
+							<a title="Image title" href="https://themes.wplook.com/html/charitas/05-event-single.html">
+								<img width="272" height="150" src="https://themes.wplook.com/html/charitas/images/temp/small-06.jpg" class="wp-post-image" alt="Image alt">
+								<div class="mask radius">
+									<div class="mask-square"><i class="fa fa-link" aria-hidden="true"></i></div>
+								</div>
+							</a>
+						</figure>
+						<h3 class="entry-header">
+							<a title="Change a Life Through Education Lorem Ipsum dolar sit and dolar" href="https://themes.wplook.com/html/charitas/05-event-single.html">Social Networking for Charity</a>
+						</h3>
+
+						<div class="entry-meta-widget">
+							<div class="date"><time datetime="2018-04-25T19:02:42+00:00"><i class="fa fa-calendar" aria-hidden="true"></i> June 10, 2018</time></div>
+							<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <a href="#">51 Sherbrooke W., Montreal</a></div>
+							<div class="facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i> <a href="#">Facebook</a></div>
+						</div>
+
+					</article>
+				</div>
+			</aside>
+
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>

@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="tr">
+<head>
+
+	<!--  Basic Page Needs -->
+	<meta charset="UTF-8" />
+	<title>İyilik Çatısı - @ViewData["Title"]</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="https://themes.wplook.com/html/charitas/favicon.ico" />
+	<link rel="apple-touch-icon" href="https://themes.wplook.com/html/charitas/apple-touch-icon.png" />
+
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	@* <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" /> *@
+	<!-- CSS -->
+
+	<link href="~/lib/bootstrap/dist/css/bootstrap-grid.min.css" rel="stylesheet" />
+
+
+	<link rel="stylesheet" type="text/css" media="all" href="~/sumuklucocuk/style.css" />
+	@* <link rel="stylesheet" type="text/css" media="all" href="~/sumuklucocuk/font-awesome.min.css" /> *@
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="all" href="~/sumuklucocuk/flexslider.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="~/sumuklucocuk/keyframes.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="~/sumuklucocuk/grid.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="~/sumuklucocuk/meanmenu.css" />
+	<link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+	<style>
+
+		/* .site-footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 60px;
+			background-color: rgba(255, 255, 255, 0.9); 
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 16px;
+			color: #333;
+			z-index: 2;
+		} */
+
+
+		/* .site-footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background-color: white; 
+			text-align: center;
+			/* line-height: 50px; 
+			z-index: 1; 
+		} */
+	</style>
+
+	@RenderSection("Styles", false)
+
+
+	
+	
+
+
+</head>
+<body class="home blog two-column right-sidebar" data-twttr-rendered="true">
+	<script type="text/javascript">
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '../../../www.google-analytics.com/analytics.js', '__gaTracker');
+
+		__gaTracker('create', 'UA-348094-43', 'auto', { 'allowLinker': true });
+		__gaTracker('set', 'forceSSL', true);
+		__gaTracker('require', 'linker');
+		__gaTracker('linker:autoLink', ['wplook.com']);
+		__gaTracker('send', 'pageview');
+
+	</script>
+	<div id="page">
+
+		<!-- Toolbar -->
+		<div id="toolbar">
+			<div class="container_16">
+				<div class="grid_16">
+					<ul>
+						<li class="phone"><a href="tel:+1 554 555 5555">Tel.: +9 0544 239 20 72</a></li>
+						<li class="rss"><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+						<li class="contact"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+						<li class="share">
+							<a href="#"><i class="fa fa-share" aria-hidden="true"></i></a>
+							<ul class="share-items radius-bottom">
+								<li class="share-item-fb radius"><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+								<li class="share-item-tw radius"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								<li class="share-item-gp radius"><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+							</ul>
+						</li>
+						<li class="search">
+							<a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+							<ul class="search-items radius-bottom">
+								<li>
+									<div class="search-form">
+										<form method="get" id="searchform" action="https://themes.wplook.com/html/charitas/action">
+											<div>
+												<input class="radius" type="text" size="" name="s" id="s" value="Type your searching word" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
+												<input type="submit" id="searchsubmit" value="Search" />
+											</div>
+										</form>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li class="donate"><a href="../../../wplook.com/product/themes/non-profit/charitas-charity-nonprofit-wordpress-theme/indexe559.html?utm_source=Menu-HTML-URL&amp;utm_medium=link&amp;utm_campaign=Charitas"> BAĞIŞ <i class="fa fa-tint" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- /#toolbar -->
+
+		<header id="branding" class="site-header" role="banner">
+			<div id="sticky_navigation">
+				<div class="container_16">
+					<hgroup class="fleft grid_5">
+						<img src="/images/logo/logo.fw (1).png" width="100px"/>
+						@* <h1 id="site-title"><a asp-controller="Home" asp-action="Index" title="Charitas - Foundation" rel="home">İyilik Çatısı</a></h1>
+						<h2 id="site-description">Yardım Derneği</h2>
+						 *@
+					</hgroup>
+
+					<nav role="navigation" class="site-navigation main-navigation grid_11" id="site-navigation">
+						<div class="menu-main-menu-container">
+							<ul id="menu-main-menu" class="nav-menu">
+								<li class="menu-item "><a asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
+								<li class="menu-item ">
+									<a href="#"> Derneğimiz Hakkında</a>
+									<ul class="sub-menu">
+										<li class="menu-item"><a href="/Home/Tarihcemiz">Derneğimizin Tarihçesi</a></li>
+										<li class="menu-item"><a href="/Home/Tuzuk">Derneğimizin Tüzüğü</a></li>
+										<li class="menu-item"><a href="/Home/YonetimKurulu">Yönetim Kurulu</a></li>
+										<li class="menu-item"><a href="/Home/DenetimKurulu">Denetim Kurulu</a></li>
+										@await Component.InvokeAsync("dernekMenu")
+										
+									</ul>
+
+								</li>
+								<li class="menu-item ">
+									<a href="#">Etkinliklerimiz</a>
+									<ul class="sub-menu">
+										<li class="menu-item"><a href="/Etkinlik/Index" >Etkinlikler</a></li>
+										<li class="menu-item"><a href="https://themes.wplook.com/html/charitas/04-event-list.html">Past Events</a></li>
+
+									</ul>
+								</li>
+								<li class="menu-item ">
+									<a href="#">Galeri</a>
+									<ul class="sub-menu">
+										<li class="menu-item"><a href="/Galeri/Fotograflar">Fotoğraflar</a></li>
+										<li class="menu-item"><a href="/Galeri/Videolar">Videolar</a></li>
+
+									</ul>
+
+								</li>
+								@* <li class="menu-item "><a href="https://themes.wplook.com/html/charitas/08-staff.html">Kadromuz</a></li>
+								<li class="menu-item ">
+									<a href="#">Pages</a>
+									<ul class="sub-menu">
+										<li class="menu-item"><a href="https://themes.wplook.com/html/charitas/11-elements.html">HTML Elements</a></li>
+										<li class="menu-item"><a href="https://themes.wplook.com/html/charitas/12-404.html">404 Page</a></li>
+										<li class="menu-item"><a href="../../../wplook.com/product/themes/non-profit/charitas-charity-nonprofit-wordpress-theme/indexe559.html?utm_source=Menu-HTML-URL&amp;utm_medium=link&amp;utm_campaign=Charitas">Purchase Now!</a></li>
+									</ul>
+								</li> *@
+								<li class="menu-item "><a href="/Iletisim/Index">İletişim</a></li>
+								<li class="donate"> <a class="button large light-blue round" asp-controller="Kullanici" asp-action="Login"> Giriş @* <i class="fa fa-tint" aria-hidden="true"></i> *@</a></li>
+							</ul>
+						</div>
+					</nav>
+					<!-- .site-navigation .main-navigation -->
+					<div class="grid_16 mob-nav"></div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</header>
+		<!-- #masthead .site-header -->
+		<!-- Teaser / Slider -->
+	    <!-- Second widget areea -->
+		<!-- Third widget areea -->			
+		<!-- Second Cause -->
+		<!-- Third Cause -->
+		<!-- Forth Cause -->
+		<!-- Forth widget areea -->
+		<!-- Fifth Widget area -->
+		<!-- First canditate -->
+		<!-- Second canditate -->
+		<!-- Third canditate -->
+		<!-- Forth canditate -->
+
+		<div class="container">
+			<main role="main" class="pb-3">
+				@RenderBody()
+			</main>
+		</div>
+		@RenderSection("BottomSpace",false)
+
+
+
+		<!-- Footer -->
+		<footer id="colophon" class="site-footer" role="contentinfo">
+			<div id="tertiary" class="sidebar-container" role="complementary">
+				<div class="container_16">
+					
+					<!-- First Widget Area -->
+					<div class="grid_4">
+						<aside id="meta-0" class="widget widget_meta">
+							<h3>İyilik Çatısı Derneği</h3>
+							<hr />
+							<p style="color:white;">
+								İyilik Çatısı Derneği, 2024 yılında, toplumsal dayanışma ve yardımlaşma kültürünü güçlendirmek amacıyla bir grup gönüllü tarafından kurulmuştur.
+							</p>
+						</aside>
+					</div>
+
+					<!-- Second Widget Area -->
+					<div class="grid_4">
+						<aside id="meta-1" class="widget widget_meta">
+							<h3>Menü</h3>
+							<hr />
+							<ul>
+								<li><a href="#">Anasayfa</a></li>
+								<li><a href="#">Haberler</a></li>
+								<li><a href="#">Fotoğraf Galerisi</a></li>
+								<li><a href="#">Video Galerisi</a></li>
+								<li><a href="#">Ziyaretçi Defteri</a></li>
+								<li><a href="#">İletişim</a></li>
+							</ul>
+						</aside>
+					</div>
+
+				
+					<!-- Third Widget Area -->
+					<div class="grid_4">
+						<aside id="meta-2" class="widget widget_meta">
+							<h3>Takip Edin</h3>
+							<hr />
+							<ul class="list-unstyled">
+								<li class="ikon">
+									<a href="https://www.facebook.com/vektorelbilisim" target="_blank">
+										<i class="fab fa-facebook"></i>
+									</a>
+									<a href="https://www.instagram.com/vektorelbilisim/" target="_blank" class="ml-1">
+										<i class="fab fa-instagram"></i>
+									</a>
+									<a href=
+									   "https://www.youtube.com/channel/UCyZcR78YLQZ3oDTTsZcuU_Q/"
+									target="_blank" class="ml-1">
+										<i class="fab fa-youtube"></i>
+									</a>
+									<a href="https://twitter.com/vektorelbilisim" target="_blank" class="ml-1">
+										<i class="fab fa-twitter"></i>
+									</a>
+								</li>
+							</ul>
+						</aside>
+					</div>
+
+					<!-- Forth Widget Area -->
+					<div class="grid_4">
+						<aside id="meta-3" class="widget widget_adress">
+							<h3>İletişim</h3>
+							<hr />
+							<address class="vcard">
+								@* <p class="org vcard"><a class="url fn org" href="#"></a><p> *@
+								<p class="adr">
+									<b>Adres</b> -<span class="street-address"> KARŞIYAKA MAH. 518 SOKAK Dış Kapı No:3E</span><br>
+									<span class="region"> Yenimahalle,</span>
+									@* <span class="postal-code"> H4B H4Y,</span> *@
+									<span class="country-name"> ANKARA</span>
+								</p>
+								<b>Telefon:</b><span class="tel">0546 566 74 89</span><br />
+								<b>E-mail:</b><span class="email">iyilikcatisiyardim@gmail.com</span><br />
+								<b>Website:</b><span class="url">www.iyilikcatisi.org.tr</span><br />
+							</address>
+							<p>
+								Whatsapp:    <a href="https://wa.me/9005442392072" target="_blank">
+									<i class="fab fa-whatsapp ikon whatsapp-green"></i>
+								</a>
+							</p>
+							
+						</aside>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+			</div>
+
+
+			<!-- Site Info -->
+			<div class="site-info">
+				<div class="container_16">
+
+					<!-- CopyRight -->
+					<div class="grid_8">
+						<p class="copy">Copyright ©  2025.  All Rights reserved.  </p>
+					</div>
+
+					<!-- Design By -->
+					<div class="grid_8">
+						<p class="designby"> <a href="../../../wplook.com/product/themes/non-profit/charitas-charity-nonprofit-wordpress-theme/index6fa8.html?utm_source=Footer-URL&amp;utm_medium=link&amp;utm_campaign=Charitas"></a></p>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+			</div><!-- .site-info -->
+		</footer><!-- #colophon .site-footer -->
+
+	</div>
+	<!-- /#page -->
+	<script type='text/javascript' src='~/sumuklucocuk/jquery.min.js'></script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+	<script src="~/sumuklucocuk/base.js"></script>
+
+	<!-- Scripts for plugins -->
+	<script src="~/sumuklucocuk/jquery.fitvids.js"></script>
+	<script src="~/sumuklucocuk/jquery.meanmenu.js"></script>
+	<script src="~/sumuklucocuk/jquery.flexslider-min.js"></script>
+	<script src="~/sumuklucocuk/jquery.inview.js"></script>
+	<script src="~/sumuklucocuk/jquery.scrollParallax.min.js"></script>
+	<script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+
+	@RenderSection("Scripts", false)
+</body>
+
+</html>

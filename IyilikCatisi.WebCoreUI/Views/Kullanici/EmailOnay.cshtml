@@ -1,0 +1,134 @@
+﻿@* <div class="alert alert-success">
+
+
+    Emailiniz başarıyla onaylandı. 
+    <a href="http://localhost:5205/Kullanici/Login">Sayfaya dönmek için tıklayınız. </a>
+
+</div>
+ *@
+
+
+@{
+    Layout = null; // Layout kullanmıyoruz
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>E-posta Onaylandı - İyilik Çatısı</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="~/login_register_assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/login_register_assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/login_register_assets/css/form-elements.css">
+    <link rel="stylesheet" href="~/login_register_assets/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://themes.wplook.com/html/charitas/favicon.ico" />
+    <link rel="apple-touch-icon" href="https://themes.wplook.com/html/charitas/apple-touch-icon.png" />
+
+    <style>
+        /* Arka planı Login sayfasıyla aynı yapmak için */
+        body {
+            background: url('/login_register_assets/img/backgrounds/16x9_can_you_create_a_background_phot.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+        /* İçeriği dikeyde biraz daha ortalamak için */
+        .inner-bg {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        /* Buton stilini login/register butonlarına benzetelim */
+        .form-bottom .btn {
+            width: 100%; /* Genişliği tam yapalım */
+        }
+        /* Mesaj alanını biraz daha ayıralım */
+        .confirmation-message {
+            padding: 20px;
+            color: #555;
+            text-align: center;
+        }
+
+            .confirmation-message h4 {
+                color: #333;
+                margin-top: 0;
+                margin-bottom: 15px;
+                font-weight: 300;
+            }
+
+            .confirmation-message p {
+                margin-bottom: 20px;
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            .confirmation-message i {
+                font-size: 3em; /* İkonu biraz büyütelim */
+                color: #5cb85c; /* Başarı ikonu rengi */
+                margin-bottom: 15px;
+            }
+
+        .form-box {
+            margin-top: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Top content -->
+    <div class="top-content">
+        <div class="inner-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text">
+                        @* İsteğe bağlı başlık alanı *@
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="form-box">
+                            <div class="form-top">
+                                <div class="form-top-left">
+                                    <h3>E-posta Başarıyla Onaylandı!</h3>
+                                    <p>Hesabınız artık aktif</p>
+                                </div>
+                                <div class="form-top-right">
+                                    <i class="fa fa-check-circle"></i> @* Farklı bir başarı ikonu *@
+                                </div>
+                            </div>
+                            <div class="form-bottom confirmation-message">
+                                <i class="fa fa-thumbs-up"></i> @* Onay/Beğeni ikonu *@
+                                <h4>Tebrikler!</h4>
+                                <p>
+                                    E-posta adresiniz başarıyla doğrulandı. Artık hesabınıza giriş yapabilir ve platformumuzu kullanmaya başlayabilirsiniz.
+                                </p>
+                                <a href="@Url.Action("Login", "Kullanici")" class="btn">Giriş Yap</a>
+                                @* Veya link stili: <a href="@Url.Action("Login", "Kullanici")" class="btn btn-link-2">Giriş Yap</a> *@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="~/login_register_assets/js/jquery-1.11.1.min.js"></script>
+    <script src="~/login_register_assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/login_register_assets/js/jquery.backstretch.min.js"></script>
+    <script>
+        // Arka planı ayarlama
+        jQuery(document).ready(function () {
+            $.backstretch("/login_register_assets/img/backgrounds/16x9_can_you_create_a_background_phot.png");
+        });
+    </script>
+
+</body>
+</html>

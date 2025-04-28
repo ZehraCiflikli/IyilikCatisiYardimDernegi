@@ -1,0 +1,191 @@
+﻿@section ContentHeader
+{
+    <button type="button" class="btn btn-success btnDugme" data-toggle="modal" data-target="#modalYonetimKuruluEkle">
+        Yönetim Kurulu Üye Ekle
+    </button>
+}
+
+@model YonetimKuruluIndexViewModel
+<div class="col-12">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Yönetim Kurulu Üyeleri</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="tblYonetimKurulu" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Sıra No</th>
+                        <th>Ad Soyad</th>
+                        <th>Unvan</th>
+                        <th>Eposta</th>
+                        <th>Göreve Başlangıç Tarihi</th>
+                        <th>Meslek</th>
+                        <th>İkamet</th>
+                        <th>Resim</th>
+                        <th>Aciklama</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+</div>
+
+@section Styles {
+
+    <link href="~/adminassets/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" />
+
+}
+<form id="frmYonetimKuruluEkle">
+    <div class="modal fade" id="modalYonetimKuruluEkle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Yönetim Kurulu Üye Ekleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">
+                       
+                        <div class="form-group">
+                            <label>Ad Soyad</label>
+                            <input type="text" class="form-control" asp-for="AdSoyadi" placeholder="Ad Soyad">
+                        </div>
+                        <div class="form-group">
+                            <label>Ünvan</label>
+                            <input type="text" class="form-control" asp-for="Unvan" placeholder="Ünvan">
+                        </div>
+                        <div class="form-group">
+                            <label>Eposta</label>
+                            <input type="email" class="form-control" asp-for="Eposta" placeholder="Eposta">
+                        </div>
+                        <div class="form-group">
+                            <label>Göreve Başlangıç Tarihi</label>
+                            <input type="date" class="form-control" asp-for="GoreveBaslangicTarihi" placeholder="Göreve Başlangıç Tarihi">
+                        </div>
+                        <div class="form-group">
+                            <label>Meslek</label>
+                            <input type="text" class="form-control" asp-for="Meslek" placeholder="Meslek">
+                        </div>
+                        <div class="form-group">
+                            <label>İkamet</label>
+                            <input type="text" class="form-control" id="ikamet" asp-for="İkamet" placeholder="İkamet">
+                        </div>
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            <textarea asp-for="Aciklama"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Resim</label>
+                            <input asp-for=FUResim type="file" />
+                        </div>
+
+                    </div>
+                    <!-- /.card-body -->
+
+
+
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnYonetimKuruluEkle" class="btn btn-primary">KAYDET</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+<form id="frmYonetimKuruluGuncelle">
+    <div class="modal fade" id="modalYonetimKuruluGuncelle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Yönetim Kurulu Güncelleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">
+                        
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="GId">
+
+                            <label>Ad Soyad</label>
+                            <input type="text" class="form-control" id="GAdSoyad" placeholder="Ad Soyad">
+                        </div>
+                        <div class="form-group">                          
+                            <label>Ünvan</label>
+                            <input type="text" class="form-control" id="GUnvan" placeholder="Ünvan">
+                        </div>
+                        <div class="form-group">
+                            <label>Eposta</label>
+                            <input type="email" class="form-control" id="GEposta" placeholder="Eposta">
+                        </div>
+                        <div class="form-group">
+                            <label>Göreve Başlangıç Tarihi</label>
+                            <input type="date" class="form-control" id="GGoreveBaslangicTarihi" placeholder="Göreve Başlangıç Tarihi">
+                        </div>
+                        <div class="form-group">
+                            <label>Meslek</label>
+                            <input type="text" class="form-control" id="GMeslek" placeholder="Meslek">
+                        </div>
+                        <div class="form-group">
+                            <label>İkamet</label>
+                            <input type="text" class="form-control" id="Gİkamet" placeholder="İkamet">
+                        </div>
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            <textarea id="GAciklama"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Resim</label>
+                            <br />
+                            <img id="GResim" src="/adminassets/img/default-150x150.png" width="120" />
+                            <input id="GFUResim" type="file" />
+                        </div>
+
+                    </div>
+                    <!-- /.card-body -->
+
+
+
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnYonetimKuruluGuncelle" class="btn btn-primary">GÜNCELLE</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+
+@section Scripts {
+
+
+    <script src="~/adminassets/js/custom/yonetimKurulu.js"></script>
+    
+
+}

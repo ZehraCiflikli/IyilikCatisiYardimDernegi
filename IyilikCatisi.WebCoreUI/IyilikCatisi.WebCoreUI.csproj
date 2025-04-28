@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Automapper" Version="13.0.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\IyilikCatisi.Business\IyilikCatisi.Business.csproj" />
+    <ProjectReference Include="..\IyilikCatisi.Model\IyilikCatisi.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\AdminPanel\Data\" />
+    <Folder Include="Areas\AdminPanel\Views\Shared\Partials\" />
+    <Folder Include="Areas\StandartKullaniciPanel\Data\" />
+    <Folder Include="Areas\StandartKullaniciPanel\Models\" />
+    <Folder Include="wwwroot\images\kategori\" />
+    <Folder Include="wwwroot\images\dernek\" />
+    <Folder Include="wwwroot\images\kullanici\" />
+    <Folder Include="wwwroot\images\etkinlik\" />
+    <Folder Include="wwwroot\images\fotograflar\" />
+    <Folder Include="wwwroot\images\banka\" />
+    <Folder Include="wwwroot\images\menu\" />
+  </ItemGroup>
+
+</Project>

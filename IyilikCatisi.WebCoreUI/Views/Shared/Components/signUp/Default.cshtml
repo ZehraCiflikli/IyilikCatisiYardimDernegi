@@ -1,0 +1,58 @@
+﻿@model KullaniciSignupVm
+
+<div class="col-sm-5">
+
+	<div class="form-box">
+		<div class="form-top">
+			<div class="form-top-left">
+				<h3>Şimdi Üye Ol</h3>
+				<p>Anında erişim sağlamak için aşağıdaki formu doldurun:</p>
+			</div>
+			<div class="form-top-right">
+				<i class="fa fa-pencil"></i>
+			</div>
+		</div>
+		<div class="form-bottom">
+			<form asp-controller="Kullanici" asp-action="Add" method="post">
+				<div class="form-group">
+					<input type="text" placeholder="Adınız" class="form-first-name form-control" asp-for="Adi">
+					<span asp-validation-for="Adi"></span>
+				</div>
+				<div class="form-group">
+
+					<input type="text" placeholder="Soyadınız" class="form-last-name form-control" asp-for="Soyadi">
+					<span asp-validation-for="Soyadi"></span>
+				</div>
+				<div class="form-group">
+
+					<input type="date" placeholder="Doğum Tarihiniz" class="form-first-name form-control" asp-for="DogumTarihi">
+					<span asp-validation-for="DogumTarihi"></span>
+				</div>
+				<div class="form-group">
+
+					<input type="email" placeholder="Emailiniz" class="form-email form-control" asp-for="Email">
+					<span asp-validation-for="Email"></span>
+				</div>
+				<div class="form-group">
+
+					<input type="tel" placeholder="Cep Telefonu Numaranız" class="form-first-name form-control" asp-for="CepTel">
+					<span asp-validation-for="CepTel"></span>
+				</div>
+				<div class="form-group">
+
+					<input type="password" placeholder="Şifreniz" class="form-first-name form-control" asp-for="Sifre">
+					<span asp-validation-for="Sifre"></span>
+				</div>
+				<div class="form-group">
+
+					<input type="password" placeholder="Şifrenizi Tekrar Giriniz" class="form-first-name form-control" asp-for="SifreTekrar">
+					<span asp-validation-for="SifreTekrar"></span>
+				</div>
+
+
+				<button type="submit" class="btn btnKayitOl">KAYDOL</button>
+			</form>
+		</div>
+	</div>
+
+</div>

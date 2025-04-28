@@ -1,0 +1,535 @@
+Hata Tarihi:7.02.2025 14:53:26 Hata Mesajı :Exception of type 'System.Exception' was thrown.
+Hata Tarihi:11.02.2025 17:12:58 Hata Mesajı :The view '<p>Takatım Kalmadı</p>' was not found. The following locations were searched:
+/Areas/AdminPanel/Views/Dernek/<p>Takatım Kalmadı</p>.cshtml
+/Areas/AdminPanel/Views/Shared/<p>Takatım Kalmadı</p>.cshtml
+/Views/Shared/<p>Takatım Kalmadı</p>.cshtml
+Hata Tarihi:11.02.2025 17:13:47 Hata Mesajı :The layout page '/Areas/AdminPanel/Views/Shared/_AdminLayout.cshtml' cannot find the section 'ContentHeader' in the content page '/Areas/AdminPanel/Views/Dernek/Tarihce.cshtml'.
+Hata Tarihi:11.02.2025 17:13:53 Hata Mesajı :The layout page '/Areas/AdminPanel/Views/Shared/_AdminLayout.cshtml' cannot find the section 'ContentHeader' in the content page '/Areas/AdminPanel/Views/Dernek/Tarihce.cshtml'.
+Hata Tarihi:11.02.2025 17:13:57 Hata Mesajı :The layout page '/Areas/AdminPanel/Views/Shared/_AdminLayout.cshtml' cannot find the section 'ContentHeader' in the content page '/Areas/AdminPanel/Views/Dernek/Tarihce.cshtml'.
+Hata Tarihi:11.02.2025 17:14:17 Hata Mesajı :Value cannot be null or empty. (Parameter 'viewPath')
+Hata Tarihi:11.02.2025 18:05:30 Hata Mesajı :Unable to resolve service for type 'IyilikCatisi.Business.Concrete.BaseConcrete.EntityFramework.DernekBS' while attempting to activate 'IyilikCatisi.WebCoreUI.Areas.AdminPanel.Controllers.DernekController'.
+Hata Tarihi:11.02.2025 18:05:56 Hata Mesajı :Unable to resolve service for type 'IyilikCatisi.Business.Concrete.BaseConcrete.EntityFramework.DernekBS' while attempting to activate 'IyilikCatisi.WebCoreUI.Areas.AdminPanel.Controllers.DernekController'.
+Hata Tarihi:11.02.2025 18:07:08 Hata Mesajı :Unable to resolve service for type 'IyilikCatisi.Business.Concrete.BaseConcrete.EntityFramework.DernekBS' while attempting to activate 'IyilikCatisi.WebCoreUI.Areas.AdminPanel.Controllers.DernekController'.
+Hata Tarihi:11.02.2025 18:07:10 Hata Mesajı :Unable to resolve service for type 'IyilikCatisi.Business.Concrete.BaseConcrete.EntityFramework.DernekBS' while attempting to activate 'IyilikCatisi.WebCoreUI.Areas.AdminPanel.Controllers.DernekController'.
+Hata Tarihi:11.02.2025 18:11:44 Hata Mesajı :Invalid object name 'Tarihce'.
+Hata Tarihi:11.02.2025 18:13:52 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:11.02.2025 18:45:43 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:11.02.2025 18:46:04 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:11.02.2025 18:51:22 Hata Mesajı :The property 'Tarihce.Id' has a temporary value while attempting to change the entity's state to 'Modified'. Either set a permanent value explicitly, or ensure that the database is configured to generate values for this property.
+Hata Tarihi:11.02.2025 19:47:41 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:12.02.2025 02:14:31 Hata Mesajı :The layout page '/Areas/AdminPanel/Views/Shared/_AdminLayout.cshtml' cannot find the section 'ContentHeader' in the content page '/Areas/AdminPanel/Views/Dernek/Index.cshtml'.
+Hata Tarihi:12.02.2025 17:32:47 Hata Mesajı :The layout page '/Areas/AdminPanel/Views/Shared/_AdminLayout.cshtml' cannot find the section 'ContentHeader' in the content page '/Areas/AdminPanel/Views/Dernek/Index.cshtml'.
+Hata Tarihi:12.02.2025 18:12:54 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:13.02.2025 20:51:29 Hata Mesajı :The input string 'undefined' was not in a correct format.
+Hata Tarihi:16.02.2025 15:50:39 Hata Mesajı :Cannot use table 'Tarihce' for entity type 'Tuzuk' since it is being used for entity type 'Tarihce' and potentially other entity types, but there is no linking relationship. Add a foreign key to 'Tuzuk' on the primary key properties and pointing to the primary key on another entity type mapped to 'Tarihce'.
+Hata Tarihi:16.02.2025 16:05:00 Hata Mesajı :Cannot use table 'Tarihce' for entity type 'Tuzuk' since it is being used for entity type 'Tarihce' and potentially other entity types, but there is no linking relationship. Add a foreign key to 'Tuzuk' on the primary key properties and pointing to the primary key on another entity type mapped to 'Tarihce'.
+Hata Tarihi:16.02.2025 16:05:12 Hata Mesajı :Cannot use table 'Tarihce' for entity type 'Tuzuk' since it is being used for entity type 'Tarihce' and potentially other entity types, but there is no linking relationship. Add a foreign key to 'Tuzuk' on the primary key properties and pointing to the primary key on another entity type mapped to 'Tarihce'.
+Hata Tarihi:16.02.2025 16:20:57 Hata Mesajı :The view 'Tuzuk' was not found. The following locations were searched:
+/Areas/AdminPanel/Views/Dernek/Tuzuk.cshtml
+/Areas/AdminPanel/Views/Shared/Tuzuk.cshtml
+/Views/Shared/Tuzuk.cshtml
+Hata Tarihi:16.02.2025 16:21:08 Hata Mesajı :The view 'Tuzuk' was not found. The following locations were searched:
+/Areas/AdminPanel/Views/Dernek/Tuzuk.cshtml
+/Areas/AdminPanel/Views/Shared/Tuzuk.cshtml
+/Views/Shared/Tuzuk.cshtml
+Hata Tarihi:16.02.2025 16:32:00 Hata Mesajı :The view 'Tuzuk' was not found. The following locations were searched:
+/Areas/AdminPanel/Views/Dernek/Tuzuk.cshtml
+/Areas/AdminPanel/Views/Shared/Tuzuk.cshtml
+/Views/Shared/Tuzuk.cshtml
+Hata Tarihi:16.02.2025 16:33:47 Hata Mesajı :The view 'Tuzuk' was not found. The following locations were searched:
+/Areas/AdminPanel/Views/Dernek/Tuzuk.cshtml
+/Areas/AdminPanel/Views/Shared/Tuzuk.cshtml
+/Views/Shared/Tuzuk.cshtml
+Hata Tarihi:16.02.2025 16:47:06 Hata Mesajı :The view 'Tuzuk' was not found. The following locations were searched:
+/Areas/AdminPanel/Views/Dernek/Tuzuk.cshtml
+/Areas/AdminPanel/Views/Shared/Tuzuk.cshtml
+/Views/Shared/Tuzuk.cshtml
+Hata Tarihi:16.02.2025 23:01:29 Hata Mesajı :The layout page '/Areas/AdminPanel/Views/Shared/_AdminLayout.cshtml' cannot find the section 'ContentHeader' in the content page '/Areas/AdminPanel/Views/Dernek/Index.cshtml'.
+Hata Tarihi:17.02.2025 00:09:35 Hata Mesajı :Unable to cast object of type 'System.Int32' to type 'System.Boolean'.
+Hata Tarihi:17.02.2025 00:14:37 Hata Mesajı :Unable to cast object of type 'System.Int32' to type 'System.Boolean'.
+Hata Tarihi:20.02.2025 20:01:21 Hata Mesajı :The view 'Index' was not found. The following locations were searched:
+/Areas/AdminPanel/Views/Kullanici/Index.cshtml
+/Areas/AdminPanel/Views/Shared/Index.cshtml
+/Views/Shared/Index.cshtml
+Hata Tarihi:20.02.2025 20:03:04 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:03:18 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:04:21 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:05:37 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:07:10 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:07:16 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:11:49 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:14:23 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:17:13 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:18:00 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:19:29 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:20:51 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:21:10 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:21:40 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:21:59 Hata Mesajı :The layout page '/Areas/AdminPanel/Views/Shared/_AdminLayout.cshtml' cannot find the section 'ContentHeader' in the content page '/Areas/AdminPanel/Views/Kullanici/Index.cshtml'.
+Hata Tarihi:20.02.2025 20:24:27 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:25:09 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:25:52 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:26:13 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:26:14 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:47:12 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:49:24 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:50:06 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:51:08 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:52:28 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:20.02.2025 20:52:29 Hata Mesajı :String 'yyyy-MM-ddTHH\:mm\:ss.fffK' contains parts which are not specific to the DateOnly.
+Hata Tarihi:21.02.2025 12:59:15 Hata Mesajı :Unable to cast object of type 'System.DateTime' to type 'System.DateOnly'.
+Hata Tarihi:21.02.2025 13:15:14 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:23.02.2025 16:29:48 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:24.02.2025 01:00:02 Hata Mesajı :Invalid column name 'Telefon'.
+Hata Tarihi:24.02.2025 01:01:42 Hata Mesajı :Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[IyilikCatisi.Model.Entity.Etkinlik, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[IyilikCatisi.Model.ViewModel.Areas.AdminPanel.EtkinlikIndexViewModel, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+Hata Tarihi:24.02.2025 12:26:28 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:24.02.2025 14:43:57 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:24.02.2025 14:47:30 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:24.02.2025 14:51:56 Hata Mesajı :Value cannot be null. (Parameter 's')
+Hata Tarihi:24.02.2025 14:53:22 Hata Mesajı :Value cannot be null. (Parameter 's')
+Hata Tarihi:24.02.2025 16:44:42 Hata Mesajı :Section 'Styles' is already defined.
+Hata Tarihi:24.02.2025 16:45:17 Hata Mesajı :Section 'Styles' is already defined.
+Hata Tarihi:24.02.2025 16:48:12 Hata Mesajı :Section 'Styles' is already defined.
+Hata Tarihi:24.02.2025 16:48:13 Hata Mesajı :Section 'Styles' is already defined.
+Hata Tarihi:24.02.2025 16:48:20 Hata Mesajı :Section 'Styles' is already defined.
+Hata Tarihi:24.02.2025 16:51:15 Hata Mesajı :Invalid column name 'SiraNo'.
+Hata Tarihi:24.02.2025 16:52:48 Hata Mesajı :String '' was not recognized as a valid DateOnly.
+Hata Tarihi:24.02.2025 16:52:58 Hata Mesajı :Invalid column name 'SiraNo'.
+Hata Tarihi:24.02.2025 16:53:57 Hata Mesajı :Invalid column name 'SiraNo'.
+Hata Tarihi:24.02.2025 16:54:09 Hata Mesajı :Invalid column name 'SiraNo'.
+Hata Tarihi:24.02.2025 17:16:41 Hata Mesajı :The input string 'gfdgfdgf' was not in a correct format.
+Hata Tarihi:24.02.2025 17:28:58 Hata Mesajı :Value was either too large or too small for an Int32.
+Hata Tarihi:25.02.2025 18:17:11 Hata Mesajı :Invalid column name 'KullanicilarId'.
+Hata Tarihi:25.02.2025 21:00:32 Hata Mesajı :Invalid column name 'KullanicilarId'.
+Hata Tarihi:25.02.2025 21:11:01 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:25.02.2025 21:11:38 Hata Mesajı :Invalid column name 'KullanicilarId'.
+Hata Tarihi:26.02.2025 12:44:54 Hata Mesajı :Value was either too large or too small for an Int32.
+Hata Tarihi:27.02.2025 12:58:00 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:27.02.2025 14:10:46 Hata Mesajı :Value cannot be null. (Parameter 's')
+Hata Tarihi:27.02.2025 15:18:51 Hata Mesajı :Invalid column name 'KullanicilarId'.
+Hata Tarihi:27.02.2025 15:22:35 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:27.02.2025 15:22:52 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:27.02.2025 15:23:27 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:27.02.2025 15:42:19 Hata Mesajı :Could not load type '<>f__AnonymousType5`5' from assembly 'IyilikCatisi.WebCoreUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
+Hata Tarihi:27.02.2025 15:44:36 Hata Mesajı :Invalid column name 'KullanicilarId'.
+Hata Tarihi:27.02.2025 15:47:11 Hata Mesajı :Invalid column name 'KullanicilarId'.
+Hata Tarihi:27.02.2025 15:47:40 Hata Mesajı :Invalid column name 'KullanicilarId'.
+Hata Tarihi:27.02.2025 19:56:40 Hata Mesajı :Error mapping types.
+
+Mapping types:
+Kullanicilar -> KullaniciIndexViewModel
+IyilikCatisi.Model.Entity.Kullanicilar -> IyilikCatisi.Model.ViewModel.Areas.AdminPanel.KullaniciIndexViewModel
+
+Type Map configuration:
+Kullanicilar -> KullaniciIndexViewModel
+IyilikCatisi.Model.Entity.Kullanicilar -> IyilikCatisi.Model.ViewModel.Areas.AdminPanel.KullaniciIndexViewModel
+
+Destination Member:
+Roller
+
+Hata Tarihi:27.02.2025 19:57:07 Hata Mesajı :Error mapping types.
+
+Mapping types:
+Kullanicilar -> KullaniciIndexViewModel
+IyilikCatisi.Model.Entity.Kullanicilar -> IyilikCatisi.Model.ViewModel.Areas.AdminPanel.KullaniciIndexViewModel
+
+Type Map configuration:
+Kullanicilar -> KullaniciIndexViewModel
+IyilikCatisi.Model.Entity.Kullanicilar -> IyilikCatisi.Model.ViewModel.Areas.AdminPanel.KullaniciIndexViewModel
+
+Destination Member:
+Roller
+
+Hata Tarihi:27.02.2025 19:57:20 Hata Mesajı :Error mapping types.
+
+Mapping types:
+Kullanicilar -> KullaniciIndexViewModel
+IyilikCatisi.Model.Entity.Kullanicilar -> IyilikCatisi.Model.ViewModel.Areas.AdminPanel.KullaniciIndexViewModel
+
+Type Map configuration:
+Kullanicilar -> KullaniciIndexViewModel
+IyilikCatisi.Model.Entity.Kullanicilar -> IyilikCatisi.Model.ViewModel.Areas.AdminPanel.KullaniciIndexViewModel
+
+Destination Member:
+Roller
+
+Hata Tarihi:27.02.2025 21:10:55 Hata Mesajı :Attempt by method 'AspNetCoreGeneratedDocument.Areas_AdminPanel_Views_Etkinlik_Index#4.ExecuteAsync()' to access method 'AspNetCoreGeneratedDocument.Areas_AdminPanel_Views_Etkinlik_Index+<ExecuteAsync>d__26..ctor()' failed.
+Hata Tarihi:27.02.2025 21:10:59 Hata Mesajı :Attempt by method 'AspNetCoreGeneratedDocument.Areas_AdminPanel_Views_Etkinlik_Index#4.ExecuteAsync()' to access method 'AspNetCoreGeneratedDocument.Areas_AdminPanel_Views_Etkinlik_Index+<ExecuteAsync>d__26..ctor()' failed.
+Hata Tarihi:27.02.2025 21:19:47 Hata Mesajı :Invalid column name 'KullanicilarId'.
+Hata Tarihi:28.02.2025 11:04:12 Hata Mesajı :Invalid column name 'KullanicilarId'.
+Hata Tarihi:28.02.2025 12:35:45 Hata Mesajı :The input string 'XDASDXSA' was not in a correct format.
+Hata Tarihi:28.02.2025 17:55:24 Hata Mesajı :Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[IyilikCatisi.Model.Entity.Videolar, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[IyilikCatisi.Model.ViewModel.Areas.AdminPanel.VideolarIndexViewModel, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+Hata Tarihi:2.03.2025 02:21:26 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:2.03.2025 17:51:23 Hata Mesajı :Invalid column name 'VarsayilanTutar'.
+Hata Tarihi:2.03.2025 18:02:21 Hata Mesajı :The input string 'undefined' was not in a correct format.
+Hata Tarihi:3.03.2025 13:59:38 Hata Mesajı :The input string 'undefined' was not in a correct format.
+Hata Tarihi:3.03.2025 14:01:59 Hata Mesajı :The input string 'undefined' was not in a correct format.
+Hata Tarihi:3.03.2025 14:08:07 Hata Mesajı :The input string 'undefined' was not in a correct format.
+Hata Tarihi:4.03.2025 02:08:31 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:4.03.2025 02:10:30 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:4.03.2025 02:10:30 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:4.03.2025 02:10:34 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:4.03.2025 02:10:48 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:6.03.2025 18:10:30 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:6.03.2025 18:16:05 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:6.03.2025 18:23:35 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:6.03.2025 18:25:53 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:6.03.2025 18:37:19 Hata Mesajı :Value was either too large or too small for an Int32.
+Hata Tarihi:6.03.2025 18:38:51 Hata Mesajı :The input string 'undefined' was not in a correct format.
+Hata Tarihi:6.03.2025 18:39:00 Hata Mesajı :The input string 'undefined' was not in a correct format.
+Hata Tarihi:6.03.2025 18:44:08 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 18:44:25 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 18:44:28 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 19:01:11 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 19:01:17 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 19:08:36 Hata Mesajı :The input string '' was not in a correct format.
+Hata Tarihi:6.03.2025 19:08:55 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 19:11:51 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 19:25:34 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 19:31:21 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 19:52:23 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 19:53:41 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 19:59:06 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:01:07 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:01:07 Hata Mesajı :Attempt by method 'AspNetCoreGeneratedDocument.Areas_AdminPanel_Views_Bagis_BagisBasvuru#1.ExecuteAsync()' to access method 'AspNetCoreGeneratedDocument.Areas_AdminPanel_Views_Bagis_BagisBasvuru+<ExecuteAsync>d__36..ctor()' failed.
+Hata Tarihi:6.03.2025 20:01:17 Hata Mesajı :Attempt by method 'AspNetCoreGeneratedDocument.Areas_AdminPanel_Views_Bagis_BagisBasvuru#1.ExecuteAsync()' to access method 'AspNetCoreGeneratedDocument.Areas_AdminPanel_Views_Bagis_BagisBasvuru+<ExecuteAsync>d__36..ctor()' failed.
+Hata Tarihi:6.03.2025 20:01:24 Hata Mesajı :Attempt by method 'AspNetCoreGeneratedDocument.Areas_AdminPanel_Views_Bagis_BagisBasvuru#1.ExecuteAsync()' to access method 'AspNetCoreGeneratedDocument.Areas_AdminPanel_Views_Bagis_BagisBasvuru+<ExecuteAsync>d__36..ctor()' failed.
+Hata Tarihi:6.03.2025 20:01:56 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:03:59 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:04:55 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:05:06 Hata Mesajı :Could not load type '<>f__AnonymousType5`5' from assembly 'IyilikCatisi.WebCoreUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
+Hata Tarihi:6.03.2025 20:05:09 Hata Mesajı :Could not load type '<>f__AnonymousType5`5' from assembly 'IyilikCatisi.WebCoreUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
+Hata Tarihi:6.03.2025 20:05:22 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:05:41 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:06:15 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:07:06 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:07:19 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:6.03.2025 20:07:31 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:20:13 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:20:16 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:26:34 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:35:45 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:35:57 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:37:03 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:37:09 Hata Mesajı :A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.data.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.BagisTuru.Bagislars.
+Hata Tarihi:6.03.2025 20:41:01 Hata Mesajı :Value was either too large or too small for an Int32.
+Hata Tarihi:11.03.2025 17:48:53 Hata Mesajı :RenderBody has not been called for the page at '/Views/Shared/_Layout.cshtml'. To ignore call IgnoreBody().
+Hata Tarihi:11.03.2025 18:47:12 Hata Mesajı :The view 'Tarihce' was not found. The following locations were searched:
+/Views/Home/Tarihce.cshtml
+/Views/Shared/Tarihce.cshtml
+Hata Tarihi:11.03.2025 18:50:14 Hata Mesajı :The view 'Tarihce' was not found. The following locations were searched:
+/Views/Home/Tarihce.cshtml
+/Views/Shared/Tarihce.cshtml
+Hata Tarihi:11.03.2025 20:49:52 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:12.03.2025 01:43:25 Hata Mesajı :Multiple constructors accepting all given argument types have been found in type 'iyilikCatisi.Controllers.HomeController'. There should only be one applicable constructor.
+Hata Tarihi:12.03.2025 01:43:38 Hata Mesajı :Multiple constructors accepting all given argument types have been found in type 'iyilikCatisi.Controllers.HomeController'. There should only be one applicable constructor.
+Hata Tarihi:12.03.2025 17:38:08 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:12.03.2025 17:40:34 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:13.03.2025 18:00:08 Hata Mesajı :String '' was not recognized as a valid DateOnly.
+Hata Tarihi:13.03.2025 18:20:37 Hata Mesajı :String '' was not recognized as a valid DateOnly.
+Hata Tarihi:13.03.2025 20:09:44 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:10:07 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:10:17 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:10:18 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:12:59 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:14:02 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:14:21 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:14:22 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:14:23 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:14:23 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:14:23 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:14:23 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:14:23 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:14:24 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:14:26 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:15:11 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:17:15 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:17:55 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:18:14 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:20:20 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:22:03 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:22:09 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:23:15 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:13.03.2025 20:26:38 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:15.03.2025 22:06:47 Hata Mesajı :The input string '' was not in a correct format.
+Hata Tarihi:15.03.2025 22:45:41 Hata Mesajı :Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[IyilikCatisi.Model.Entity.Dernek, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[IyilikCatisi.Model.ViewModel.Areas.AdminPanel.DernekSayfaEklemeViewModel, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+Hata Tarihi:15.03.2025 22:47:51 Hata Mesajı :Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[IyilikCatisi.Model.Entity.Dernek, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[IyilikCatisi.Model.ViewModel.Areas.AdminPanel.DernekSayfaEklemeViewModel, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+Hata Tarihi:16.03.2025 01:10:12 Hata Mesajı :Section 'Scripts' is already defined.
+Hata Tarihi:16.03.2025 01:11:08 Hata Mesajı :Section 'Scripts' is already defined.
+Hata Tarihi:16.03.2025 01:13:12 Hata Mesajı :Section 'Scripts' is already defined.
+Hata Tarihi:16.03.2025 01:14:37 Hata Mesajı :Section 'Scripts' is already defined.
+Hata Tarihi:25.03.2025 13:03:52 Hata Mesajı :The view 'Components/dernekMenu/Default' was not found. The following locations were searched:
+/Views/Home/Components/dernekMenu/Default.cshtml
+/Views/Shared/Components/dernekMenu/Default.cshtml
+Hata Tarihi:25.03.2025 13:04:04 Hata Mesajı :The view 'Components/dernekMenu/Default' was not found. The following locations were searched:
+/Views/Home/Components/dernekMenu/Default.cshtml
+/Views/Shared/Components/dernekMenu/Default.cshtml
+Hata Tarihi:25.03.2025 13:05:07 Hata Mesajı :The view 'Components/dernekMenu/Default' was not found. The following locations were searched:
+/Views/Home/Components/dernekMenu/Default.cshtml
+/Views/Shared/Components/dernekMenu/Default.cshtml
+Hata Tarihi:25.03.2025 13:07:05 Hata Mesajı :The view 'Components/dernekMenu/Default' was not found. The following locations were searched:
+/Views/Home/Components/dernekMenu/Default.cshtml
+/Views/Shared/Components/dernekMenu/Default.cshtml
+Hata Tarihi:25.03.2025 13:08:20 Hata Mesajı :The view 'Components/dernekMenu/Default' was not found. The following locations were searched:
+/Views/Home/Components/dernekMenu/Default.cshtml
+/Views/Shared/Components/dernekMenu/Default.cshtml
+Hata Tarihi:25.03.2025 13:13:19 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:25.03.2025 14:03:42 Hata Mesajı :Section 'Styles' is already defined.
+Hata Tarihi:25.03.2025 14:03:45 Hata Mesajı :Section 'Styles' is already defined.
+Hata Tarihi:25.03.2025 14:04:29 Hata Mesajı :Section 'Styles' is already defined.
+Hata Tarihi:27.03.2025 14:48:09 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:27.03.2025 14:48:31 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:27.03.2025 14:50:07 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:27.03.2025 14:50:10 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:27.03.2025 14:54:23 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:27.03.2025 14:55:34 Hata Mesajı :Unable to resolve service for type 'Infrastructure.CrossCuttingConcern.Comunication.MailIslemleri' while attempting to activate 'IyilikCatisi.WebCoreUI.Controllers.KullaniciController'.
+Hata Tarihi:27.03.2025 17:04:28 Hata Mesajı :Could not load type '<>f__AnonymousType5`3' from assembly 'IyilikCatisi.WebCoreUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
+Hata Tarihi:27.03.2025 17:05:12 Hata Mesajı :Could not load type '<>f__AnonymousType5`3' from assembly 'IyilikCatisi.WebCoreUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
+Hata Tarihi:27.03.2025 17:05:43 Hata Mesajı :Could not load type '<>f__AnonymousType5`3' from assembly 'IyilikCatisi.WebCoreUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null'.
+Hata Tarihi:27.03.2025 17:16:39 Hata Mesajı :Missing type map configuration or unsupported mapping.
+
+Mapping types:
+KullaniciSignupVm -> Kullanicilar
+IyilikCatisi.Model.ViewModel.Front.KullaniciSignupVm -> IyilikCatisi.Model.Entity.Kullanicilar
+Hata Tarihi:27.03.2025 17:17:24 Hata Mesajı :Missing type map configuration or unsupported mapping.
+
+Mapping types:
+KullaniciSignupVm -> Kullanicilar
+IyilikCatisi.Model.ViewModel.Front.KullaniciSignupVm -> IyilikCatisi.Model.Entity.Kullanicilar
+Hata Tarihi:27.03.2025 17:37:58 Hata Mesajı :Server does not support secure connections.
+Hata Tarihi:27.03.2025 17:43:29 Hata Mesajı :Server does not support secure connections.
+Hata Tarihi:8.04.2025 17:38:18 Hata Mesajı :The view component name 'sidebar' matched multiple types:
+Type: 'IyilikCatisi.MVCCoreUI.Areas.AdminPanel.ViewComponents.sidebarViewComponent' - Name: 'IyilikCatisi.MVCCoreUI.Areas.AdminPanel.ViewComponents.sidebar'
+Type: 'IyilikCatisi.WebCoreUI.ViewComponents.sidebarViewComponent' - Name: 'IyilikCatisi.WebCoreUI.ViewComponents.sidebar'
+Hata Tarihi:8.04.2025 17:38:47 Hata Mesajı :The view component name 'sidebar' matched multiple types:
+Type: 'IyilikCatisi.MVCCoreUI.Areas.AdminPanel.ViewComponents.sidebarViewComponent' - Name: 'IyilikCatisi.MVCCoreUI.Areas.AdminPanel.ViewComponents.sidebar'
+Type: 'IyilikCatisi.WebCoreUI.ViewComponents.sidebarViewComponent' - Name: 'IyilikCatisi.WebCoreUI.ViewComponents.sidebar'
+Hata Tarihi:8.04.2025 17:38:58 Hata Mesajı :The view component name 'sidebar' matched multiple types:
+Type: 'IyilikCatisi.MVCCoreUI.Areas.AdminPanel.ViewComponents.sidebarViewComponent' - Name: 'IyilikCatisi.MVCCoreUI.Areas.AdminPanel.ViewComponents.sidebar'
+Type: 'IyilikCatisi.WebCoreUI.ViewComponents.sidebarViewComponent' - Name: 'IyilikCatisi.WebCoreUI.ViewComponents.sidebar'
+Hata Tarihi:8.04.2025 17:43:08 Hata Mesajı :The view component name 'sidebar' matched multiple types:
+Type: 'IyilikCatisi.MVCCoreUI.Areas.AdminPanel.ViewComponents.sidebarViewComponent' - Name: 'IyilikCatisi.MVCCoreUI.Areas.AdminPanel.ViewComponents.sidebar'
+Type: 'IyilikCatisi.WebCoreUI.ViewComponents.sidebarViewComponent' - Name: 'IyilikCatisi.WebCoreUI.ViewComponents.sidebar'
+Hata Tarihi:10.04.2025 13:59:52 Hata Mesajı :The input string '' was not in a correct format.
+Hata Tarihi:10.04.2025 14:00:16 Hata Mesajı :The input string '' was not in a correct format.
+Hata Tarihi:10.04.2025 14:27:30 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:10.04.2025 14:34:30 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:10.04.2025 14:35:24 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:10.04.2025 14:42:41 Hata Mesajı :An error occurred while saving the entity changes. See the inner exception for details.
+Hata Tarihi:10.04.2025 14:44:45 Hata Mesajı :Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[IyilikCatisi.Model.Entity.Haberler, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[IyilikCatisi.Model.ViewModel.Areas.AdminPanel.HaberlerIndexViewModel, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+Hata Tarihi:10.04.2025 14:44:56 Hata Mesajı :Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[IyilikCatisi.Model.Entity.Haberler, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[IyilikCatisi.Model.ViewModel.Areas.AdminPanel.HaberlerIndexViewModel, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+Hata Tarihi:10.04.2025 14:45:52 Hata Mesajı :Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[IyilikCatisi.Model.Entity.Haberler, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[IyilikCatisi.Model.ViewModel.Areas.AdminPanel.HaberlerIndexViewModel, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+Hata Tarihi:10.04.2025 14:49:18 Hata Mesajı :Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[IyilikCatisi.Model.Entity.Haberler, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[IyilikCatisi.Model.ViewModel.Areas.AdminPanel.HaberlerIndexViewModel, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+Hata Tarihi:10.04.2025 14:53:48 Hata Mesajı :Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[IyilikCatisi.Model.Entity.Haberler, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[IyilikCatisi.Model.ViewModel.Areas.AdminPanel.HaberlerIndexViewModel, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+Hata Tarihi:10.04.2025 15:01:22 Hata Mesajı :Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[IyilikCatisi.Model.Entity.Haberler, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[IyilikCatisi.Model.ViewModel.Areas.AdminPanel.HaberlerIndexViewModel, IyilikCatisi.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+Hata Tarihi:10.04.2025 15:51:02 Hata Mesajı :The input string 'undefined' was not in a correct format.
+Hata Tarihi:10.04.2025 16:11:16 Hata Mesajı :Value cannot be null. (Parameter 's')
+Hata Tarihi:10.04.2025 16:48:09 Hata Mesajı :The view 'SifremiUnuttum' was not found. The following locations were searched:
+/Views/Kullanici/SifremiUnuttum.cshtml
+/Views/Shared/SifremiUnuttum.cshtml
+Hata Tarihi:10.04.2025 17:24:55 Hata Mesajı :Value cannot be null. (Parameter 's')
+Hata Tarihi:10.04.2025 17:42:01 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:10.04.2025 17:42:10 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:10.04.2025 17:43:34 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:10.04.2025 17:44:20 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:10.04.2025 17:47:37 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:10.04.2025 17:48:15 Hata Mesajı :The view 'Index' was not found. The following locations were searched:
+/Views/KullaniciPanel/Index.cshtml
+/Views/Shared/Index.cshtml
+Hata Tarihi:15.04.2025 11:53:55 Hata Mesajı :Sequence contains more than one element
+Hata Tarihi:15.04.2025 14:22:17 Hata Mesajı :The view 'KayitKabul' was not found. The following locations were searched:
+/Views/Kullanici/KayitKabul.cshtml
+/Views/Shared/KayitKabul.cshtml
+Hata Tarihi:15.04.2025 15:57:20 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:15.04.2025 17:00:15 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:15.04.2025 17:01:13 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:15.04.2025 17:02:02 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:15.04.2025 17:11:37 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:15.04.2025 17:15:25 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:15.04.2025 17:15:43 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:15.04.2025 17:18:00 Hata Mesajı :The view 'Index' was not found. The following locations were searched:
+/Areas/AdminPanel/Views/Yonetici/Index.cshtml
+/Areas/AdminPanel/Views/Shared/Index.cshtml
+/Views/Shared/Index.cshtml
+Hata Tarihi:15.04.2025 17:18:07 Hata Mesajı :The view 'Index' was not found. The following locations were searched:
+/Areas/AdminPanel/Views/Yonetici/Index.cshtml
+/Areas/AdminPanel/Views/Shared/Index.cshtml
+/Views/Shared/Index.cshtml
+Hata Tarihi:15.04.2025 17:21:16 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:16.04.2025 10:25:26 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:16.04.2025 10:27:26 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:16.04.2025 10:27:35 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:16.04.2025 10:42:20 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:16.04.2025 10:47:32 Hata Mesajı :RenderSection invocation in '/Views/KullaniciPanel/Index.cshtml' is invalid. RenderSection can only be called from a layout page.
+Hata Tarihi:16.04.2025 11:17:32 Hata Mesajı :RenderSection invocation in '/Views/KullaniciPanel/Index.cshtml' is invalid. RenderSection can only be called from a layout page.
+Hata Tarihi:16.04.2025 11:21:37 Hata Mesajı :RenderSection invocation in '/Views/KullaniciPanel/Index.cshtml' is invalid. RenderSection can only be called from a layout page.
+Hata Tarihi:16.04.2025 11:31:26 Hata Mesajı :RenderSection invocation in '/Views/KullaniciPanel/Index.cshtml' is invalid. RenderSection can only be called from a layout page.
+Hata Tarihi:16.04.2025 11:31:44 Hata Mesajı :RenderSection invocation in '/Views/KullaniciPanel/Index.cshtml' is invalid. RenderSection can only be called from a layout page.
+Hata Tarihi:16.04.2025 11:36:43 Hata Mesajı :RenderSection invocation in '/Views/KullaniciPanel/Index.cshtml' is invalid. RenderSection can only be called from a layout page.
+Hata Tarihi:16.04.2025 11:38:52 Hata Mesajı :RenderSection invocation in '/Views/KullaniciPanel/Index.cshtml' is invalid. RenderSection can only be called from a layout page.
+Hata Tarihi:16.04.2025 11:43:31 Hata Mesajı :RenderSection invocation in '/Views/KullaniciPanel/Index.cshtml' is invalid. RenderSection can only be called from a layout page.
+Hata Tarihi:16.04.2025 12:00:12 Hata Mesajı :The layout view '_KullaniciPanelLayout' could not be located. The following locations were searched:
+/Views/KullaniciPanel/_KullaniciPanelLayout.cshtml
+/Views/Shared/_KullaniciPanelLayout.cshtml
+Hata Tarihi:16.04.2025 12:02:38 Hata Mesajı :The layout view '_KullaniciPanel' could not be located. The following locations were searched:
+/Views/KullaniciPanel/_KullaniciPanel.cshtml
+/Views/Shared/_KullaniciPanel.cshtml
+Hata Tarihi:16.04.2025 12:03:13 Hata Mesajı :The layout view '_KullaniciPanel' could not be located. The following locations were searched:
+/Views/KullaniciPanel/_KullaniciPanel.cshtml
+/Views/Shared/_KullaniciPanel.cshtml
+Hata Tarihi:16.04.2025 12:05:30 Hata Mesajı :The layout view '_KullaniciPanel' could not be located. The following locations were searched:
+/Views/KullaniciPanel/_KullaniciPanel.cshtml
+/Views/Shared/_KullaniciPanel.cshtml
+Hata Tarihi:16.04.2025 12:06:21 Hata Mesajı :The layout view '_KullaniciPanelLayout' could not be located. The following locations were searched:
+/Views/KullaniciPanel/_KullaniciPanelLayout.cshtml
+/Views/Shared/_KullaniciPanelLayout.cshtml
+Hata Tarihi:16.04.2025 12:07:13 Hata Mesajı :The layout view '_KullaniciPanelLayout' could not be located. The following locations were searched:
+/Views/KullaniciPanel/_KullaniciPanelLayout.cshtml
+/Views/Shared/_KullaniciPanelLayout.cshtml
+Hata Tarihi:16.04.2025 12:10:17 Hata Mesajı :The layout view '_KullaniciPanelLayout' could not be located. The following locations were searched:
+/Views/KullaniciPanel/_KullaniciPanelLayout.cshtml
+/Views/Shared/_KullaniciPanelLayout.cshtml
+Hata Tarihi:16.04.2025 12:12:45 Hata Mesajı :The layout view '_KullaniciPanelLayout' could not be located. The following locations were searched:
+/Views/KullaniciPanel/_KullaniciPanelLayout.cshtml
+/Views/Shared/_KullaniciPanelLayout.cshtml
+Hata Tarihi:16.04.2025 12:19:12 Hata Mesajı :The layout view '_KullaniciPanelLayout' could not be located. The following locations were searched:
+/Views/KullaniciPanel/_KullaniciPanelLayout.cshtml
+/Views/Shared/_KullaniciPanelLayout.cshtml
+Hata Tarihi:16.04.2025 12:29:30 Hata Mesajı :The view component name 'mainHeader' matched multiple types:
+Type: 'IyilikCatisi.MVCCoreUI.ViewComponents.mainHeaderViewComponent' - Name: 'IyilikCatisi.MVCCoreUI.ViewComponents.mainHeader'
+Type: 'IyilikCatisi.MVCCoreUI.Areas.AdminPanel.ViewComponents.mainHeaderViewComponent' - Name: 'IyilikCatisi.MVCCoreUI.Areas.AdminPanel.ViewComponents.mainHeader'
+Hata Tarihi:16.04.2025 12:30:32 Hata Mesajı :The view component name 'mainHeader' matched multiple types:
+Type: 'IyilikCatisi.MVCCoreUI.ViewComponents.mainHeaderViewComponent' - Name: 'IyilikCatisi.MVCCoreUI.ViewComponents.mainHeader'
+Type: 'IyilikCatisi.MVCCoreUI.Areas.AdminPanel.ViewComponents.mainHeaderViewComponent' - Name: 'IyilikCatisi.MVCCoreUI.Areas.AdminPanel.ViewComponents.mainHeader'
+Hata Tarihi:16.04.2025 12:40:51 Hata Mesajı :The view 'Index' was not found. The following locations were searched:
+/Areas/AdminPanel/Views/Yonetici/Index.cshtml
+/Areas/AdminPanel/Views/Shared/Index.cshtml
+/Views/Shared/Index.cshtml
+Hata Tarihi:16.04.2025 12:41:16 Hata Mesajı :The view 'Index' was not found. The following locations were searched:
+/Areas/AdminPanel/Views/Yonetici/Index.cshtml
+/Areas/AdminPanel/Views/Shared/Index.cshtml
+/Views/Shared/Index.cshtml
+Hata Tarihi:17.04.2025 12:12:28 Hata Mesajı :The view 'Index' was not found. The following locations were searched:
+/Areas/AdminPanel/Views/Yonetici/Index.cshtml
+/Areas/AdminPanel/Views/Shared/Index.cshtml
+/Views/Shared/Index.cshtml
+Hata Tarihi:17.04.2025 15:55:44 Hata Mesajı :Invalid column name 'UstMenuGorunum'.
+Hata Tarihi:17.04.2025 16:02:33 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:17.04.2025 16:56:18 Hata Mesajı :The input string '' was not in a correct format.
+Hata Tarihi:17.04.2025 16:57:24 Hata Mesajı :The input string '' was not in a correct format.
+Hata Tarihi:17.04.2025 16:59:00 Hata Mesajı :The input string '' was not in a correct format.
+Hata Tarihi:18.04.2025 13:24:34 Hata Mesajı :The model item passed into the ViewDataDictionary is of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignInVm', but this ViewDataDictionary instance requires a model item of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignupVm'.
+Hata Tarihi:18.04.2025 13:24:51 Hata Mesajı :The model item passed into the ViewDataDictionary is of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignInVm', but this ViewDataDictionary instance requires a model item of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignupVm'.
+Hata Tarihi:18.04.2025 16:00:20 Hata Mesajı :The layout view '_KullaniciPanelLayout' could not be located. The following locations were searched:
+/Views/KullaniciPanel/_KullaniciPanelLayout.cshtml
+/Views/Shared/_KullaniciPanelLayout.cshtml
+Hata Tarihi:18.04.2025 16:04:19 Hata Mesajı :The layout view '_KullaniciPanelLayout' could not be located. The following locations were searched:
+/Views/KullaniciPanel/_KullaniciPanelLayout.cshtml
+/Views/Shared/_KullaniciPanelLayout.cshtml
+Hata Tarihi:24.04.2025 00:04:09 Hata Mesajı :The model item passed into the ViewDataDictionary is of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignInVm', but this ViewDataDictionary instance requires a model item of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignupVm'.
+Hata Tarihi:24.04.2025 00:04:10 Hata Mesajı :The model item passed into the ViewDataDictionary is of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignInVm', but this ViewDataDictionary instance requires a model item of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignupVm'.
+Hata Tarihi:24.04.2025 00:04:13 Hata Mesajı :The model item passed into the ViewDataDictionary is of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignInVm', but this ViewDataDictionary instance requires a model item of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignupVm'.
+Hata Tarihi:24.04.2025 00:05:35 Hata Mesajı :The model item passed into the ViewDataDictionary is of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignInVm', but this ViewDataDictionary instance requires a model item of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignupVm'.
+Hata Tarihi:24.04.2025 00:08:25 Hata Mesajı :The model item passed into the ViewDataDictionary is of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignInVm', but this ViewDataDictionary instance requires a model item of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignupVm'.
+Hata Tarihi:24.04.2025 00:09:44 Hata Mesajı :The model item passed into the ViewDataDictionary is of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignInVm', but this ViewDataDictionary instance requires a model item of type 'IyilikCatisi.Model.ViewModel.Front.KullaniciSignupVm'.
+Hata Tarihi:24.04.2025 10:54:38 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:24.04.2025 10:56:45 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:24.04.2025 14:50:40 Hata Mesajı :Attempt by method 'AspNetCoreGeneratedDocument.Views_Shared_Components_signIn_Default#3.ExecuteAsync()' to access method 'AspNetCoreGeneratedDocument.Views_Shared_Components_signIn_Default+<ExecuteAsync>d__14..ctor()' failed.
+Hata Tarihi:24.04.2025 14:50:46 Hata Mesajı :Attempt by method 'AspNetCoreGeneratedDocument.Views_Shared_Components_signIn_Default#3.ExecuteAsync()' to access method 'AspNetCoreGeneratedDocument.Views_Shared_Components_signIn_Default+<ExecuteAsync>d__14..ctor()' failed.
+Hata Tarihi:24.04.2025 14:51:11 Hata Mesajı :Attempt by method 'AspNetCoreGeneratedDocument.Views_Shared_Components_signIn_Default#3.ExecuteAsync()' to access method 'AspNetCoreGeneratedDocument.Views_Shared_Components_signIn_Default+<ExecuteAsync>d__14..ctor()' failed.
+Hata Tarihi:24.04.2025 14:51:17 Hata Mesajı :Attempt by method 'AspNetCoreGeneratedDocument.Views_Shared_Components_signIn_Default#3.ExecuteAsync()' to access method 'AspNetCoreGeneratedDocument.Views_Shared_Components_signIn_Default+<ExecuteAsync>d__14..ctor()' failed.
+Hata Tarihi:24.04.2025 14:53:37 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:24.04.2025 17:36:27 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:24.04.2025 18:06:11 Hata Mesajı :A circular layout reference was detected when rendering '/Areas/StandartKullaniciPanel/Views/Shared/_KullaniciPanelLayout.cshtml'. The layout page '/Areas/StandartKullaniciPanel/Views/Shared/_KullaniciPanelLayout.cshtml' has already been rendered.
+Hata Tarihi:24.04.2025 18:08:20 Hata Mesajı :A circular layout reference was detected when rendering '/Areas/StandartKullaniciPanel/Views/Shared/_KullaniciPanelLayout.cshtml'. The layout page '/Areas/StandartKullaniciPanel/Views/Shared/_KullaniciPanelLayout.cshtml' has already been rendered.
+Hata Tarihi:24.04.2025 18:10:43 Hata Mesajı :The layout view 'null' could not be located. The following locations were searched:
+/Areas/StandartKullaniciPanel/Views/KullaniciPanel/null.cshtml
+/Areas/StandartKullaniciPanel/Views/Shared/null.cshtml
+/Views/Shared/null.cshtml
+Hata Tarihi:24.04.2025 18:12:35 Hata Mesajı :RenderBody has not been called for the page at '/Areas/StandartKullaniciPanel/Views/Shared/_KullaniciPanelLayout.cshtml'. To ignore call IgnoreBody().
+Hata Tarihi:24.04.2025 18:12:58 Hata Mesajı :RenderBody has not been called for the page at '/Areas/StandartKullaniciPanel/Views/Shared/_KullaniciPanelLayout.cshtml'. To ignore call IgnoreBody().
+Hata Tarihi:25.04.2025 18:46:43 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:25.04.2025 18:54:07 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:25.04.2025 23:25:17 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:26.04.2025 00:41:15 Hata Mesajı :Attempt by method 'AspNetCoreGeneratedDocument.Areas_StandartKullaniciPanel_Views_KullaniciPanel_Index#7.ExecuteAsync()' to access method 'AspNetCoreGeneratedDocument.Areas_StandartKullaniciPanel_Views_KullaniciPanel_Index+<ExecuteAsync>d__27..ctor()' failed.
+Hata Tarihi:26.04.2025 00:49:30 Hata Mesajı :Object reference not set to an instance of an object.
+Hata Tarihi:26.04.2025 00:50:47 Hata Mesajı :The view 'Guncelle' was not found. The following locations were searched:
+/Areas/StandartKullaniciPanel/Views/KullaniciPanel/Guncelle.cshtml
+/Areas/StandartKullaniciPanel/Views/Shared/Guncelle.cshtml
+/Views/Shared/Guncelle.cshtml
+Hata Tarihi:26.04.2025 00:53:40 Hata Mesajı :The view 'Guncelle' was not found. The following locations were searched:
+/Areas/StandartKullaniciPanel/Views/KullaniciPanel/Guncelle.cshtml
+/Areas/StandartKullaniciPanel/Views/Shared/Guncelle.cshtml
+/Views/Shared/Guncelle.cshtml
+Hata Tarihi:26.04.2025 00:55:01 Hata Mesajı :The view 'Guncelle' was not found. The following locations were searched:
+/Areas/StandartKullaniciPanel/Views/KullaniciPanel/Guncelle.cshtml
+/Areas/StandartKullaniciPanel/Views/Shared/Guncelle.cshtml
+/Views/Shared/Guncelle.cshtml
+Hata Tarihi:26.04.2025 00:56:51 Hata Mesajı :The view 'Guncelle' was not found. The following locations were searched:
+/Areas/StandartKullaniciPanel/Views/KullaniciPanel/Guncelle.cshtml
+/Areas/StandartKullaniciPanel/Views/Shared/Guncelle.cshtml
+/Views/Shared/Guncelle.cshtml
+Hata Tarihi:26.04.2025 00:57:01 Hata Mesajı :The view 'Guncelle' was not found. The following locations were searched:
+/Areas/StandartKullaniciPanel/Views/KullaniciPanel/Guncelle.cshtml
+/Areas/StandartKullaniciPanel/Views/Shared/Guncelle.cshtml
+/Views/Shared/Guncelle.cshtml
+Hata Tarihi:26.04.2025 00:57:03 Hata Mesajı :The view 'Guncelle' was not found. The following locations were searched:
+/Areas/StandartKullaniciPanel/Views/KullaniciPanel/Guncelle.cshtml
+/Areas/StandartKullaniciPanel/Views/Shared/Guncelle.cshtml
+/Views/Shared/Guncelle.cshtml
+Hata Tarihi:26.04.2025 00:57:50 Hata Mesajı :The view 'Guncelle' was not found. The following locations were searched:
+/Areas/StandartKullaniciPanel/Views/KullaniciPanel/Guncelle.cshtml
+/Areas/StandartKullaniciPanel/Views/Shared/Guncelle.cshtml
+/Views/Shared/Guncelle.cshtml
+Hata Tarihi:26.04.2025 01:01:04 Hata Mesajı :The view 'Guncelle' was not found. The following locations were searched:
+/Areas/StandartKullaniciPanel/Views/KullaniciPanel/Guncelle.cshtml
+/Areas/StandartKullaniciPanel/Views/Shared/Guncelle.cshtml
+/Views/Shared/Guncelle.cshtml
+Hata Tarihi:26.04.2025 01:09:12 Hata Mesajı :The view 'Guncelle' was not found. The following locations were searched:
+/Areas/StandartKullaniciPanel/Views/KullaniciPanel/Guncelle.cshtml
+/Areas/StandartKullaniciPanel/Views/Shared/Guncelle.cshtml
+/Views/Shared/Guncelle.cshtml
+Hata Tarihi:26.04.2025 01:09:45 Hata Mesajı :The view 'Guncelle' was not found. The following locations were searched:
+/Areas/StandartKullaniciPanel/Views/KullaniciPanel/Guncelle.cshtml
+/Areas/StandartKullaniciPanel/Views/Shared/Guncelle.cshtml
+/Views/Shared/Guncelle.cshtml

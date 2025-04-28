@@ -1,0 +1,159 @@
+﻿ @model List<VideolarIndexViewModel>
+
+
+@section Styles{
+<style>
+        /* Modal Stil */
+        .video-modal {
+            display: none; /* Başlangıçta gizli */
+            position: fixed;
+            z-index: 9999; /* Üstte görünsün diye */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Koyu arka plan */
+            overflow: auto;
+        }
+
+        .video-modal-content {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 800px;
+            background-color: #fff;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+</style> 
+}
+
+
+
+<div class="item teaser-page-list">
+    <div class="container_16">
+        <aside class="grid_10">
+            <h1 class="page-title">Videolar</h1>
+        </aside>
+        <div class="grid_6">
+            <div id="rootline">
+                <a href="#">Ana Sayfa</a> <i class="fa fa-angle-right" aria-hidden="true"></i> <span class="current">Videolar</span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<div id="main" class="site-main container_16">
+    <div class="inner">
+        <!-- Videoları Listele -->
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="candidate radius grid_4 mb-3">
+                <div class="candidate-margins">
+                    <a href="javascript:void(0);" onclick="openModal('@Model[i].VideoUrl')">
+                        <div class="video-container">
+                            <!-- Video için placeholder div -->
+                            @if (!string.IsNullOrEmpty(Model[i].VideoUrl))
+                            {
+                                <div id="video-container-@Model[i].Id">
+                                </div>
+                            }
+                            <div class="name">@Model[i].VideoAdi</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!-- Video Modal -->
+@* <div id="videoModal" class="video-modal">
+    <div class="video-modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe id="videoIframe" width="100" height="100" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div> *@
+
+
+
+
+
+@section Scripts{
+    <script>
+        // YouTube video ID'sini URL'den almak için regex fonksiyonu
+        function getYouTubeVideoId(url) {
+            var videoId = null;
+            var regExp = /(?:youtube\.com(?:\/[^\/\n\s]*)?\?v=|youtu\.be\/)([^"&?\/\s]{11})/;
+            var match = url.match(regExp);
+
+            if (match && match[1]) {
+                videoId = match[1];
+            }
+
+            return videoId;
+        }
+
+        // Bu fonksiyon, video URL'sine göre iframe oluşturur ve belirtilen container'a yerleştirir
+        function embedVideo(videoUrl, containerId) {
+            var videoId = getYouTubeVideoId(videoUrl);
+            if (videoId) {
+                var iframe = document.createElement('iframe');
+                iframe.width = '100%';
+                iframe.height = '200';
+                iframe.src = 'https://www.youtube.com/embed/' + videoId + '?rel=0&modestbranding=1&showinfo=0&controls=0&autohide=1';
+                iframe.frameBorder = '0';
+                iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+
+                // iframe'i belirtilen container'a ekliyoruz
+                var container = document.getElementById(containerId);
+
+                container.appendChild(iframe);
+            }
+        }
+
+        // Video üzerine tıklanınca modalı açma
+        // function openModal(videoUrl) {
+        //     var videoId = getYouTubeVideoId(videoUrl);
+        //     if (videoId) {
+        //         var iframe = document.getElementById('videoIframe');
+        //         iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1'; // Video otomatik oynatılacak
+        //     }
+        //     document.getElementById('videoModal').style.display = 'block';
+        // }
+
+        // // Modalı kapatma
+        // function closeModal() {
+        //     var iframe = document.getElementById('videoIframe');
+        //     iframe.src = ''; // Videoyu durdurmak için iframe'in src'ini temizliyoruz
+        //     document.getElementById('videoModal').style.display = 'none';
+        // }
+
+        $(document).ready(function() {
+               // Tüm videoları sayfada yerleştiriyoruz
+             @for (int i = 0; i < Model.Count; i++)
+            {
+                <text>
+                // setTimeout(() => {
+                    embedVideo('@Model[i].VideoUrl', 'video-container-@Model[i].Id');
+                // },1500)
+                </text>
+            }
+        });
+     
+       
+    </script>
+}

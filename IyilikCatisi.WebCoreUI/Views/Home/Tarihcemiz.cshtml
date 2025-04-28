@@ -1,0 +1,41 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+@model Tarihce
+
+<div class="item teaser-page-list">
+	<div class="container_16">
+		<aside class="grid_10">
+			<h1 class="page-title">İyilik Çatısı Tarihçesi</h1>
+		</aside>
+		<div class="grid_6">
+			<div id="rootline">
+				<a href="#">Derneğimiz Hakkında</a> <i class="fa fa-angle-right" aria-hidden="true"></i> <span class="current"> Derneğimizin Tarihçesi</span>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div id="main" class="site-main container_16">
+	<div class="inner">
+@section Styles{
+	<style>
+		.container>.row>.col{
+			margin-left:200px;
+			margin-right: 200px;
+		}
+
+		.container>.row>.col{
+			color:black;
+		}
+
+	</style>
+}
+<div class="container">
+	<div class="row">
+		<div class="col">
+			@Html.Raw(Model.TarihceMetni)
+		</div>
+	</div>
+</div>

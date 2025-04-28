@@ -1,0 +1,7 @@
+﻿@model List<DernekSayfaEklemeViewModel>
+@foreach (var sayfa in Model)
+{
+	<li class="menu-item">
+		<a href="/Home/DernekSayfasi/@sayfa.Id">@sayfa.SayfaAdi</a>
+	</li>
+}

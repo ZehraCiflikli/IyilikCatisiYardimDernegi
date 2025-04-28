@@ -1,0 +1,623 @@
+﻿@section ContentHeader
+{
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalBankaEkle">
+        Banka Ekle
+    </button>
+}
+
+@model BankaIndexViewModel
+
+<div class="col-12">
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Banka Listesi</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="tblBankalar" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Sıra No</th>
+                        <th>Banka Logosu</th>
+                        <th>Banka Adı</th>
+                        <th>Hesap Sahibi</th>
+                        <th>Iban Türk Lirası</th>
+                        <th>Iban Usd</th>
+                        <th>Iban Euro</th>
+                        <th>Aktif</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+
+</div>
+
+@section Styles {
+
+    <link href="~/adminassets/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" />
+
+    <style>
+        .select2-container .select2-selection--single {
+            height: 40px;
+        }
+    </style>
+
+}
+
+<form id="frmBankaEkle">
+    <div class="modal fade" id="modalBankaEkle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Banka Ekleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Banka Logosu</label>
+                            <br />
+                            <img id="BankaLogo" src="/adminassets/img/bos.png" width="60" />
+                            <input id="BankaFoto" type="file" />
+                        </div>
+                        <div class="form-group">
+                            <label>Banka Adı</label>
+                            <input type="text" class="form-control" asp-for="BankaAdi" placeholder="Banka Adı">
+                        </div>
+                        <div class="form-group">
+                            <label>Hesap Sahibi</label>
+                            <input type="text" class="form-control" asp-for="HesapSahibi" placeholder="Hesap Sahibi">
+                        </div>
+                        <div class="form-group">
+                            <label></label>
+                            <input type="text" class="form-control" asp-for="IbanTR" placeholder="Iban Türk Lirası">
+                        </div>
+                        <div class="form-group">
+                            <label></label>
+                            <input type="text" class="form-control" asp-for="IbanUSD" placeholder="Iban Usd">
+                        </div>
+                        <div class="form-group">
+                            <label></label>
+                            <input type="text" class="form-control" asp-for="IbanEURO" placeholder="Iban Euro">
+                        </div>
+                        <div class="form-group">
+                            <label>Swift Kodu</label>
+                            <input type="text" class="form-control" asp-for="SwiftKodu" placeholder="Swift Kodu">
+                        </div>
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            <br />
+                            <textarea asp-for="Aciklama" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnBankaEkle" class="btn btn-primary">KAYDET</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+
+
+
+
+
+<form id="frmBankaGuncelle">
+    <div class="modal fade" id="modalBankaGuncelle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Banka Güncelleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="GId">
+
+                            <label>Banka Adı</label>
+                            <input type="text" class="form-control" id="GBankaAdi" placeholder="Banka Adı">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Banka Logosu</label>
+                            <br />
+                            <img id="BankaLogo" src="/adminassets/img/bos.png" width="60" />
+                            <input id="GBankaFoto" type="file" />
+                        </div>
+                        <div class="form-group">
+                            <label>Hesap Sahibi</label>
+                            <input type="text" class="form-control" id="GHesapSahibi" placeholder="Hesap Sahibi">
+                        </div>
+                        <div class="form-group">
+                            <label></label>
+                            <input type="text" class="form-control" id="GIbanTR" placeholder="Iban Türk Lirası">
+                        </div>
+                        <div class="form-group">
+                            <label></label>
+                            <input type="text" class="form-control" id="GIbanUSD" placeholder="Iban Usd">
+                        </div>
+                        <div class="form-group">
+                            <label></label>
+                            <input type="text" class="form-control" id="GIbanEURO" placeholder="Iban Euro">
+                        </div>
+                        <div class="form-group">
+                            <label>Swift Kodu</label>
+                            <input type="text" class="form-control" id="GSwiftKodu" placeholder="Swift Kodu">
+                        </div>
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            <br />
+                            <textarea id="GAciklama" class="form-control"></textarea>
+                        </div>
+
+                    </div>
+                    <!-- /.card-body -->
+
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnBankaGuncelle" class="btn btn-primary">GÜNCELLE</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+
+@section Scripts {
+            
+    <script>
+
+        var table;
+
+        table = $("#tblBankalar").DataTable({
+            "dom": "Bfrtip",
+            "responsive": true,
+            "lengthChange": true,
+            "pageLength": 10,
+            "autoWidth": false,
+            "buttons": ["csv", "excel", "pdf", "print", "colvis"],
+            language: {
+                url: '/json/datatablestr.json',
+            },
+            ajax: { url: '/AdminPanel/Banka/List', type: 'post' },
+            columns: [
+                { data: 'id', visible: false },
+                { data: 'id' },
+                { data: 'bankaLogo' },
+                { data: 'bankaAdi' },
+                { data: 'hesapSahibi' },
+                { data: 'ibanTR' },
+                { data: 'ibanUSD' },
+                { data: 'ibanEURO' },
+                { data: 'aktif' },
+                { data: 'id' },
+                { data: 'id' },
+
+            ],
+            columnDefs: [
+
+                {
+                    targets: 1,
+                    render: function (data, type, row, meta) {
+
+                        return meta.row + 1;
+
+                    }
+                },
+
+                {
+                    targets: 2,
+                    render: function (data, type, row, meta) {
+
+                        if (data == null) {
+                            return "<img  src='/adminassets/img/bos.png' width='30px' />";
+
+                        }
+                        return "<img src='" + data + "' width='60px' />";
+
+                    }
+                },
+
+
+                {
+                    targets: 8,
+                    render: function (data, type, row, meta) {
+
+                        var bnkid = row["id"];
+
+                        if (data)
+
+                            return '<input bnkid=' + bnkid + '  type= "checkbox" data-on-text="AKTİF" data-off-text="PASİF" name = "my-checkbox" checked data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+
+                        else
+
+                            return '<input bnkid=' + bnkid + '  type= "checkbox" data-on-text="AKTİF" data-off-text="PASİF" name = "my-checkbox"  data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+                    }
+                },
+
+                {
+                    targets: 9,
+                    render: function (data, type, row, meta) {
+
+                        return "<a class='btn btn-info btnDuzenle' bnkid=" + data + ">   <i class='fas fa-pencil-alt'></i>DÜZENLE</a > ";
+
+                    }
+                },
+
+                {
+                    targets: 10,
+                    render: function (data, type, row, meta) {
+
+                        return "<a class='btn btn-danger btnSil' bnkid=" + data + "><i class='fas fa-trash'></i> SİL</a > ";
+                    }
+                },
+
+            ],
+
+            initComplete: function (settings, json) {
+
+                // Datatable initilize olduğunda
+                $("input[data-bootstrap-switch]").each(function () {
+                    $(this).bootstrapSwitch();
+                })
+
+
+            },
+
+            drawCallback: function () {
+                $("input[data-bootstrap-switch]").each(function () {
+                    $(this).bootstrapSwitch();
+                })
+
+
+
+            }
+
+        }).buttons().container().appendTo('#tblBankalar_wrapper .col-md-6:eq(0)');
+
+      
+
+        $("#btnBankaEkle").click(function () {
+
+            var formData = new FormData();
+
+
+            var BankaAdi = $("#BankaAdi").val();  ///vm içindeki yazım
+            var HesapSahibi = $("#HesapSahibi").val();
+            var IbanTR = $("#IbanTR").val();
+            var IbanUSD = $("#IbanUSD").val();
+            var IbanEURO = $("#IbanEURO").val();
+            var SwiftKodu = $("#SwiftKodu").val();
+            var Aciklama = $("#Aciklama").val();
+
+            debugger
+            if ($("#BankaFoto")[0].files[0] != null) {
+
+                var file = $("#BankaFoto")[0].files[0];
+                formData.append("BankaFoto", file);
+
+            }
+
+
+            formData.append("BankaAdi", BankaAdi)                //form dataya attığım ismi-- değişken ismi
+            formData.append("HesapSahibi", HesapSahibi)         //form dataya nasıl ekliyorsak controllerda o isimle data içine alıyoruz.
+            formData.append("IbanUSD", IbanUSD)
+            formData.append("IbanEURO", IbanEURO)
+            formData.append("IbanTR", IbanTR)
+            formData.append("SwiftKodu", SwiftKodu)
+            formData.append("Aciklama", Aciklama)
+
+
+            $.ajax({
+                url: "/AdminPanel/Banka/BankaEkle",
+                dataType: "json",
+                method: "post",
+                processData: false,
+                contentType: false,
+                data: formData,                
+                success: function (a) {
+                    if (a.result) {
+
+                        $("#frmBankaEkle")[0].reset();
+                        $("#modalBankaEkle").modal("hide");
+
+                        var table = new DataTable('#tblBankalar');
+                        table.ajax.reload(null, false);
+
+                        Swal.fire({
+                            title: "İşlem Başarılı",
+                            text: "Banka Başarıyla Eklendi.",
+                            icon: "success"
+                        });
+
+                    }
+
+                },
+                error: function () {
+
+                }
+
+            });
+
+        });
+
+
+
+
+        $(function () {
+            $('.select2').select2()
+            $("input[data-bootstrap-switch]").each(function () {
+                $(this).bootstrapSwitch();
+            })
+        $(document).on('switchChange.bootstrapSwitch', '.chkAktif', function (event, state) {
+
+            var swal = Swal.fire({
+                title: "LÜTFEN BEKLEYİNİZ...",
+                html: "İşleminiz Yapılıyor",
+                timerProgressBar: true,
+                didOpen: () => {
+
+                    Swal.showLoading();
+
+                },
+            });
+
+            var id = $(this).attr('bnkid');
+            var aktifpasif = state;
+            $.ajax({
+                url: "/AdminPanel/Banka/AktifPasif",
+                type: "post",
+                dataType: "json",
+                data: { id: id, aktif: aktifpasif },
+                success: function (r) {
+
+
+                    swal.close();
+                    if (r.result) {
+                        Swal.fire({
+                            title: "İŞLEM BAŞARILI",
+                            text: r.mesaj,
+                            icon: "success"
+                        });
+                    }
+                },
+                error: function () {
+
+                }
+            }
+            );
+
+
+        });
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        $(document).on('click', '.btnDuzenle', function () {
+            var swal = Swal.fire({
+                title: "LÜTFEN BEKLEYİNİZ...",
+                html: "İşleminiz Yapılıyor",
+                timerProgressBar: true,
+                didOpen: () => {
+
+                    Swal.showLoading();
+
+                },
+            });
+
+            var id = $(this).attr('bnkid');
+            $("#GId").val(id);
+
+            $.ajax({
+                url: "/AdminPanel/Banka/BankaGetir",
+                type: "post",
+                dataType: "json",
+                data: { id: id },
+                success: function (r) {
+
+                    if (r.result) {
+                        $("#GBankaAdi").val(r.model.bankaAdi);
+                        $("#GBankaFoto").attr("src",r.model.bankaLogo);
+                        $("#GIbanTR").val(r.model.ibanTR);
+                        $("#GIbanUSD").val(r.model.ibanUSD);
+                        $("#GIbanEURO").val(r.model.ibanEURO);
+                        $("#GAciklama").val(r.model.aciklama);
+                        $("#GHesapSahibi").val(r.model.hesapSahibi);
+                        $("#GSwiftKodu").val(r.model.swiftKodu);
+                      
+                        $("#modalBankaGuncelle").modal('show');
+                    }
+                    swal.close();
+
+
+                },
+                error: function () {
+
+                }
+            }
+            );
+
+
+        });
+
+      
+
+
+        $(document).on('click', '#btnBankaGuncelle', function () {
+
+
+            var swal = Swal.fire({
+                title: "LÜTFEN BEKLEYİNİZ...",
+                html: "İşleminiz Yapılıyor",
+                timerProgressBar: true,
+                didOpen: () => {
+
+                    Swal.showLoading();
+
+                },
+            });
+
+            var formData = new FormData();
+
+                if ($("#GBankaFoto")[0].files[0] != null) {
+
+                    var file = $("#GBankaFoto")[0].files[0];
+                    formData.append("BankaFoto", file);
+
+                }
+
+                var Id = $("#GId").val();
+                var BankaAdi = $("#GBankaAdi").val(); 
+                var HesapSahibi = $("#GHesapSahibi").val();
+                var IbanTR = $("#GIbanTR").val();
+                var IbanUSD = $("#GIbanUSD").val();
+                var IbanEURO = $("#GIbanEURO").val();
+                var SwiftKodu = $("#GSwiftKodu").val();
+                var Aciklama = $("#GAciklama").val();
+
+               
+
+                formData.append("BankaAdi", BankaAdi)               
+                formData.append("HesapSahibi", HesapSahibi)         
+                formData.append("IbanUSD", IbanUSD)
+                formData.append("IbanEURO", IbanEURO)
+                formData.append("IbanTR", IbanTR)
+                formData.append("SwiftKodu", SwiftKodu)
+                formData.append("Aciklama", Aciklama)         
+                formData.append("Id", Id)
+
+
+            $.ajax({
+                url: "/AdminPanel/Banka/Guncelle",
+                type: "post",
+                dataType: "json",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (r) {
+
+
+
+                    swal.close();
+                    if (r.result) {
+                        Swal.fire({
+                            title: "İŞLEM BAŞARILI",
+                            text: r.mesaj,
+                            icon: "success"
+                        });
+                    }
+
+                    $("#modalBankaGuncelle").modal("hide");
+
+                    $("#tblBankalar").DataTable().ajax.reload();
+
+
+                },
+
+
+                error: function () {
+
+                }
+            }
+            );
+
+
+        });
+
+
+
+
+
+
+
+
+
+        
+
+
+
+        $(document).on('click', '.btnSil', function () {
+
+
+            var id = $(this).attr("bnkid");
+
+            Swal.fire({
+                title: "UYARI",
+                text: "Banka Silinecek Emin Misiniz?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "SİL!",
+                cancelButtonText: "VAZGEÇ!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+
+                    $.ajax({
+                        url: "/AdminPanel/Banka/BankaSil",
+                        dataType: "json",
+                        method: "post",
+                        data: { id: id },
+                        success: function (r) {
+
+                            if (r.result) {
+                                Swal.fire({
+                                    title: "İşlem Başarılı",
+                                    text: "Banka Başarıyla Silindi.",
+                                    icon: "success"
+                                });
+
+                                $("#tblBankalar").DataTable().ajax.reload();
+
+                            }
+
+                        },
+                        error: function () {
+
+
+                        }
+
+
+                    });
+
+
+
+                }
+            });
+
+        });
+
+        });
+
+
+    </script>
+}

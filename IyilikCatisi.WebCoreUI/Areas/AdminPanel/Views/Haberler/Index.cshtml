@@ -1,0 +1,405 @@
+@section ContentHeader
+{
+    <button type="button" class="btn btn-success btnDugme" data-toggle="modal" data-target="#modalHaberEkle">
+        Haber Ekle
+    </button>
+}
+
+@model HaberlerIndexViewModel
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Haberler</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <table id="tblHaber" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Başlık</th>
+                        <th>Yazar</th>
+                        <th>İçerik</th>
+                        <th>Etiketler</th>
+                        <th>Yayın Tarihi</th>
+                        <th>Görüntülenme Sayısı</th>
+                        <th>Sayfada Gözüksün Mü?</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+</div>
+
+@section Styles {
+    <link href="~/adminassets/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.css" rel="stylesheet" />
+}
+
+<form id="frmHaberEkle">
+    <div class="modal fade" id="modalHaberEkle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Haber Ekleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Başlık</label>
+                            <input type="text" class="form-control" asp-for="Baslik" placeholder="Başlık">
+                        </div>
+                        <div class="form-group">
+                            <label>Yazar</label>
+                            <input type="text" class="form-control" asp-for="Yazar" placeholder="Yazar">
+                        </div>
+                        <div class="form-group">
+                            <label>İçerik</label>
+                            <br />
+                            <textarea asp-for="Icerik"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Etiketler</label>
+                            <input type="text" class="form-control" asp-for="Etiketler" placeholder="Etiketler">
+                        </div>
+                        <div class="form-group">
+                            <label>Yayın Tarihi</label>
+                            <input type="date" class="form-control" asp-for="YayinTarihi" placeholder="Yayın Tarihi">
+                        </div>
+                       @*  <div class="form-group">
+                            <label>Görüntülenme Sayısı</label>
+                            <input type="number" class="form-control" asp-for="GoruntulenmeSayisi" placeholder="Görüntülenme Sayısı">
+                        </div> *@
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnHaberEkle" class="btn btn-primary">KAYDET</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<form id="frmHaberGuncelle">
+    <div class="modal fade" id="modalHaberGuncelle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Haber Güncelleme Paneli</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="GId">
+                            <label>Başlık</label>
+                            <input type="text" class="form-control" id="GBaslik" placeholder="Başlık">
+                        </div>
+                        <div class="form-group">
+                            <label>Yazar</label>
+                            <input type="text" class="form-control" id="GYazar" placeholder="Yazar">
+                        </div>
+                        <div class="form-group">
+                            <label>İçerik</label>
+                            <br />
+                            <textarea id="GIcerik"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Etiketler</label>
+                            <input type="text" class="form-control" id="GEtiketler" placeholder="Etiketler">
+                        </div>
+                        <div class="form-group">
+                            <label>Yayın Tarihi</label>
+                            <input type="date" class="form-control" id="GYayinTarihi" placeholder="Yayın Tarihi">
+                        </div>
+                        @* <div class="form-group">
+                            <label>Görüntülenme Sayısı</label>
+                            <input type="number" class="form-control" id="GGoruntulenmeSayisi" placeholder="Görüntülenme Sayısı">
+                        </div> *@
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">VAZGEÇ</button>
+                    <button type="button" id="btnHaberGuncelle" class="btn btn-primary">GÜNCELLE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var table = $('#tblHaber').DataTable({
+                "dom": "Bfrtip",
+                "responsive": true,
+                "lengthChange": true,
+                "pageLength": 10,
+                "autoWidth": false,
+                "buttons": ["csv", "excel", "pdf", "print", "colvis"],
+                language: {
+                    url: '/json/datatablestr.json',
+                },
+                
+                ajax: {
+                    url: "/AdminPanel/Haberler/HaberlerListele",
+                    type: "POST"
+                },
+                columns: [
+                    { "data": "id" },
+                    { "data": "baslik" },
+                    { "data": "yazar" },
+                    { "data": "icerik" },
+                    { "data": "etiketler" },
+                    { "data": "yayinTarihi" },
+                    { "data": "goruntulenmeSayisi" },
+                    {
+                        data: "aktif",
+                        render: function (data, type, row) {
+                            // return '<input type="checkbox" class="chkAktif" mid="' + row.id + '" ' + (data ? 'checked' : '') + ' data-bootstrap-switch data-off-color="danger" data-on-color="success">';
+
+                            // return '<input eid=' + eid + '  type= "checkbox" data-on-text="AKTİF" data-off-text="PASİF" name = "my-checkbox" checked data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+
+
+                            var mid = row["id"];
+
+                            if (data)
+                                return '<input mid=' + mid + '  type= "checkbox" data-on-text="AKTİF" data-off-text="PASİF" name = "my-checkbox" checked data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+                            else
+                                return '<input mid=' + mid + '  type= "checkbox" data-on-text="AKTİF" data-off-text="PASİF" name = "my-checkbox"  data-bootstrap-switch data-off-color="danger" class="chkAktif" data-on-color="success" > ';
+
+                        }
+                    },
+                    {
+                        "data": null,
+                        "render": function (data, type, row) {
+                            return '<button type="button" class="btn btn-warning btnDuzenle" mid="' + row.id + '">Düzenle</button>';
+                        }
+                    },
+                    {
+                        "data": null,
+                        "render": function (data, type, row) {
+                            return '<button type="button" class="btn btn-danger btnSil" mid="' + row.id + '">Sil</button>';
+                        }
+                    }
+                ],
+
+                         initComplete: function (settings, json) {
+                    $("input[data-bootstrap-switch]").each(function () {
+                        $(this).bootstrapSwitch();
+                    });
+                },
+
+                drawCallback: function () {
+                    $("input[data-bootstrap-switch]").each(function () {
+                        $(this).bootstrapSwitch();
+                    })
+                }
+
+            });
+
+            $('#Icerik').summernote({ height: 300 });
+            $('#GIcerik').summernote({ height: 300 });
+
+            $("input[data-bootstrap-switch]").each(function () {
+                $(this).bootstrapSwitch();
+            });
+
+            $(document).on('switchChange.bootstrapSwitch', '.chkAktif', function (event, state) {
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    },
+                });
+
+                var id = $(this).attr('mid');
+                var aktifpasif = state;
+                $.ajax({
+                    url: "/AdminPanel/Haberler/AktifPasif",
+                    type: "post",
+                    dataType: "json",
+                    data: { id: id, aktif: aktifpasif },
+                    success: function (r) {
+                        swal.close();
+                        if (r.result) {
+                            Swal.fire({
+                                title: "İŞLEM BAŞARILI",
+                                text: r.mesaj,
+                                icon: "success"
+                            });
+                        }
+                    }
+                });
+            });
+
+            $(document).on('click', '.btnDuzenle', function () {
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    },
+                });
+
+                var id = $(this).attr('mid');
+                $("#GId").val(id);
+
+                $.ajax({
+                    url: "/AdminPanel/Haberler/HaberGetir",
+                    type: "post",
+                    dataType: "json",
+                    data: { id: id },
+                    success: function (r) {
+                        if (r.result) {
+                            $("#GBaslik").val(r.model.baslik);
+                            $("#GYazar").val(r.model.yazar);
+                            $("#GIcerik").val(r.model.icerik);
+                            $("#GEtiketler").val(r.model.etiketler);
+                            $("#GYayinTarihi").val(r.model.yayinTarihi);
+                            $("#GGoruntulenmeSayisi").val(r.model.goruntulenmeSayisi);
+                            $("#modalHaberGuncelle").modal('show');
+                        }
+                        swal.close();
+                    }
+                });
+            });
+
+            $(document).on('click', '#btnHaberEkle', function () {
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    },
+                });
+
+                var formData = new FormData();
+                formData.append("Baslik", $("#Baslik").val());
+                formData.append("Yazar", $("#Yazar").val());
+                formData.append("Icerik", $("#Icerik").val());
+                formData.append("Etiketler", $("#Etiketler").val());
+                formData.append("YayinTarihi", $("#YayinTarihi").val());
+                formData.append("GoruntulenmeSayisi", $("#GoruntulenmeSayisi").val());
+
+                $.ajax({
+                    url: "/AdminPanel/Haberler/HaberEkle",
+                    type: "post",
+                    dataType: "json",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (r) {
+                        swal.close();
+                        if (r.result) {
+                            Swal.fire({
+                                title: "İŞLEM BAŞARILI",
+                                text: "Haber Başarıyla Eklendi",
+                                icon: "success"
+                            });
+                            $("#modalHaberEkle").modal('hide');
+                            table.ajax.reload();
+                        }
+                    }
+                });
+            });
+
+            $(document).on('click', '#btnHaberGuncelle', function () {
+                var swal = Swal.fire({
+                    title: "LÜTFEN BEKLEYİNİZ...",
+                    html: "İşleminiz Yapılıyor",
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    },
+                });
+
+                var formData = new FormData();
+                formData.append("Id", $("#GId").val());
+                formData.append("Baslik", $("#GBaslik").val());
+                formData.append("Yazar", $("#GYazar").val());
+                formData.append("Icerik", $("#GIcerik").val());
+                formData.append("Etiketler", $("#GEtiketler").val());
+                formData.append("YayinTarihi", $("#GYayinTarihi").val());
+                formData.append("GoruntulenmeSayisi", $("#GGoruntulenmeSayisi").val());
+
+                $.ajax({
+                    url: "/AdminPanel/Haberler/HaberGuncelle",
+                    type: "post",
+                    dataType: "json",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (r) {
+                        swal.close();
+                        if (r.result) {
+                            Swal.fire({
+                                title: "İŞLEM BAŞARILI",
+                                text: r.mesaj,
+                                icon: "success"
+                            });
+                            $("#modalHaberGuncelle").modal('hide');
+                            table.ajax.reload();
+                        }
+                    }
+                });
+            });
+
+            $(document).on('click', '.btnSil', function () {
+                var id = $(this).attr('mid');
+                Swal.fire({
+                    title: "Emin misiniz?",
+                    text: "Bu haber silinecek!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Evet, sil!",
+                    cancelButtonText: "İptal"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        var swal = Swal.fire({
+                            title: "LÜTFEN BEKLEYİNİZ...",
+                            html: "İşleminiz Yapılıyor",
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        });
+
+                        $.ajax({
+                            url: "/AdminPanel/Haberler/HaberSil",
+                            type: "post",
+                            dataType: "json",
+                            data: { id: id },
+                            success: function (r) {
+                                swal.close();
+                                if (r.result) {
+                                    Swal.fire({
+                                        title: "İŞLEM BAŞARILI",
+                                        text: "Haber Başarıyla Silindi",
+                                        icon: "success"
+                                    });
+                                    table.ajax.reload();
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+} 

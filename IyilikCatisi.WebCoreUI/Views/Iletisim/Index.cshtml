@@ -1,0 +1,210 @@
+﻿@model IletisimViewModel
+
+		<div class="item teaser-page-list">
+
+			<div class="container_16">
+				<aside class="grid_10">
+					<h1 class="page-title">İletişim</h1>
+				</aside>
+				<div class="grid_6">
+					<div id="rootline">
+						<a href="#">Ana Sayfa</a> <i class="fa fa-angle-right" aria-hidden="true"></i> <span class="current">İletişim</span>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<div id="main" class="site-main container_16">
+			<div class="inner">
+				<div id="primary" class="grid_11 suffix_1">
+					<article class="single">
+
+						<div class="entry-content">
+
+							<div class="long-description">
+						<h3>Bizimle irtibat kurabileceğiniz iletişim yolları ve size daha hızlı hizmet verebilmek amacıyla sunduğumuz iletişim formu</h3>
+							</div>
+							<br />
+							<br />
+							<br />
+							
+							<form id="frmIletisim" >
+
+								<p>
+									<label for="contactName"></label>
+									<input class="radius" type="text"  id="AdSoyad"  placeholder="Ad Soyad" required />
+									<span class="clear"></span>
+								</p>
+						        <p>
+						        	<label for="Konu"></label>
+						        	<input class="radius" type="text" id="Konu" placeholder="Konu" required />
+						        	<span class="clear"></span>
+						        </p>
+								<p>
+									<label for="email"></label>
+									<input class="radius" type="email" id="Email"  placeholder="Email Adresiniz" required />
+									<span class="clear"></span>
+								</p>
+								<p>
+									<label for="commentsText"></label>
+									<textarea class="contactme-text required requiredField radius" name="message" id="Icerik" cols="10" rows="10" placeholder="Mesajınız" required="required"></textarea>
+									<span class="clear"></span>
+								</p>
+								<p>
+									<input class="buttons radius send" id="btnGonder" value="GÖNDER" type="button">
+									<input type="hidden" name="submitted" id="submitted" value="true" />
+								</p>
+							</form>
+
+
+							<div class="clear"></div>
+
+						</div>
+
+						<div class="clear"></div>
+
+					</article>
+
+
+				</div>
+
+				<div id="secondary" class="grid_4 widget-area" role="complementary">
+
+					<aside id="wpltfb-2" class="widget WPlookCauses">
+						<div class="widget-title">
+							<h3>İletişim Adresi</h3>
+							<div class="clear"></div>
+						</div>
+
+						<div class="text-widget-body">
+
+							<address class="vcard">
+								<p class="adr">
+							<b>Adres:</b> -<span class="street-address"> KARŞIYAKA MAH. 518 SOKAK Dış Kapı No:3E</span><br>
+							<span class="region">  Yenimahalle</span>
+									@* <span class="postal-code"> H4B H4Y,</span> *@
+									<span class="country-name"> ANKARA</span>
+								</p>
+						        <b>Telefon:</b><span class="tel">0546 566 74 89</span><br />
+						        <b>E-mail:</b><span class="email">iyilikcatisiyardim@gmail.com</span><br />
+						        <b>Website:</b><span class="url">www.iyilikcatisi.org.tr</span><br />
+							</address>
+
+						</div>
+						<br />
+				      
+				        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.6610677853887!2d32.78360708445534!3d39.97132989806737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d3495d9eb848a9%3A0x631bf637b686d512!2sKar%C5%9F%C4%B1yaka%2C%20518.%20Sk.%2C%20Yenimahalle%2FAnkara!5e0!3m2!1str!2str!4v1744032164458!5m2!1str!2str" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</aside>
+
+					@* <aside id="wpltfb3-2" class="widget WPlookCauses">
+						
+						<div class="widget-event-body">
+							<article class="event-item">
+								<figure>
+									<a title="Image title" href="https://themes.wplook.com/html/charitas/05-event-single.html">
+										<img width="272" height="150" src="https://themes.wplook.com/html/charitas/images/temp/slider-thumb2.jpg" class="wp-post-image" alt="Image alt">
+										<div class="mask radius">
+											<div class="mask-square"><i class="fa fa-link" aria-hidden="true"></i></div>
+										</div>
+									</a>
+								</figure>
+								<h3 class="entry-header">
+									<a title="Change a Life Through Education Lorem Ipsum dolar sit and dolar" href="https://themes.wplook.com/html/charitas/05-event-single.html">Supporting a day centre</a>
+								</h3>
+
+								<div class="entry-meta-widget">
+									<div class="date"><time datetime="2018-04-25T19:02:42+00:00"><i class="fa fa-calendar" aria-hidden="true"></i> July 10, 2018</time></div>
+									<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <a href="#">51 Sherbrooke W., Montreal</a></div>
+									<div class="facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i> <a href="#">Facebook</a></div>
+								</div>
+
+							</article>
+
+						</div>
+					</aside> *@
+
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		
+@section Scripts {
+	<script>
+
+		$(document).ready(function () {
+
+
+			$("#btnGonder").click(
+				function () {
+
+					var iletisim = {
+						AdSoyad: $("#AdSoyad").val(), //model//id
+						Konu: $("#Konu").val(),
+						Email: $("#Email").val(),
+						Icerik: $("#Icerik").val()
+
+					}
+
+
+					// var form = $("#frmIletisim");
+
+					// var ileti = form.serialize();
+
+					$.ajax({
+						url: "/Iletisim/Mail",
+						method: "post",
+						dataType: "json",
+						data: { model: iletisim }, 
+						success: function (r) {
+
+							if (r.result) {
+
+
+								Swal.fire({
+									title: "Mailiniz Alınmıştır",
+									text: r.mesaj,
+									icon: "success"
+								});
+
+							}
+
+
+							else {
+
+								Swal.fire({
+									icon: "error",
+									title: "HATA",
+									text: "Mail Gönderilemedi"
+								});
+
+
+							}
+
+
+						},
+						error: function () {
+							Swal.fire({
+								icon: "error",
+								title: "HATA",
+								text: "Mail Gönderilemedi"
+							});
+
+						}
+
+
+					});
+
+				}
+
+			);
+
+		});
+			
+
+	</script>
+
+
+
+}

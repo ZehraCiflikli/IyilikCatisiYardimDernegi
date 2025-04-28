@@ -1,0 +1,203 @@
+﻿
+@{
+	Layout = "_KullaniciPanelLayout";
+}
+@model KullaniciProfilVm
+@inject ISessionManager _session
+
+
+<style>
+    
+    .modal-body{
+       font-family: Arial !important;
+    }
+        
+
+    h1{
+        margin-bottom: 10px;
+        color: #666666;
+    }
+
+    h2{
+        margin-bottom: 1.5rem;
+        color: #666666;
+        margin-top: 80;
+    }
+
+
+
+    .form-control{
+        border-radius: 1rem;
+        width: 400px;
+        height:40px;
+        padding: 15px;
+    }
+    
+    input[type=text], input[type=date], input[type=email], input[type=password] {
+        padding:15px;
+        border-color: #38B6FF !important;
+    }
+
+    label{
+        padding:5px;
+    }
+    .btn-info{
+        margin-left:-80px;
+        background-color: #38B6FF
+    }
+
+    .btnProfilGuncelle{
+        margin-left: 150px;
+        margin-top: 25px;
+        background-color: #38B6FF;
+        color:white;
+    }
+
+    .alert-danger {
+        width: 400px;
+    }
+
+    .alert-success{
+        width:400px;
+    }
+</style>
+
+
+<form asp-area="StandartKullaniciPanel" asp-controller="KullaniciPanel" asp-action="Guncelle" method="post" enctype="multipart/form-data>
+     <div class="modal-body">
+
+       <h1>Profil Ayarlarım</h1>
+       <hr />
+       <div class="Profile">
+           <h2>Kişisel Bilgiler</h2>
+
+        @* <div class="form-group">
+            <label>Fotoğrafınız</label>
+            <br />
+                <img id="Resim" src="@(!string.IsNullOrEmpty(_session.AktifKullanici.Resim) ? _session.AktifKullanici.Resim : "/adminassets/img/user2-160x160.jpg")" width="100" />
+            <input id="KullaniciFoto" type="file" name="ResimDosyası"/>
+                <button type="button" id="btnFotoGuncelle" class="btn btn-info">DEĞİŞTİR</button>
+        </div> *@
+
+
+            <div class="form-group">
+                <label>Fotoğrafınız</label>
+                <br />
+                <img id="Resim"
+                     src="@(!string.IsNullOrEmpty(_session.AktifKullanici.Resim) ? _session.AktifKullanici.Resim : "/adminassets/img/user2-160x160.jpg")"
+                     width="100" />
+            </div>
+
+            <div class="form-group">
+                <label>Değiştirmek için tıklayınız:</label>
+                <input id="KullaniciFoto" type="file" name="ResimDosyasi" />
+            </div>
+          
+        <div class="form-group">
+            <i class=" fa-solid fa-user"></i>
+            <label>Adınız</label>
+            <input type="text" class="form-control" asp-for="Adi" placeholder="Adınız">
+            <input type="hidden" asp-for="Id" />
+        </div>
+
+            
+        <div class="form-group">
+            <i class=" fa-solid fa-user"></i>
+            <label>Soyadınız</label>
+            <input type="text" class="form-control" asp-for="Soyadi" placeholder="Soyadınız">
+        </div>
+
+        <div class="form-group">
+                <i class="fas fa-calendar-alt"></i>
+                <label>Doğum Tarihiniz</label>
+                <input type="date" class="form-control" asp-for="DogumTarihi" placeholder="Doğum Tarihiniz">
+        </div>
+
+        <div class="form-group">
+                <i class="fas fa-id-card"></i>
+                <label>TC Kimlik Numaranız</label>
+                <input type="text" class="form-control" asp-for="TcKimlikNo" placeholder="TC Kimlik Numaranız">
+        </div>
+
+        <div class="form-group">
+                <i class="fas fa-location-dot"></i>
+                <label>Adresiniz</label>
+                <input type="text" class="form-control" asp-for="Adres" placeholder="Adresiniz">
+        </div>
+
+       
+
+      </div>
+
+      <div class="Profile">
+
+          <h2>İletişim Bilgileri</h2>
+
+            <div class="form-group">
+                <i class="fas fa-envelope"></i>
+                <label>E-postanız</label>
+                <input type="email" class="form-control" asp-for="Email" placeholder="E-postanız">
+            </div>
+
+
+            <div class="form-group">
+                <i class="fas fa-mobile-alt"></i>
+                <label>Cep Telefonu</label>
+                <input type="text" class="form-control" asp-for="CepTel" placeholder="Cep Telefonu">
+            </div>
+
+
+
+
+            
+      </div>
+
+      <div class="Profile">
+
+          <h2>Şifre Değişikliği</h2>
+            <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <label>Mevcut Şifreniz</label>
+                <input type="password" class="form-control" asp-for="Sifre" placeholder="*******">
+            </div>
+
+            <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <label>Yeni Şifre</label>
+                <input type="password" class="form-control" asp-for="YeniSifre" placeholder="*******">
+            </div>
+
+            <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <label>Yeni Şifre (Tekrar)</label>
+                <input type="password" class="form-control" asp-for="YeniSifreTekrar" placeholder="*******">
+            </div>
+
+      </div>
+
+
+        @{
+            var hataMesaji = TempData["Hata"];
+        }
+
+        @if (hataMesaji != null)
+        {
+            <div class="alert alert-danger">
+                @hataMesaji
+            </div>
+        }
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["Success"]
+            </div>
+        }
+
+        <button type="submit" class="btn btnProfilGuncelle">GÜNCELLE</button>
+
+
+    <!-- /.card-body -->
+    </div>  
+</form>
+
+
