@@ -1,0 +1,1 @@
+Scaffold-DbContext "server=DESKTOP-CI46R5B;database=İyilikCatisiDB;trusted_connection=true;TrustServerCertificate=true" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Entity -t DenetimKurulu -project IyilikCatisi.Model
